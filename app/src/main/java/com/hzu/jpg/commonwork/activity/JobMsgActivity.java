@@ -24,6 +24,7 @@ import com.hzu.jpg.commonwork.app.MyApplication;
 import com.hzu.jpg.commonwork.enity.moudle.JobMsg;
 import com.hzu.jpg.commonwork.utils.DialogUtil;
 import com.hzu.jpg.commonwork.utils.ToastUtil;
+import com.hzu.jpg.commonwork.utils.URLImageParser;
 import com.hzu.jpg.commonwork.widgit.AutoLineView;
 import com.hzu.jpg.commonwork.widgit.CircleProgressbar;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -166,7 +167,7 @@ public class JobMsgActivity extends BaseAppCompatActivity {
         tvSalary.setText(str);
         if (jobMsg.getMoreSalary() != null && !jobMsg.getMoreSalary().isEmpty())
             tvMoreSalary.setText(jobMsg.getMoreSalary());
-        tvJobDescribe.setText(Html.fromHtml(jobMsg.getDescribes()));
+        tvJobDescribe.setText(Html.fromHtml(jobMsg.getDescribes(), new URLImageParser(tvJobDescribe), null));
         tvCompanyPeopleNum.setText(jobMsg.getLinkMan());
         tvQuality.setText(jobMsg.getLinkPhone());
         for (String s : jobMsg.getJobLabel()) {
