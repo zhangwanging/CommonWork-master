@@ -12,9 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.hzu.jpg.commonwork.R;
-import com.hzu.jpg.commonwork.adapter.service.NewsAdapter;
 import com.hzu.jpg.commonwork.enity.service.NewsVo;
-import com.hzu.jpg.commonwork.utils.Constants;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -81,7 +79,7 @@ public class MainNewsAdapter extends BaseAdapter {
         holder.newsDate.setText(item.getNewsDate());
 
         Glide.with(view.getContext().getApplicationContext())
-                .load(Constants.imageUrl + item.getImgs())
+                .load(item.getImgs())
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .placeholder(R.mipmap.image_bg_default)
                 .error(R.mipmap.image_bg_default)

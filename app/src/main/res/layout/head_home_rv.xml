@@ -141,7 +141,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:padding="10dip"
-                    android:text="搞笑"
+                    android:text="娱乐"
                     android:textColor="@color/black_4" />
 
                 <ImageView
@@ -166,7 +166,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:padding="10dip"
-                    android:text="八卦"
+                    android:text="体育"
                     android:textColor="@color/black_4" />
 
                 <ImageView
@@ -191,7 +191,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:padding="10dip"
-                    android:text="娱乐"
+                    android:text="科技"
                     android:textColor="@color/black_4" />
 
                 <ImageView
@@ -217,7 +217,7 @@
                     android:layout_centerInParent="true"
 
                     android:padding="10dip"
-                    android:text="工作"
+                    android:text="公益"
                     android:textColor="@color/black_4" />
 
                 <ImageView

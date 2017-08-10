@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,7 +14,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.hzu.jpg.commonwork.R;
 import com.hzu.jpg.commonwork.adapter.goods.GoodsAdapter;
 import com.hzu.jpg.commonwork.enity.service.NewsVo;
-import com.hzu.jpg.commonwork.utils.Constants;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -119,8 +117,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     detail.getImgs(), ((ItemViewHolder) holder).mImgNews, options);*/
 
             Glide.with(context.getApplicationContext())
-                    .load(Constants.imageUrl +
-                            detail.getImgs())
+                    .load(detail.getImgs())
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .placeholder(R.mipmap.image_bg_default)
                     .error(R.mipmap.image_bg_default).into(((ItemViewHolder) holder).mImgNews);

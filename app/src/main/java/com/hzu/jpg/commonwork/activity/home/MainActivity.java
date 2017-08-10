@@ -96,7 +96,7 @@ public class MainActivity extends BaseLazyFragment implements View.OnClickListen
     private Handler uiHandler = null;
     private final int INIT_DATA_VIEW = 1001;
     private NewsVo newsVo;
-    private String newsType = "推荐";
+    private String newsType = "1";
     private ListView listContent;
     private MainNewsAdapter newsAdapter;
     private TextView no_data_tv;
@@ -366,27 +366,27 @@ public class MainActivity extends BaseLazyFragment implements View.OnClickListen
         switch (view.getId()) {
             case R.id.layout_view_1:
                 showImageView(img1);
-                newsType = "推荐";
+                newsType = "1";
                 new getNewsListDataThread().startThread();
                 break;
             case R.id.layout_view_2:
                 showImageView(img2);
-                newsType = "搞笑";
+                newsType = "2";
                 new getNewsListDataThread().startThread();
                 break;
             case R.id.layout_view_3:
                 showImageView(img3);
-                newsType = "八卦";
+                newsType = "3";
                 new getNewsListDataThread().startThread();
                 break;
             case R.id.layout_view_4:
                 showImageView(img4);
-                newsType = "娱乐";
+                newsType = "4";
                 new getNewsListDataThread().startThread();
                 break;
             case R.id.layout_view_5:
                 showImageView(img5);
-                newsType = "工作";
+                newsType = "7";
                 new getNewsListDataThread().startThread();
                 break;
             case R.id.more_news_tv:
