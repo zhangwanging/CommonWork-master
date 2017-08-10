@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hzu.jpg.commonwork">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <!-- 访问网络，网络定位需要上网 -->
+    <!-- SD卡读取权限，用户写入离线定位数据 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+    <permission android:name="android.permission.DEVICE_POWER" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:name=".app.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="LeUUBoRw9eZ32gGeOwF2OaojhU0B9xXL" />
+
+        <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".activity.WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.PhotoViewActivity" />
+        <activity android:name=".activity.ApplyJobActivity" />
+        <activity
+            android:name=".activity.CityPickerActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity android:name=".activity.JobMsgActivity" />
+        <activity android:name=".activity.SearchJobOrEmpActivity" />
+        <activity android:name=".activity.CompanyMsgActivity" />
+        <activity
+            android:name=".activity.ResumeActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="wxf23ad2f43650def0" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.RegisterSetPwdActivity"
+            android:exported="true" />
+        <activity android:name=".activity.AdviceActivity" />
+        <activity android:name=".activity.RecruitmentActivity" />
+        <!-- 个人中心 -->
+        <activity
+            android:name=".activity.MyFindActivity"
+            android:label="@string/title_activity_my_find" />
+        <activity
+            android:name=".activity.AddOverTimeRecordActivity"
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
+        <activity android:name=".activity.OverTimeRecordSettingActivity" />
+        <activity android:name=".activity.StatisticsAddAllowanceActivity" />
+        <activity android:name=".activity.StatisticsAddCutActivity" />
+        <activity android:name=".activity.StatisticsItemSettingActivity" />
+        <activity android:name=".activity.OverTimeRecordActivity" />
+        <activity
+            android:name=".activity.OverTimeSalarySettingActivity"
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
+        <activity
+            android:name=".activity.OverTimeItemSettingActivity"
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
+        <activity android:name=".activity.MyInfoActivity" />
+        <activity android:name=".activity.SalaryFormActivity" />
+        <activity android:name=".activity.MyInfoEditActivity" />
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.BorrowApplyActivity" />
+        <activity android:name=".activity.BorrowRecordActivity" />
+        <activity android:name=".activity.CompanyInfoActivity" />
+        <activity android:name=".activity.CompanyPublishActivity" />
+        <activity android:name=".activity.CompanyInfoEditActivity" />
+        <activity android:name=".activity.MyJobInfoActivity" />
+
+        <service
+            android:name="com.baidu.firstTwo.f"
+            android:enabled="true"
+            android:process=":remote" />
+        <service
+            android:name=".service.VersionService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2">
+                </action>
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".activity.VersionDialogActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/vtransparentTheme" />
+        <activity
+            android:name=".HourWork.Activity.HourWorkAddRecordActivity"
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
+        <activity android:name=".HourWork.Activity.ChooseOverTimeRecordActivity" />
+        <activity android:name=".HourWork.Activity.HourWorkSalarySettingActivity" />
+        <activity
+            android:name=".activity.AgentActivity"
+            android:label="@string/title_activity_agent"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activity.WebViewActivity" />
+        <activity android:name=".activity.goods.GoodsActivity" />
+        <activity android:name=".activity.service.ServiceActivity" />
+        <activity android:name=".activity.service.NewsDetailActivity" />
+        <activity android:name=".activity.service.PostsActivity" />
+        <activity android:name=".activity.service.PostsDetailActivity" />
+        <activity android:name=".activity.home.SearchActivity" />
+        <!-- video -->
+        <activity android:name=".interview.activity.VideoCpyHouseActivity" />
+        <activity android:name=".interview.activity.VideoSelectStudentActivity" />
+        <activity android:name=".interview.activity.VideoStuHouseActivity" />
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent101411644" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name=".activity.goods.GoodsDetailActivity" />
+        <activity android:name=".activity.MobileBindingActivity" />
+        <activity android:name=".activity.BindingUserActivity" />
+        <activity android:name=".activity.MyAddressActivity" />
+        <activity android:name=".activity.AddAddressActivity" />
+
+        <receiver
+            android:name=".utils.AppRegister"
+            android:permission="com.tencent.mm.plugin.permission.SEND">
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".activity.WxBindingActivity"></activity>
+    </application>
+
+</manifest>

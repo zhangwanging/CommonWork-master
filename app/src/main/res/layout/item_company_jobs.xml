@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_margin="10dp"
+    android:padding="15dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_item_company_jobs_cover"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/ic_head_default" />
+
+        <TextView
+            android:layout_marginBottom="3dp"
+            android:id="@+id/tv_item_company_jobs_job_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/iv_item_company_jobs_cover"
+            android:text="深圳某企业招聘多名业务员"
+            android:textSize="@dimen/item_title_string_size" />
+
+        <TextView
+            android:layout_marginBottom="3dp"
+            android:id="@+id/tv_item_company_jobs_salary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_item_company_jobs_job_name"
+            android:layout_toRightOf="@id/iv_item_company_jobs_cover"
+            android:text="2000"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/title_string_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_item_company_jobs_job_name"
+            android:layout_toRightOf="@id/tv_item_company_jobs_salary"
+            android:text="/"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/title_string_size" />
+
+        <TextView
+            android:id="@+id/tv_item_company_jobs_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tv_item_company_jobs_salary"
+            android:layout_below="@id/tv_item_company_jobs_job_name"
+            android:layout_marginLeft="7dp"
+            android:layout_marginStart="7dp"
+            android:layout_toEndOf="@id/tv_item_company_jobs_salary"
+            android:layout_toRightOf="@id/tv_item_company_jobs_salary"
+            android:text="月"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/small_string_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_item_company_jobs_classify"
+            android:layout_alignBaseline="@id/tv_item_company_jobs_salary"
+            android:layout_below="@id/tv_item_company_jobs_job_name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@id/tv_item_company_jobs_unit"
+            android:layout_toRightOf="@id/tv_item_company_jobs_unit"
+            android:text="暑假工"
+            android:textSize="@dimen/small_string_size" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ll_company_jobs"
+            android:layout_below="@id/tv_item_company_jobs_salary"
+            android:layout_toEndOf="@id/iv_item_company_jobs_cover"
+            android:layout_toRightOf="@id/iv_item_company_jobs_cover"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="招聘人数："
+                android:textSize="@dimen/small_string_size" />
+
+            <TextView
+                android:id="@+id/tv_item_company_jobs_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="54"
+                android:textSize="@dimen/normal_string_size" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="人"
+                android:textSize="@dimen/small_string_size" />
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_string_size"
+                android:text="已招："/>
+            <TextView
+                android:text="32"
+                android:id="@+id/tv_item_company_jobs_finish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/normal_string_size" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_string_size"
+                android:text="人"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_item_company_jobs_date"
+            android:layout_toRightOf="@id/iv_item_company_jobs_cover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text=" 2014-07-08"
+            android:textSize="@dimen/small_string_size"
+            android:layout_below="@id/ll_company_jobs" />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorHui"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:textSize="@dimen/small_string_size"
+        android:id="@+id/tv_item_company_jobs_location"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:text="束带结发看完了滴地方"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

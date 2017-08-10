@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.hzu.jpg.commonwork.activity.service.PostsDetailActivity">
+
+    <LinearLayout
+        android:id="@+id/top_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="51.0dip"
+        android:background="@color/colorPrimaryDark"
+        android:clickable="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/back"
+            android:layout_width="70.0dip"
+            android:layout_height="fill_parent"
+            android:clickable="true"
+            android:drawableLeft="@mipmap/ic_back"
+            android:gravity="center"
+            android:paddingLeft="10dip"
+            android:scaleType="centerInside"
+            android:text="返回"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/relsase_title_name_new"
+            style="@style/style_title"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:textColor="@color/white"
+            android:ellipsize="middle"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="帖子详情"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/right_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dip"
+            android:gravity="center"
+            android:padding="10dip"
+            android:text="帖子"
+            android:textColor="@color/black_4"
+            android:textSize="15sp"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_layout">
+
+        <RelativeLayout
+            android:id="@+id/layout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_image"
+                android:layout_width="70dip"
+                android:layout_height="70dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:scaleType="fitXY"
+                android:src="@mipmap/image_bg_default" />
+
+            <TextView
+                android:id="@+id/nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="2dip"
+                android:text="张三" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/layout1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:padding="10dip"
+                android:text="惠州学院第一届州学院第一州学院第一州学院第一州学院第一州学院第一州学院第一州学院第一州学院第一州学院第一社工实务技能大赛顺利闭幕"
+                android:textColor="@color/black_4"
+                android:textSize="14sp" />
+
+            <ListView
+                android:id="@+id/listContent"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="#00000000"
+                android:divider="@null"
+                android:fadingEdge="none"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/classfy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:padding="5dip"
+                    android:text="推荐"
+                    android:textColor="@color/black_6" />
+
+                <TextView
+                    android:id="@+id/addtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dip"
+                    android:padding="5dip"
+                    android:text="2017-05-23"
+                    android:textColor="@color/black_6" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/content_layout"
+        android:layout_marginTop="2dip"
+        android:src="@mipmap/line" />
+
+    <ListView
+        android:id="@+id/listComment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_layout"
+        android:layout_below="@+id/image_view"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="51.0dip"
+        android:layout_alignParentBottom="true"
+        android:background="@mipmap/search_bg_title">
+
+        <TextView
+            android:id="@+id/search_close_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="10dip"
+            android:text="评论"
+            android:textColor="#5794AB"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/search_et"
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:layout_toLeftOf="@id/search_close_tv"
+            android:background="@drawable/bg_edittext"
+            android:ellipsize="end"
+            android:hint="评论内容"
+            android:imeOptions="actionSearch"
+            android:paddingLeft="10dip"
+            android:paddingRight="15dip"
+            android:singleLine="true"
+            android:textSize="15sp" />
+    </RelativeLayout>
+</RelativeLayout>

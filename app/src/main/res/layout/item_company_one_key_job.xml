@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_margin="15dp"
+    android:padding="15dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="2000"
+            android:id="@+id/tv_item_company_one_key_salary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/big_string_size"
+            android:textColor="@color/colorPrimary"/>
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/normal_string_size"/>
+        <TextView
+            android:id="@+id/tv_item_company_one_key_unit"
+            android:layout_width="wrap_content"
+            android:gravity="bottom"
+            android:layout_height="wrap_content"
+            android:text="yue"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/normal_string_size"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textSize="@dimen/normal_string_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="招聘人数："/>
+        <TextView
+            android:id="@+id/tv_item_company_one_key_man"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14"
+            android:textSize="@dimen/title_string_size"
+            android:textColor="@color/colorPrimary"/>
+        <TextView
+            android:textSize="@dimen/normal_string_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 男"/>
+        <TextView
+            android:id="@+id/tv_item_company_one_key_woman"
+            android:layout_marginLeft="15dp"
+            android:textColor="#ff0000"
+            android:textSize="@dimen/title_string_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24"/>
+        <TextView
+            android:textSize="@dimen/normal_string_size"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text=" 女"/>
+        <TextView
+            android:textSize="@dimen/normal_string_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="共招："/>
+        <TextView
+            android:id="@+id/tv_item_company_one_key_number"
+            android:textSize="@dimen/title_string_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24"/>
+        <TextView
+            android:textSize="@dimen/normal_string_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="人"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:textSize="@dimen/normal_string_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="招聘年龄段: "/>
+
+        <TextView
+            android:id="@+id/tv_item_company_one_key_age"
+            android:textSize="@dimen/normal_string_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="23-30"/>
+
+        <TextView
+            android:textSize="@dimen/normal_string_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 岁"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorHui"/>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_item_company_one_key_date"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/normal_string_size"
+            android:textColor="@color/colorDeepHui"
+            android:text="2014-07-09" />
+
+        <TextView
+            android:gravity="center_vertical"
+            android:id="@+id/tv_item_company_one_key_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="删除"
+            android:textSize="@dimen/normal_string_size"
+            android:textColor="#ff0000"/>
+    </LinearLayout>
+
+
+</LinearLayout>

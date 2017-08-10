@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/item_tv_my_find_job_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="广州五星酒店招聘女服务员"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2000-4000/月"
+        android:textSize="22sp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/item_tv_my_find_job_salary"
+        android:layout_below="@id/item_tv_my_find_job_title"/>
+
+
+    <TextView
+        android:layout_alignParentRight="true"
+        android:id="@+id/item_tv_my_find_job_date"
+        android:layout_alignBaseline="@id/item_tv_my_find_job_salary"
+        android:layout_below="@id/item_tv_my_find_job_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorDeepHui"
+        android:text="02-04"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="16sp"
+        android:id="@+id/item_tv_my_find_job_company"
+        android:textColor="@color/colorDeepHui"
+        android:layout_below="@id/item_tv_my_find_job_salary"
+        android:text="青岛红星集团超逸模具有限公司"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_alignBaseline="@id/item_tv_my_find_job_company"
+        android:layout_below="@id/item_tv_my_find_job_date"
+        android:id="@+id/item_tv_my_find_job_location"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="惠州-惠城区"/>
+
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/item_tv_my_find_job_company"
+        android:background="@color/colorHui"/>
+</RelativeLayout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dip"
+            android:src="@mipmap/title_arrow_back_selected" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:gravity="center"
+        android:text="手机绑定"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/edit_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="42dip"
+        android:layout_marginLeft="25dip"
+        android:layout_marginRight="25dip"
+        android:layout_marginTop="20dip"
+        android:background="@null"
+        android:hint="+86 请输入手机号码"
+        android:padding="10dip"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.1dip"
+        android:layout_marginLeft="25dip"
+        android:layout_marginRight="25dip"
+        android:background="#20000000" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dip"
+        android:layout_marginTop="5dip">
+
+        <EditText
+            android:id="@+id/edit_code"
+            android:layout_width="match_parent"
+            android:layout_height="42dip"
+            android:layout_marginLeft="25dip"
+            android:layout_marginRight="25dip"
+            android:background="@null"
+            android:hint="请输入短信验证码"
+            android:padding="10dip"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.1dip"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dip"
+            android:layout_marginRight="25dip"
+            android:background="#20000000" />
+
+        <Button
+            android:id="@+id/bt_code"
+            android:layout_width="wrap_content"
+            android:layout_height="35dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dip"
+            android:background="@color/colorPrimaryDark"
+            android:text="获取验证码"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/bt_binding"
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:layout_marginTop="20dip"
+        android:background="@color/colorPrimaryDark"
+        android:text="确认绑定"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+
+    <Button
+        android:id="@+id/binding_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:background="@null"
+        android:padding="10dip"
+        android:text="绑定已有账号" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="100dip"
+        android:padding="15dip"
+        android:text="囧职网提示您"
+        android:textColor="@color/redDark"
+        android:textSize="13sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dip"
+        android:text="1.绑定手机号后可用于登录您的账号和找回密码"
+        android:textColor="@color/black6"
+        android:textSize="13sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dip"
+        android:layout_marginTop="10dip"
+        android:text="2.一个账号仅能绑定一个手机，重复绑定无效"
+        android:textColor="@color/black6"
+        android:textSize="13sp" />
+</LinearLayout>

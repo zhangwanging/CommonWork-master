@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:chow="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:background="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/ib_over_time_salary_setting_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/back"
+                    android:background="#00000000"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"/>
+                <TextView
+                    android:textSize="@dimen/title_string_size"
+                    android:text="工资设置"
+                    android:textColor="@color/colorWhite"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorHui" />
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="17dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="基本工资"
+                    android:textSize="@dimen/normal_string_size" />
+
+                    <EditText
+                        android:id="@+id/et_ot_setting_basic_salary"
+                        android:inputType="numberDecimal"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="2000.0"
+                        android:background="@color/colorWhite"
+                        android:maxLength="7"
+                        android:textSize="@dimen/normal_string_size" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="元"
+                    android:textColor="@color/colorDeepHui"
+                    android:textSize="@dimen/normal_string_size" />
+            </LinearLayout>
+            <!--<TextView-->
+                <!--android:padding="10dp"-->
+                <!--android:text="@string/explain_basic_salary"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@color/colorHui"/>-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorHui"
+                android:padding="13dp"
+                android:text="@string/explain_salary_per_hour"
+                android:textColor="@color/colorDeepHui"
+                android:textSize="@dimen/small_string_size" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="17dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="小时工资"
+                    android:textSize="@dimen/normal_string_size" />
+
+
+                <EditText
+                    android:background="@color/colorWhite"
+                    android:inputType="numberDecimal"
+                    android:id="@+id/et_ot_setting_salary_per_hour"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:maxLength="6"
+                    android:text="11.49"
+
+                    android:textSize="@dimen/normal_string_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="元/时"
+                    android:textColor="@color/colorDeepHui"
+                    android:textSize="@dimen/normal_string_size" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorHui"
+                android:padding="8dp"
+                android:text="加倍设置"
+                android:textColor="@color/colorDeepHui"
+                android:textSize="@dimen/small_string_size" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="13dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="平时加班"
+                    android:textSize="@dimen/normal_string_size" />
+
+                <EditText
+                    android:inputType="numberDecimal"
+                    android:id="@+id/et_ot_setting_multiply_normal"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1.2"
+                    android:maxLength="4"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorHui"
+                    android:paddingBottom="7dp"
+                    android:paddingTop="7dp"
+                    android:text="1.5"
+                    android:textSize="@dimen/normal_string_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="倍"
+                    android:textColor="@color/colorDeepHui"
+                    android:textSize="@dimen/small_string_size" />
+
+                <EditText
+                    android:inputType="numberDecimal"
+                    android:id="@+id/et_ot_setting_salary_normal"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_weight="1.4"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:maxLength="8"
+                    android:background="@color/colorHui"
+                    android:paddingBottom="7dp"
+                    android:paddingTop="7dp"
+                    android:text="10.0"
+                    android:textSize="@dimen/normal_string_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginRight="5dp"
+                    android:text="元/时"
+                    android:textColor="@color/colorDeepHui"
+                    android:textSize="@dimen/small_string_size" />
+            </LinearLayout>
+
+            <include layout="@layout/text_view_padding_grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="13dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="周末加班"
+                    android:textSize="@dimen/normal_string_size" />
+
+                <EditText
+                    android:inputType="numberDecimal"
+                    android:id="@+id/et_ot_setting_multiply_weekend"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_weight="1.2"
+                    android:maxLength="4"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorHui"
+                    android:paddingBottom="7dp"
+                    android:paddingTop="7dp"
+                    android:text="10.0"
+                    android:textSize="@dimen/normal_string_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="倍"
+                    android:textColor="@color/colorDeepHui"
+                    android:textSize="@dimen/small_string_size" />
+
+                <EditText
+                    android:inputType="numberDecimal"
+                    android:id="@+id/et_ot_setting_salary_weekend"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:background="@color/colorHui"
+                    android:paddingBottom="7dp"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:maxLength="8"
+                    android:layout_weight="1.4"
+                    android:paddingTop="7dp"
+                    android:text="10.0"
+                    android:textSize="@dimen/normal_string_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:text="元/时"
+                    android:textColor="@color/colorDeepHui"
+                    android:textSize="@dimen/small_string_size" />
+            </LinearLayout>
+
+            <include layout="@layout/text_view_padding_grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="13dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="节日加班"
+                    android:textSize="@dimen/normal_string_size" />
+
+                <EditText
+                    android:inputType="numberDecimal"
+                    android:id="@+id/et_ot_setting_multiply_festival"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_weight="1.2"
+                    android:maxLength="4"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorHui"
+                    android:paddingBottom="7dp"
+                    android:paddingTop="7dp"
+                    android:text="10.0"
+                    android:textSize="@dimen/normal_string_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="倍"
+                    android:textColor="@color/colorDeepHui"
+                    android:textSize="@dimen/small_string_size" />
+
+                <EditText
+                    android:inputType="numberDecimal"
+                    android:id="@+id/et_ot_setting_salary_festival"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:maxLength="8"
+                    android:background="@color/colorHui"
+                    android:paddingBottom="7dp"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_weight="1.4"
+                    android:paddingTop="7dp"
+                    android:text="10.0"
+                    android:textSize="@dimen/normal_string_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:text="元/时"
+                    android:textColor="@color/colorDeepHui"
+                    android:textSize="@dimen/small_string_size" />
+            </LinearLayout>
+
+            <include layout="@layout/text_view_padding_grey" />
+
+        </LinearLayout>
+    </ScrollView>
+    <Button
+        android:id="@+id/bt_ot_salary_setting_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/title_string_size"
+        android:text="保存"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"/>
+</LinearLayout>

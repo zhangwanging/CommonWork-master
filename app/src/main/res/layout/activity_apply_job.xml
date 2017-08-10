@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true"
+        android:gravity="left|center_vertical">
+
+        <TextView
+            android:id="@+id/iv_back"
+            android:layout_width="80.0dip"
+            android:layout_height="fill_parent"
+            android:clickable="true"
+            android:drawableLeft="@mipmap/ic_back"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingLeft="10dip"
+            android:scaleType="centerInside"
+            android:text="返回"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:visibility="visible" />
+
+        <RelativeLayout
+            android:id="@+id/search_layout"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_margin="8dip"
+            android:layout_weight="1.0"
+            android:background="@drawable/search_bg_edittext"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <ImageView
+                android:id="@+id/search_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dip"
+                android:src="@mipmap/search_top_main_icon" />
+
+            <EditText
+                android:id="@+id/search_et"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="15dip"
+                android:layout_toRightOf="@+id/search_icon"
+                android:background="@null"
+                android:ellipsize="end"
+                android:hint="输入类别或关键字"
+                android:imeOptions="actionSearch"
+                android:maxLines="1"
+                android:paddingLeft="10dip"
+                android:singleLine="true"
+                android:paddingRight="15dip"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/right_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dip"
+            android:drawableTop="@mipmap/top_comments_icon"
+            android:gravity="center"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:paddingTop="5dip"
+            android:text="消息"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/filterViewheight">
+
+            <com.hzu.jpg.commonwork.widgit.MyRecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"></com.hzu.jpg.commonwork.widgit.MyRecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <com.hzu.jpg.commonwork.widgit.FilterView
+            android:id="@+id/filterView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"></com.hzu.jpg.commonwork.widgit.FilterView>
+    </FrameLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_oneApplyJob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="32dp"
+        android:src="@mipmap/ic_feather"
+        app:backgroundTint="@color/colorPrimary"
+        app:borderWidth="0dp"
+        app:fabSize="normal" />
+</RelativeLayout>

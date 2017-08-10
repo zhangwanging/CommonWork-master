@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="functionTitles">
+    <item>@string/getWork</item>
+    <item>@string/hire</item>
+    <item>@string/lifeService</item>
+    <item>@string/complaintsAndSuggest</item>
+    <item>@string/vedio</item>
+    <item>@string/message</item>
+</string-array>
+
+    <array name="functionIcons">
+        <item>@drawable/ic_get_work</item>
+        <item>@drawable/ic_hire</item>
+        <item>@drawable/ic_life_service</item>
+        <item>@drawable/ic_complaints</item>
+        <item>@drawable/ic_vedio</item>
+        <item>@drawable/ic_message</item>
+    </array>
+
+</resources>

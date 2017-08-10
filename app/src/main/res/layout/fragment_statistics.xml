@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:chow="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/ib_statistics_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/back"
+            android:background="#00000000"
+            android:layout_marginRight="5dp"/>
+        <TextView
+            android:id="@+id/tv_statistics_item_setting_title"
+            android:textSize="@dimen/title_string_size"
+            android:text="统计"
+            android:textColor="@color/colorWhite"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal"
+        android:padding="13dp">
+
+        <TextView
+            android:id="@+id/tv_statistics_last_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上一月"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/normal_string_size" />
+
+        <TextView
+            android:id="@+id/tv_statistics_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="3月10日-3月31日"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/small_string_size" />
+
+        <TextView
+            android:id="@+id/tv_statistics_next_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下一月"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/normal_string_size" />
+    </LinearLayout>
+
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:text="本月预估总收入(元)"
+                android:textSize="@dimen/normal_string_size" />
+
+            <TextView
+                android:id="@+id/tv_statistics_total_salary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:paddingLeft="15dp"
+                android:text="2000"
+                android:textColor="@color/colorPrimary"
+                android:textSize="40sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorHui"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
+                android:paddingRight="15dp"
+                android:paddingEnd="15dp"
+                android:paddingTop="8dp">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="基本项目"
+                    android:textSize="@dimen/small_string_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="共: "
+                    android:textColor="@color/black_overlay"
+                    android:textSize="@dimen/small_string_size" />
+
+                <TextView
+                    android:id="@+id/tv_statistics_basic_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1823.23"
+                    android:textSize="@dimen/small_string_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="元"
+                    android:textSize="@dimen/small_string_size" />
+            </LinearLayout>
+
+            <com.hzu.jpg.commonwork.widgit.MyLinearLayout
+                android:background="@drawable/item_click_grey"
+                android:id="@+id/ll_statistics_basic_salary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                chow:src="@mipmap/go"
+                chow:title="基本工资"/>
+
+            <include layout="@layout/text_view_padding_grey" />
+
+            <com.hzu.jpg.commonwork.widgit.MyLinearLayout
+                android:background="@drawable/item_click_grey"
+                android:id="@+id/ll_statistics_ot_salary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                chow:money="0.0"
+                chow:title="加班工资"/>
+
+            <include layout="@layout/text_view_padding_grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorHui"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="补贴项目"
+                    android:textSize="@dimen/small_string_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="共："
+                    android:textSize="@dimen/small_string_size" />
+
+                <TextView
+                    android:id="@+id/tv_statistics_allowance_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.0"
+                    android:textSize="@dimen/small_string_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingRight="5dp"
+                    android:text="元"
+                    android:textSize="@dimen/small_string_size" />
+            </LinearLayout>
+
+            <com.hzu.jpg.commonwork.widgit.MyListView
+                android:id="@+id/lv_statistics_allowance"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <include layout="@layout/text_view_padding_grey"/>
+
+            <Button
+                android:id="@+id/bt_statistics_add_allowance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/button_ot_record_normal"
+                android:text="添加补贴项"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/normal_string_size" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorHui"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="扣款项目"
+                    android:textSize="@dimen/small_string_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="共：-"
+                    android:textSize="@dimen/small_string_size" />
+
+                <TextView
+                    android:id="@+id/tv_statistics_cut_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.0"
+                    android:textSize="@dimen/small_string_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingRight="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="元"
+                    android:textSize="@dimen/small_string_size" />
+            </LinearLayout>
+
+            <com.hzu.jpg.commonwork.widgit.MyListView
+                android:id="@+id/lv_statistics_cut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <include layout="@layout/text_view_padding_grey"/>
+
+            <Button
+                android:id="@+id/bt_statistics_add_cut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@drawable/button_ot_record_normal"
+                android:text="添加扣款项"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/normal_string_size" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorHui"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="代缴费项目"
+                    android:textSize="@dimen/small_string_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="共：-"
+                    android:textSize="@dimen/small_string_size" />
+
+                <TextView
+                    android:id="@+id/tv_statistics_help_payment_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.0"
+                    android:textSize="@dimen/small_string_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingRight="5dp"
+                    android:text=" 元"
+                    android:textSize="@dimen/small_string_size" />
+            </LinearLayout>
+
+            <com.hzu.jpg.commonwork.widgit.MyLinearLayout
+                android:background="@drawable/item_click_grey"
+                android:id="@+id/ll_statistics_social_security"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                chow:title="社保"
+                chow:money="0.0"
+                chow:src="@mipmap/go"/>
+            <include layout="@layout/text_view_padding_grey"/>
+            <com.hzu.jpg.commonwork.widgit.MyLinearLayout
+                android:background="@drawable/item_click_grey"
+                android:id="@+id/ll_statistics_accumulation_fund"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                chow:money="0.0"
+                chow:title="公积金"
+                chow:src="@mipmap/go"/>
+            <include layout="@layout/text_view_padding_grey"/>
+            <com.hzu.jpg.commonwork.widgit.MyLinearLayout
+                chow:money="0.0"
+                android:background="@drawable/item_click_grey"
+                android:id="@+id/ll_statistics_individual_income_tax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                chow:title="个人所得税"
+                chow:src="@mipmap/go"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,151 @@
+<resources>
+    <string name="app_name">囧职网</string>
+    <string name="app_name_cn">囧职网</string>
+
+    <string name="getWork">求职</string>
+    <string name="hire">招聘</string>
+    <string name="lifeService">便民服务</string>
+    <string name="complaintsAndSuggest">投诉与建议</string>
+    <string name="vedio">视频面试</string>
+    <string name="message">消息</string>
+
+    <string name="cp_select_city">选择城市</string>
+    <string name="cp_hot_city">热门城市</string>
+    <string name="cp_located_city">定位城市</string>
+    <string name="cp_hint_search_box">请输入城市名或拼音</string>
+    <string name="cp_nothing_found">没有搜索结果~</string>
+    <string name="cp_locating">正在定位…</string>
+    <string name="cp_located_failed">定位失败</string>
+
+
+    <string name="confirm">确认</string>
+    <string name="retry">重试</string>
+    <string name="download_fail_retry">下载失败是否重试？</string>
+    <string name="download_finish">下载完成，点击安装</string>
+    <string name="downloading">正在下载中...</string>
+    <string name="check_new_version">检测到新版本</string>
+    <string name="download_progress">下载进度:%.2f%%</string>
+    <string name="download_fail">下载失败，请重试</string>
+    <string name="please_update">检查到最新版本，请更新。</string>
+    <string name="complete_install">请完成安装</string>
+    <string name="download_complated">下载完成</string>
+    <string name="whether_or_not_setup_new_app">Setup new app?</string>
+    <string name="loading">Loading。。。</string>
+    <string name="cancel">取消</string>
+
+    <string name="salary_form">
+        员工工号：\n员工姓名：\n基本出勤天数：\n周末工作天数：\n基本工资工时：\n加班工资工时：\n平时工资：\n加班工资：\n加班补助：\n平时补助：\n岗位补贴：\n全勤奖：\n绩效考核奖：\n其他补贴：\n总工资：\n个人所得税：\n旷工：\n签卡：\n迟到早退：\n物品赔损：\n伙食费：\n住宿水电费：\n保险费：\n社保费：\n其他扣款：\n总扣款：\n实发工资：\n公司名
+    </string>
+    <string name="title_activity_my_find">MyFindActivity</string>
+    <string name="explain_workday">
+        例如:如果公司考勤为每月10号到下月9号,并在每月15日发薪水,则考勤周期滚动选择10号-下月9号</string>
+    <string name="explain_salary_per_hour">
+        提示：小时工资(默认) =基本工资/21.75天/8小时，如与您实际不同，请点击修改,若是小时工，请将基本工资设置成0，再设置小时工资</string>
+    <string name="explain_basic_salary">
+        提示：若是同工同酬，则设置基本工资，倍数设置会自动生成，若是小时工，则设置小时工资。
+    </string>
+    <string name="action_settings">Settings</string>
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="video_company_selection">选择应聘公司</string>
+    <string name="video_student_message">学生基本信息</string>
+    <string name="large_text">
+
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_my_publish">MyPublish</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_my_packet">MyPacketActivity</string>
+    <string name="title_activity_agent">AgentActivity</string>
+</resources>

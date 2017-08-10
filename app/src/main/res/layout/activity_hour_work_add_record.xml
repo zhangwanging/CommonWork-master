@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <ImageButton
+            android:id="@+id/ib_add_ot_record_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="出勤记录"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/title_string_size" />
+
+        <TextView
+            android:id="@+id/tv_hour_work_add_record_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="删除"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/normal_string_size" />
+    </LinearLayout>
+
+    <ScrollView
+        android:background="#ffffff"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorHui"
+                android:padding="10dp"
+                android:text="工作日期"
+                android:textSize="@dimen/small_string_size" />
+
+            <LinearLayout
+                android:id="@+id/ll_hour_work_add_record_top"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <Button
+                    android:id="@+id/bt_hour_work_add_record_top_other_date"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_ot_record_normal"
+                    android:text="其他日期"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/small_string_size" />
+
+                <TextView
+                    android:id="@+id/tv_hour_work_add_record_top_before_yesterday"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_ot_record_normal"
+                    android:gravity="center"
+                    android:text="前天\n星期五"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/small_string_size" />
+
+                <TextView
+                    android:id="@+id/tv_hour_work_add_record_top_yesterday"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_ot_record_normal"
+                    android:gravity="center"
+                    android:text="昨天\n星期五"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/small_string_size" />
+
+                <TextView
+                    android:id="@+id/tv_hour_work_add_record_top_today"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_ot_record_normal"
+                    android:gravity="center"
+                    android:text="今天\n星期五"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/small_string_size" />
+            </LinearLayout>
+
+            <include layout="@layout/text_view_padding_grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/tv_hour_work_add_record_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="2017-03-03"
+                    android:textSize="@dimen/normal_string_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="|"
+                    android:textSize="@dimen/normal_string_size" />
+
+                <TextView
+                    android:id="@+id/tv_hour_work_add_record_week"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="星期五"
+                    android:textSize="@dimen/normal_string_size" />
+
+            </LinearLayout>
+
+            <include layout="@layout/text_view_padding_grey" />
+
+            <LinearLayout
+                android:paddingRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginStart="15dp"
+                    android:text="出勤时长"
+                    android:textSize="@dimen/normal_string_size" />
+                <NumberPicker
+                    android:id="@+id/np_hour_work_add_record_hour"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="130dp"/>
+                <TextView
+                    android:padding="5dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/normal_string_size"
+                    android:text="小时"/>
+                <NumberPicker
+                    android:id="@+id/np_hour_work_add_record_minute"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="130dp"/>
+                <TextView
+                    android:padding="5dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/normal_string_size"
+                    android:text="分钟"/>
+
+            </LinearLayout>
+
+            <include layout="@layout/text_view_padding_grey" />
+
+            <LinearLayout
+                android:padding="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:textSize="@dimen/normal_string_size"
+                    android:text="小时工资"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/tv_hour_work_add_record_salary_per_hour"
+                    android:textSize="@dimen/normal_string_size"
+                    android:text="100"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="@dimen/normal_string_size"
+                    android:text="元/小时"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <include layout="@layout/text_view_padding_grey" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorHui"
+                android:paddingBottom="8dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="8dp"
+                android:text="备注"
+                android:textSize="18sp" />
+            <EditText
+                android:padding="20dp"
+                android:textSize="@dimen/normal_string_size"
+                android:background="@color/colorWhite"
+                android:textColorHint="@color/colorDeepHui"
+                android:hint="点此记录你的特别事项（0-50个字）"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_hour_work_add_record_remark"/>
+        </LinearLayout>
+    </ScrollView>
+    <Button
+        android:textSize="20sp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/button_ot_record_selected"
+        android:id="@+id/bt_hour_work_add_record_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="保存"/>
+</LinearLayout>

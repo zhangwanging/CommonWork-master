@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:chow="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageButton
+            android:id="@+id/ib_company_info_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#00000000"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="公司信息"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/title_string_size" />
+
+        <TextView
+            android:gravity="center_vertical"
+            android:id="@+id/tv_company_info_edit"
+            android:paddingRight="15dp"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="编辑"
+            android:textSize="@dimen/normal_string_size"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorHui"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:padding="15dp"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_company_info_head"
+                    android:background="#00000000"
+                    android:src="@mipmap/ic_head_default"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp" />
+            </FrameLayout>
+
+
+
+            <com.hzu.jpg.commonwork.widgit.MyLinearLayout
+                android:layout_marginTop="10dp"
+                android:id="@+id/ll_company_info_name"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                chow:money_layout="false"
+                chow:title="公司名"
+                chow:content="未填写"/>
+            <com.hzu.jpg.commonwork.widgit.MyLinearLayout
+                android:id="@+id/ll_company_info_telephone"
+                android:layout_marginTop="1dp"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                chow:money_layout="false"
+                chow:title="手机号"
+                chow:content="2584061172"/>
+            <com.hzu.jpg.commonwork.widgit.MyLinearLayout
+                android:id="@+id/ll_company_info_label"
+                android:layout_marginTop="1dp"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                chow:money_layout="false"
+                chow:title="公司类型"
+                chow:content="未填写"/>
+
+            <com.hzu.jpg.commonwork.widgit.MyLinearLayout
+                android:id="@+id/ll_company_info_location"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                chow:money_layout="false"
+                chow:title="所在地"
+                chow:content="1999-07-05"/>
+
+            <com.hzu.jpg.commonwork.widgit.MyLinearLayout
+                android:id="@+id/ll_company_info_details"
+                android:layout_marginTop="1dp"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                chow:money_layout="false"
+                chow:title="详细地址"
+                chow:content="1999-07-05"/>
+            <com.hzu.jpg.commonwork.widgit.MyLinearLayout
+                android:id="@+id/ll_company_info_linkman"
+                android:layout_marginTop="1dp"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                chow:money_layout="false"
+                chow:title="联系人"
+                chow:content="张三"/>
+            <com.hzu.jpg.commonwork.widgit.MyLinearLayout
+                android:layout_marginTop="1dp"
+                android:id="@+id/ll_company_info_link_phone"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                chow:money_layout="false"
+                chow:title="联系人手机号"
+                chow:content="1234567890"/>
+            <com.hzu.jpg.commonwork.widgit.MyLinearLayout
+                android:id="@+id/ll_company_info_email"
+                android:layout_marginTop="1dp"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                chow:money_layout="false"
+                chow:title="邮箱"
+                chow:content="惠州学院"/>
+            <TextView
+                android:paddingLeft="12dp"
+                android:paddingTop="15dp"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:textSize="@dimen/normal_string_size"
+                android:text="公司描述："/>
+            <TextView
+                android:id="@+id/ll_company_info_describes"
+                android:textSize="@dimen/small_string_size"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"/>
+
+            <LinearLayout
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="营业执照许可证"
+                    android:textSize="@dimen/normal_string_size"/>
+                <ImageView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:src="@mipmap/no_picture"
+                    android:id="@+id/iv_company_info_license"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

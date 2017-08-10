@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="130dip">
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="110dip"
+        android:layout_height="110dip"
+        android:scaleType="fitXY"
+        android:layout_margin="10dip" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dip"
+        android:layout_marginTop="10dip"
+        android:layout_toRightOf="@+id/iv_image"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dip"
+                android:text="女神外套"
+                android:textColor="@color/font_black_1"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dip"
+                android:padding="5dip"
+                android:text="2000积分"
+                android:textColor="@color/red"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dip"
+            android:gravity="right"
+            android:text="市场参考价2000元"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_describes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:padding="5dip"
+            android:text="女神外套产品女神外套产品女神外套产品女神外套产品"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_saleamount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="5dip"
+                android:text="已销售500件"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/bt_buy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@color/red"
+                android:layout_marginRight="15dip"
+                android:text="立即兑换"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:src="@mipmap/line" />
+
+</RelativeLayout>

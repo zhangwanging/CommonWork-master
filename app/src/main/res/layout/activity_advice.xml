@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="6dp">
+
+        <TextView
+            android:id="@+id/tv_suggestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:text="意见反馈"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+        <EditText
+            android:id="@+id/et_title"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@id/tv_suggestion"
+            android:background="@drawable/shape_white_circle"
+            android:gravity="start"
+            android:hint="标题"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:textColorHint="#cccccc"
+            android:textSize="16sp"
+            />
+
+
+        <EditText
+            android:id="@+id/et_suggestion"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_below="@id/et_title"
+            android:background="@drawable/shape_white_circle"
+            android:gravity="start"
+            android:hint="请描述您所遇到的问题和建议!"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:textColorHint="#cccccc"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_suggestion"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="联系方式"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/et_phoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/tv_contact"
+            android:background="@drawable/shape_white_circle"
+            android:gravity="center_vertical"
+            android:hint="请输入您的手机号码"
+            android:inputType="number"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:textColorHint="#cccccc"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <com.hzu.jpg.commonwork.widgit.MyWaterWave
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:background="@color/colorPrimary" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btn_commit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/selector_apply_job_btn"
+            android:gravity="center"
+            android:text="提交"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
+

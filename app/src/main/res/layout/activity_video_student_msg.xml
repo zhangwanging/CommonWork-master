@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@+id/layout_toolbarBg"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/cp_common_bg"
+        android:fitsSystemWindows="true">
+
+        <ImageView
+            android:id="@+id/back"
+            style="@style/Widget.AppCompat.ActionButton"
+            tools:ignore="ContentDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:scaleType="center"
+            android:src="@mipmap/cp_ic_back" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/video_student_message"
+            android:textColor="@color/black6"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:paddingRight="16dp"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view_line1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/layout_toolbarBg"
+        android:background="@color/cp_shadow" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_below="@id/view_line1">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!--姓名 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/video_student_msg"
+                        android:layout_height="wrap_content"
+                        android:text="姓名："
+                        android:textSize="18sp"
+                        android:textColor="@color/black6"
+                        android:gravity="right"/>
+
+                    <TextView
+                        android:id="@+id/tv_video_stu_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="-"
+                        android:textSize="18sp"
+                        android:textColor="@color/black6"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/graya"
+                    android:layout_marginLeft="@dimen/video_student_msg"/>
+
+                <!--性别 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/video_student_msg"
+                        android:layout_height="wrap_content"
+                        android:text="性别："
+                        android:textSize="18sp"
+                        android:textColor="@color/black6"
+                        android:gravity="right"/>
+
+                    <TextView
+                        android:id="@+id/tv_video_stu_sex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="-"
+                        android:textSize="18sp"
+                        android:textColor="@color/black6"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/graya"
+                    android:layout_marginLeft="@dimen/video_student_msg"/>
+                <!--生日 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/video_student_msg"
+                        android:layout_height="wrap_content"
+                        android:text="生日："
+                        android:textSize="18sp"
+                        android:textColor="@color/black6"
+                        android:gravity="right"/>
+
+                    <TextView
+                        android:id="@+id/tv_video_stu_birthday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="-"
+                        android:textSize="18sp"
+                        android:textColor="@color/black6"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/graya"
+                    android:layout_marginLeft="@dimen/video_student_msg"/>
+                <!--籍贯 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/video_student_msg"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="籍贯："
+                        android:textColor="@color/black6"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tv_video_stu_nativeplace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="-"
+                        android:textColor="@color/black6"
+                        android:textSize="18sp" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/graya"
+                    android:layout_marginLeft="@dimen/video_student_msg"/>
+                <!--所在院校 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/video_student_msg"
+                        android:layout_height="wrap_content"
+                        android:text="所在院校："
+                        android:textSize="18sp"
+                        android:textColor="@color/black6"/>
+
+                    <TextView
+                        android:id="@+id/tv_video_stu_school"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="-"
+                        android:textSize="18sp"
+                        android:textColor="@color/black6"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/graya"
+                    android:layout_marginLeft="@dimen/video_student_msg"/>
+                <!--就读专业 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/video_student_msg"
+                        android:layout_height="wrap_content"
+                        android:text="就读专业："
+                        android:textSize="18sp"
+                        android:textColor="@color/black6"/>
+
+                    <TextView
+                        android:id="@+id/tv_video_stu_major"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="-"
+                        android:textSize="18sp"
+                        android:textColor="@color/black6"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/graya"
+                    android:layout_marginLeft="@dimen/video_student_msg"/>
+                <!--求职意向 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/video_student_msg"
+                        android:layout_height="wrap_content"
+                        android:text="求职意向："
+                        android:textSize="18sp"
+                        android:textColor="@color/black6"/>
+
+                    <TextView
+                        android:id="@+id/tv_video_stu_job"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="-"
+                        android:textSize="18sp"
+                        android:textColor="@color/black6"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/graya"
+                    android:layout_marginLeft="@dimen/video_student_msg"/>
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    <Button
+        android:id="@+id/btn_video_in"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/selector_apply_job_btn"
+        android:text="进入视频面试"
+        android:textColor="@color/colorWhite"
+        android:textSize="26sp" />
+
+    <com.hzu.jpg.commonwork.interview.widgit.VideoProgressView
+        android:id="@+id/view_video_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

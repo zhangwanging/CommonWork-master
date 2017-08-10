@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/normal_string_size"
+        android:text="加班补贴"
+        android:id="@+id/tv_item_statistics_title"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.0"
+        android:textSize="18sp"
+        android:id="@+id/tv_item_statistics_money"/>
+    <TextView
+        android:drawableEnd="@mipmap/go"
+        android:drawablePadding="5dp"
+        android:drawableRight="@mipmap/go"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text=" 元"/>
+</LinearLayout>

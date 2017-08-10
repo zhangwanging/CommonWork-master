@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+    <ScrollView
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10dp">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+                <com.hzu.jpg.commonwork.widgit.MarqueTextView
+                    android:id="@+id/tv_recruimentMsg"
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="截至2017.07.01前,有32人来该区域求职"
+                    />
+            </android.support.v7.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/activity_vertical_margin">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@mipmap/ic_person_num"
+                    android:tint="@color/colorPrimary" />
+
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColorHint="@color/grayc"
+                    android:layout_weight="2">
+                    <EditText
+                        android:id="@+id/et_menPersonNum"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="招聘人数"
+                        android:textSize="14sp"
+                        android:theme="@style/editTextStyle"
+                        android:inputType="number"
+                        />
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_personNum"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    >
+                    <TextView
+                        android:id="@+id/tv_hintMen_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="男"
+                        android:textColor="@color/grayc"/>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/layout_womenNum"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:textColorHint="@color/grayc"
+                        android:layout_weight="1">
+                        <EditText
+                            android:id="@+id/et_womenPersonNum"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="招聘人数"
+                            android:textSize="14sp"
+                            android:theme="@style/editTextStyle"
+                            android:inputType="number"
+                            />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/tv_hintWomen_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="女"
+                        android:textColor="@color/grayc"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/graye"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@mipmap/ic_salary"
+                    android:tint="@color/colorPrimary"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColorHint="@color/grayc"
+                    android:layout_weight="2">
+                    <EditText
+                        android:id="@+id/et_menSalary"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="薪资"
+                        android:textSize="14sp"
+                        android:theme="@style/editTextStyle"
+                        android:inputType="number"
+                        />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/graye"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 年 龄 段"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimary"
+                    />
+
+                <EditText
+                    android:id="@+id/et_startAge"
+                    android:layout_width="64dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/selector_age_bg"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:inputType="number"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 一 "/>
+
+                <EditText
+                    android:id="@+id/et_endAge"
+                    android:layout_width="64dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/selector_age_bg"
+                    android:inputType="number"
+                    android:gravity="center"
+
+                    />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/graye"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="工资计时"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimary"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="按月份"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cb_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="按小时"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cb_hour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/graye"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="是否限定男女"
+                    android:textColor="@color/colorPrimary"/>
+
+                <com.suke.widget.SwitchButton
+                    android:id="@+id/sb_isSex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    app:sb_checked_color="@color/colorPrimary"
+                    app:sb_uncheck_color="@color/white"
+                    app:sb_uncheckcircle_color="@color/colorPrimary"
+                    app:sb_shadow_effect="true"
+                    app:sb_shadow_offset="2dp"
+                    />
+            </RelativeLayout>
+
+
+
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="11dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/selector_apply_job_btn"
+                android:text="确定"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:layout_gravity="bottom"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

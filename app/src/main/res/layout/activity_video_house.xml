@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.shishimao.sdk.view.VideoPlayer
+        android:id="@+id/local_video_render"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:clipToPadding="false"/>
+
+    <com.shishimao.sdk.view.VideoPlayer
+        android:id="@+id/local_video_render_me"
+        android:layout_width="85dp"
+        android:layout_height="145dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="10dp" />
+
+
+    <com.hzu.jpg.commonwork.interview.widgit.VideoProgressView
+        android:id="@+id/view_video_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+    <com.hzu.jpg.commonwork.widgit.CircleImageView
+        android:id="@+id/bt_shutdown"
+        android:src="@mipmap/video_off"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp" />
+
+</RelativeLayout>

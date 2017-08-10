@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="加班时间设置"
+        android:gravity="center"
+        android:id="@+id/tv_add_record_dialog_list_title"
+        android:textSize="@dimen/title_string_size"/>
+
+    <include layout="@layout/text_view_padding_grey"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rv_dialog_add_record"/>
+
+</LinearLayout>

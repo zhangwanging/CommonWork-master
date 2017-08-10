@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dip">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:src="@mipmap/line" />
+
+        <ImageButton
+            android:id="@+id/search_delete_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dip"
+            android:background="@null"
+            android:src="@mipmap/search_delete_icon" />
+
+        <TextView
+            android:id="@+id/tv_context"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="10dip"
+            android:layout_toLeftOf="@id/search_delete_icon"
+            android:drawableLeft="@mipmap/search_item_icon"
+            android:drawablePadding="10dip"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:padding="10dip"
+            android:singleLine="true"
+            android:text="123123"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+    </RelativeLayout>
+</LinearLayout>
