@@ -12,12 +12,9 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hzu.jpg.commonwork.R;
-import com.hzu.jpg.commonwork.activity.home.SearchActivity;
 import com.hzu.jpg.commonwork.adapter.JobMsgAdapter;
 import com.hzu.jpg.commonwork.app.Config;
 import com.hzu.jpg.commonwork.app.MyApplication;
@@ -242,12 +239,12 @@ public class ApplyJobActivity extends BaseAppCompatActivity {
         OkHttpUtils.post()
                 .url(Config.URL_JOB_MSG_SIMPLE)
                 //.addParams("keyWord", search)
-                .addParams(Config.KEY_CITY, Config.SELECTED_CITY)
-                .addParams(Config.KEY_REGION, region)
-                .addParams(Config.KEY_CLASSIFY, classify)
-                .addParams(Config.KEY_LOW_PRICE, lowPrice)
-                .addParams(Config.KEY_HIGH_PRICE, highPrice)
-                .addParams(Config.KEY_LABEL, label)
+                .addParams(Config.KEY_CITY, Config.SELECTED_CITY == null ? "" : Config.SELECTED_CITY)
+                .addParams(Config.KEY_REGION, region == null ? "" : region)
+                .addParams(Config.KEY_CLASSIFY, classify == null ? "" : classify)
+                .addParams(Config.KEY_LOW_PRICE, lowPrice == null ? "" : lowPrice)
+                .addParams(Config.KEY_HIGH_PRICE, highPrice == null ? "" : highPrice)
+                .addParams(Config.KEY_LABEL, label == null ? "" : label)
                 .addParams(Config.KEY_PAGE, String.valueOf(page))
                 .tag(TAG)
                 .build().execute(new JobMsgCallback() {
