@@ -60,6 +60,7 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
         this.data.clear();
         isLoading = false;
         getData(); //获取数据
+        recycleListView.scrollToPosition(0);
     }
 
     private void initData() {
@@ -215,7 +216,11 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
                             adapter.notifyDataSetChanged();
                             swipeRefreshLayout.setRefreshing(false);
                             adapter.notifyItemRemoved(adapter.getItemCount());
-                            adapter.setNotMoreData(true);
+                            int currentPage = (int) Math.ceil((double) (adapter.getItemCount() - 1) / 10);
+                            if (currentPage >= newsVo.getTotalPage())
+                                adapter.setNotMoreData(true);
+                            else
+                                adapter.setNotMoreData(false);
                         }
                         break;
                 }
@@ -225,6 +230,7 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
+        startPage = 1;
         switch (view.getId()) {
             case R.id.layout_view_1:
                 showImageView(img1);
