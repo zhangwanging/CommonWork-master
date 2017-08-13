@@ -66,7 +66,7 @@ public class AddAddressActivity extends AppCompatActivity {
                     return;
                 }
 
-                String url = "https://www.jiongzhiw.com/HRM/company/gtCooCompany.html";
+                String url = "https://www.jiongzhiw.com/HRM/gAddr/upGAddr.html";
                 if (isEdit) {
                     OkHttpUtils.post().url(url)
                             .addParams("orderAddr", mEtAddr.getText().toString())
