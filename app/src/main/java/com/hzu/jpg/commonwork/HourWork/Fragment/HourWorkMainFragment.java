@@ -8,12 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.hzu.jpg.commonwork.HourWork.Activity.HourWorkAddRecordActivity;
 import com.hzu.jpg.commonwork.HourWork.Presenter.HourWorkMonthPresenter;
 import com.hzu.jpg.commonwork.R;
 import com.hzu.jpg.commonwork.activity.OverTimeRecordSettingActivity;
+import com.hzu.jpg.commonwork.adapter.HourWorkRvAdapter;
 import com.hzu.jpg.commonwork.fragment.OverTimeRecordFragment;
 
 /**
@@ -31,6 +33,7 @@ public class HourWorkMainFragment extends Fragment {
 
     ImageButton ibSetting;
     ImageButton ibBack;
+    ListView mListHourWork;
 
     HourWorkMonthPresenter presenter;
 
@@ -44,6 +47,7 @@ public class HourWorkMainFragment extends Fragment {
         tvTotalSalary= (TextView) rootView.findViewById(R.id.tv_hour_work__record_total_salary);
         ibSetting= (ImageButton) rootView.findViewById(R.id.ib_hour_work_record_setting);
         ibBack= (ImageButton) rootView.findViewById(R.id.ib_hour_work_record_back);
+        mListHourWork = (ListView) rootView.findViewById(R.id.listHourWork);
 
         btAddRecord.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +84,11 @@ public class HourWorkMainFragment extends Fragment {
     }
 
     public void update(){
-        presenter.initData();
+        presenter.onUpdate();
+    }
+
+    public void setRv(HourWorkRvAdapter adapter) {
+        mListHourWork.setAdapter(adapter);
     }
 
     @Override

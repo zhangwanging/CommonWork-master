@@ -15,6 +15,8 @@ import com.hzu.jpg.commonwork.utils.DoubleUtil;
 import com.hzu.jpg.commonwork.utils.SharedPreferencesUtil;
 import com.hzu.jpg.commonwork.utils.TimeUtil;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2017/5/10.
  */
@@ -35,6 +37,10 @@ public class HourWorkAddRecordModel {
     }
     public HourWorkRecordBean getRecord(String date_ymd){
         return (HourWorkRecordBean) template.query(TABLE,"date_ymd=?",new String[]{date_ymd},HourWorkRecordBean.class);
+    }
+
+    public void getRvData(String date, List<HourWorkRecordBean> list, int count){
+        template.query(TABLE,"date_ymd like ?",new String[]{date+"%"},HourWorkRecordBean.class,Integer.toString(count),list);
     }
 
     public void save(HourWorkRecordBean bean){
