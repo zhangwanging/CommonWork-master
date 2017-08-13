@@ -173,6 +173,7 @@
         <activity android:name=".activity.BindingUserActivity" />
         <activity android:name=".activity.MyAddressActivity" />
         <activity android:name=".activity.AddAddressActivity" />
+        <activity android:name=".activity.home.CooperationEnterpriseActivity" />
 
         <receiver
             android:name=".utils.AppRegister"

@@ -166,7 +166,15 @@ public class MainActivity extends BaseLazyFragment implements View.OnClickListen
                     }
                 }
                 if (position == 5) {//"消息",
-                    ToastUtil.showToast("功能即将开发，敬请期待。");
+                    //ToastUtil.showToast("功能即将开发，敬请期待。");
+                    if (MyApplication.user == null) {
+                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                        getActivity().startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(getActivity(), CooperationEnterpriseActivity.class);
+                        intent.putExtra("keyWord", Config.SELECTED_CITY);
+                        getActivity().startActivity(intent);
+                    }
                 }
 
             }

@@ -9,12 +9,17 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
 import com.hzu.jpg.commonwork.R;
 import com.hzu.jpg.commonwork.action.RequestAction;
 import com.hzu.jpg.commonwork.adapter.AddressAdapter;
 import com.hzu.jpg.commonwork.enity.Address;
 import com.hzu.jpg.commonwork.enity.AddressInfo;
 import com.hzu.jpg.commonwork.utils.ToastUtil;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+
+import okhttp3.Call;
 
 /**
  * Created by zhutao on 2017/8/2 0002.
@@ -71,12 +76,26 @@ public class MyAddressActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        mInfo = action.getAddressInfo();
-        if (mInfo != null && mInfo.getAmount() > 0) {
-            addrNumber = mInfo.getAmount();
-            mAdapter = new AddressAdapter(this, mInfo.getAddrList());
-            mListAddr.setAdapter(mAdapter);
-        }
+        String url = "https://www.jiongzhiw.com/HRM/gAddr/getGAddrList.html";
+        OkHttpUtils.get().url(url).build().execute(new StringCallback() {
+            @Override
+            public void onError(Call call, Exception e, int id) {
+
+            }
+
+            @Override
+            public void onResponse(String response, int id) {
+                if (response != null && !"".equals(response)) {
+                    Gson gson = new Gson();
+                    mInfo = gson.fromJson(response,AddressInfo.class);
+                    if (mInfo != null && mInfo.getAmount() > 0) {
+                        addrNumber = mInfo.getAmount();
+                        mAdapter = new AddressAdapter(MyAddressActivity.this, mInfo.getAddrList());
+                        mListAddr.setAdapter(mAdapter);
+                    }
+                }
+            }
+        });
     }
 
     @Override
