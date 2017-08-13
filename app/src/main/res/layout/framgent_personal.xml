@@ -327,6 +327,43 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/colorHui" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/colorHui" />
+
+                <TextView
+                    android:id="@+id/bt_advice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/item_click_grey"
+                    android:drawablePadding="15dp"
+                    android:gravity="center_vertical"
+                    android:padding="16dp"
+                    android:text="投诉与建议"
+                    android:textSize="@dimen/normal_string_size"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorHui" />
+
+                <TextView
+                    android:id="@+id/bt_contact_us"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/item_click_grey"
+                    android:drawablePadding="15dp"
+                    android:gravity="center_vertical"
+                    android:padding="16dp"
+                    android:text="联系我们"
+                    android:textSize="@dimen/normal_string_size"/>
+
             </LinearLayout>
 
             <LinearLayout

@@ -15,16 +15,18 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.hzu.jpg.commonwork.HourWork.Activity.ChooseOverTimeRecordActivity;
 import com.hzu.jpg.commonwork.R;
+import com.hzu.jpg.commonwork.activity.AdviceActivity;
 import com.hzu.jpg.commonwork.activity.AgentActivity;
 import com.hzu.jpg.commonwork.activity.BorrowRecordActivity;
 import com.hzu.jpg.commonwork.activity.CompanyInfoActivity;
 import com.hzu.jpg.commonwork.activity.CompanyPublishActivity;
-import com.hzu.jpg.commonwork.activity.goods.GoodsActivity;
+import com.hzu.jpg.commonwork.activity.ContactUsActivity;
 import com.hzu.jpg.commonwork.activity.LoginActivity;
 import com.hzu.jpg.commonwork.activity.MyFindActivity;
 import com.hzu.jpg.commonwork.activity.MyInfoActivity;
 import com.hzu.jpg.commonwork.activity.SalaryFormActivity;
 import com.hzu.jpg.commonwork.activity.SettingActivity;
+import com.hzu.jpg.commonwork.activity.goods.GoodsActivity;
 import com.hzu.jpg.commonwork.app.Config;
 import com.hzu.jpg.commonwork.app.MyApplication;
 import com.hzu.jpg.commonwork.event.LoginEvent;
@@ -61,6 +63,8 @@ public class PersonalFragment extends Fragment {
     TextView tvOtRecord;
     TextView tvInfo;
     TextView tvQrCode;
+    TextView tvAdvice;
+    TextView tvContactUs;
 
     //企业
     TextView tvPublish;
@@ -104,6 +108,8 @@ public class PersonalFragment extends Fragment {
         tvOtRecord= (TextView) inflate.findViewById(R.id.bt_center_my_ot_record);
         tvInfo= (TextView) inflate.findViewById(R.id.bt_center_my_info);
         tvQrCode= (TextView) inflate.findViewById(R.id.bt_center_my_qr_code);
+        tvAdvice = (TextView) inflate.findViewById(R.id.bt_advice);
+        tvContactUs = (TextView) inflate.findViewById(R.id.bt_contact_us);
 
         //企业
         tvPublish= (TextView) inflate.findViewById(R.id.bt_center_my_publish);
@@ -131,6 +137,22 @@ public class PersonalFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivityForResult(new Intent(getActivity(),SettingActivity.class),0);
+            }
+        });
+
+        tvAdvice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (login)
+                    startActivity(new Intent(getActivity(),AdviceActivity.class));
+                else
+                    ToastUtil.showToast("请先登录");
+            }
+        });
+        tvContactUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ContactUsActivity.class));
             }
         });
 
