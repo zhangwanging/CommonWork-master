@@ -17,31 +17,23 @@ import com.hzu.jpg.commonwork.R;
 public class MainGridAdapter extends BaseAdapter {
 
     private LayoutInflater inflater;
-//    private Integer[] Images = {
-//            R.drawable.ic_hire,
-//            R.drawable.ic_get_work,
-//            R.drawable.ic_life_service,
-//            R.drawable.ic_complaints,
-//            R.drawable.ic_vedio,
-//            R.drawable.ic_message,
-//    };
 
     private Integer[] Images = {
-            R.mipmap.home_gridview_03,
-            R.mipmap.home_gridview_02,
-            R.mipmap.home_gridview_07,
-            R.mipmap.home_gridview_08,
-            R.mipmap.home_gridview_05,
-            R.mipmap.home_gridview_01,
-            R.mipmap.home_gridview_06,
-            R.mipmap.home_gridview_04,
+            R.mipmap.home_gridview_image_01,
+            R.mipmap.home_gridview_image_02,
+            R.mipmap.home_gridview_image_03,
+            R.mipmap.home_gridview_image_04,
+            R.mipmap.home_gridview_image_05,
+            R.mipmap.home_gridview_image_06,
+            R.mipmap.home_gridview_image_07,
+            R.mipmap.home_gridview_image_08,
     };
 
     private String[] texts = {
             "假期工",
-            "短期工",
+            "临时工",
             "兼职",
-            "全职",
+            "长期工",
             "企业招聘",
             "合作企业",
             "视频面试",
