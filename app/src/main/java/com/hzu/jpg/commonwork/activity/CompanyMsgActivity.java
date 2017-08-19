@@ -131,7 +131,7 @@ public class CompanyMsgActivity extends AppCompatActivity {
         tvCompanyName.setText(name);
         tvLabel.setText(label);
         tvJobDescribe.setText(describes);
-        tvLocation.setText(province + " " + city + " " + region + " " + detail);
+        tvLocation.setText(("null".equals(province) ? "" : province) + " " + ("null".equals(city) ? "" : city) + " " + ("null".equals(region) ? "" : region) + " " + ("null".equals(detail) ? "" : detail));
         Log.e(TAG, "setData: " + name + label, null);
     }
 }
