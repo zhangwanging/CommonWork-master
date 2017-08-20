@@ -1,20 +1,23 @@
 package com.hzu.jpg.commonwork.activity.service;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.hzu.jpg.commonwork.R;
 import com.hzu.jpg.commonwork.enity.service.NewsVo;
+import com.hzu.jpg.commonwork.widgit.ProgressWebView;
 
 public class NewsDetailActivity extends AppCompatActivity {
 
     private NewsVo.Data data;
-    private WebView mWebview;
+    private ProgressWebView mWebview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +26,7 @@ public class NewsDetailActivity extends AppCompatActivity {
         data = (NewsVo.Data) this.getIntent().getSerializableExtra("data");
         if (data != null && !data.equals("")) {
             if (data.getHref() != null && !data.getHref().equals("")) {
-                mWebview = (WebView) findViewById(R.id.tv_about_right);
+                mWebview = (ProgressWebView) findViewById(R.id.tv_about_right);
                 mWebview.loadUrl(data.getHref());
                 this.findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -65,6 +68,18 @@ public class NewsDetailActivity extends AppCompatActivity {
                  * 适应内容大小 2、LayoutAlgorithm.SINGLE_COLUMN:适应屏幕，内容将自动缩放
                  */
                 webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+
+                mWebview.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        return super.shouldOverrideUrlLoading(view, url);
+                    }
+
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                        return super.shouldOverrideUrlLoading(view, request);
+                    }
+                });
             }
         }
     }

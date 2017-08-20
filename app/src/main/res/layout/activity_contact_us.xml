@@ -28,7 +28,7 @@
             android:textSize="@dimen/title_string_size"/>
     </LinearLayout>
 
-    <WebView
+    <com.hzu.jpg.commonwork.widgit.ProgressWebView
         android:id="@+id/wv_contact_us"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

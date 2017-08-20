@@ -55,7 +55,7 @@
             android:visibility="invisible" />
     </LinearLayout>
 
-    <WebView
+    <com.hzu.jpg.commonwork.widgit.ProgressWebView
         android:id="@+id/tv_about_right"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
