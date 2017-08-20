@@ -1,5 +1,6 @@
 package com.hzu.jpg.commonwork.activity.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -7,11 +8,14 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.google.gson.Gson;
 import com.hzu.jpg.commonwork.R;
 import com.hzu.jpg.commonwork.action.RequestAction;
+import com.hzu.jpg.commonwork.activity.CompanyMsgActivity;
 import com.hzu.jpg.commonwork.adapter.home.CooperationAdapter;
+import com.hzu.jpg.commonwork.app.Config;
 import com.hzu.jpg.commonwork.enity.moudle.Enterprise;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -115,7 +119,19 @@ public class CooperationEnterpriseActivity extends AppCompatActivity {
                 }
             }
         });
+        adapter.setOnItemClickListener(new CooperationAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent intent = new Intent(CooperationEnterpriseActivity.this, CompanyMsgActivity.class);
+                intent.putExtra(Config.KEY_ID, data.get(position).getId() + "");
+                startActivity(intent);
+            }
 
+            @Override
+            public void onItemLongClickListener(View view, int position) {
+
+            }
+        });
     }
 
     private void initData() {

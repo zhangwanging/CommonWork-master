@@ -128,9 +128,9 @@ public class CompanyMsgActivity extends AppCompatActivity {
         String describes = jsonObject.getString(Config.KEY_DESCRIBES);
         String url = jsonObject.getString(Config.KEY_ICON);
         Glide.with(this).load(Config.IP + url).into(imgCompany);
-        tvCompanyName.setText(name);
-        tvLabel.setText(label);
-        tvJobDescribe.setText(describes);
+        tvCompanyName.setText("null".equals(name) ? "" : name);
+        tvLabel.setText("null".equals(label) ? "" : label);
+        tvJobDescribe.setText("null".equals(describes) ? "" : describes);
         tvLocation.setText(("null".equals(province) ? "" : province) + " " + ("null".equals(city) ? "" : city) + " " + ("null".equals(region) ? "" : region) + " " + ("null".equals(detail) ? "" : detail));
         Log.e(TAG, "setData: " + name + label, null);
     }

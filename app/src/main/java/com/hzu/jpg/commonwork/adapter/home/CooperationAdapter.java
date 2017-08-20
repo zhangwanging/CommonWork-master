@@ -55,6 +55,12 @@ public class CooperationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         void onItemLongClickListener(View view, int position);
     }
 
+    private OnItemClickListener onItemClickListener;
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
+        this.onItemClickListener = onItemClickListener;
+    }
+
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position, List<Object> payloads) {
         super.onBindViewHolder(holder, position, payloads);
@@ -126,11 +132,57 @@ public class CooperationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ItemViewHolder) {
+            if (onItemClickListener != null) {
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View view) {
+                        int position = holder.getLayoutPosition();
+                        onItemClickListener.onItemClick(holder.itemView, position);
+                    }
+                });
+                holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+
+                    @Override
+                    public boolean onLongClick(View view) {
+                        int position = holder.getLayoutPosition();
+                        onItemClickListener.onItemClick(holder.itemView, position);
+                        return false;
+                    }
+                });
+            }
             Enterprise.Data esd = data.get(position);
             ((ItemViewHolder) holder).mTvName.setText(esd.getName());
-            ((ItemViewHolder) holder).mTvDescribes.setText(esd.getDescribes());
+            ((ItemViewHolder) holder).mTvAddress.setText(esd.getProvince() + esd.getCity() + esd.getRegion() + esd.getDetails());
+            ((ItemViewHolder) holder).mTvRegion.setText(esd.getCity() + ("".equals(esd.getCity()) ? "" : "-") + esd.getRegion());
+            for (int i = 0; i < 3; i++) {
+                ((ItemViewHolder) holder).mTvLabel[i].setText("");
+                ((ItemViewHolder) holder).mTvLabel[i].setVisibility(View.INVISIBLE);
+            }
+            if (!"".equals(esd.getLabel())) {
+                String arr[];
+                int length;
+                if (esd.getLabel().contains("、")) {
+                    arr = esd.getLabel().split("、");
+                    length = arr.length > 3 ? 3 : arr.length;
+                    for (int i = 0; i < length; i++) {
+                        ((ItemViewHolder) holder).mTvLabel[i].setText(arr[i]);
+                        ((ItemViewHolder) holder).mTvLabel[i].setVisibility(View.VISIBLE);
+                    }
+                } else if (esd.getLabel().contains("/")) {
+                    arr = esd.getLabel().split("/");
+                    length = arr.length > 3 ? 3 : arr.length;
+                    for (int i = 0; i < length; i++) {
+                        ((ItemViewHolder) holder).mTvLabel[i].setText(arr[i]);
+                        ((ItemViewHolder) holder).mTvLabel[i].setVisibility(View.VISIBLE);
+                    }
+                } else {
+                    ((ItemViewHolder) holder).mTvLabel[0].setText(esd.getLabel());
+                    ((ItemViewHolder) holder).mTvLabel[0].setVisibility(View.VISIBLE);
+                }
+            }
             Glide.with(context.getApplicationContext())
                     .load(Constants.imageUrl + esd.getIcno())
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
@@ -157,14 +209,19 @@ public class CooperationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     static class ItemViewHolder extends RecyclerView.ViewHolder {
 
-        TextView mTvName, mTvDescribes;
+        TextView mTvName, mTvAddress ,mTvRegion;
         ImageView iv_image;
+        TextView[] mTvLabel = new TextView[3];
 
 
         public ItemViewHolder(View view) {
             super(view);
             mTvName = (TextView) view.findViewById(R.id.tv_name);
-            mTvDescribes = (TextView) view.findViewById(R.id.tv_describes);
+            mTvAddress = (TextView) view.findViewById(R.id.tv_address);
+            mTvRegion = (TextView) view.findViewById(R.id.tv_region);
+            mTvLabel[0] = (TextView) view.findViewById(R.id.tv_label_1);
+            mTvLabel[1] = (TextView) view.findViewById(R.id.tv_label_2);
+            mTvLabel[2] = (TextView) view.findViewById(R.id.tv_label_3);
             iv_image = (ImageView) view.findViewById(R.id.iv_image);
         }
     }

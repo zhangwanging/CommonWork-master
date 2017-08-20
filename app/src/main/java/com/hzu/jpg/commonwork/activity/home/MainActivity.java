@@ -254,6 +254,7 @@ public class MainActivity extends BaseLazyFragment implements View.OnClickListen
         });
 
         new getNewsListDataThread().startThread();
+        tvLocation.setText(Config.SELECTED_CITY);
     }
 
     @Override
