@@ -28,23 +28,8 @@ public class PhotoFragment extends Fragment {
         view = View.inflate(getActivity(), R.layout.photo_view_fg, null);
         photourl = getArguments().getString("photoUrl");
         initView();
-        setlistener();
+        //setlistener();
         return view;
-    }
-
-    private void setlistener() {
-        mattacher.setOnPhotoTapListener(new OnPhotoTapListener() {
-
-            @Override
-            public void onPhotoTap(View arg0, float arg1, float arg2) {
-                getActivity().finish();
-            }
-
-            @Override
-            public void onOutsidePhotoTap() {
-
-            }
-        });
     }
 
     private void initView() {

@@ -5,6 +5,7 @@ android {
     compileSdkVersion 24
     buildToolsVersion '25.0.0'
     defaultConfig {
+        multiDexEnabled true
         applicationId "com.hzu.jpg.commonwork"
         minSdkVersion 14
         targetSdkVersion 24
@@ -14,8 +15,8 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
+//            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
         }
@@ -31,8 +32,6 @@ android {
     }
 }
 
-
-
 allprojects {
 
     repositories {
@@ -41,12 +40,12 @@ allprojects {
 
 }
 
-
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile 'com.android.support:multidex:'
     compile project(path: ':common')
     compile files('libs/BaiduLBS_Android.jar')
     compile files('libs/jackson-annotations-2.7.0.jar')
@@ -68,7 +67,7 @@ dependencies {
     compile 'com.zhy:okhttputils:2.6.2'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.github.fangx:haorefresh:1.0'
-    compile 'com.commit451:PhotoView:1.2.5'
+//    compile 'com.commit451:PhotoView:1.2.5'
     compile 'com.github.zcweng:switch-button:0.0.3@aar'
     compile 'com.google.android.gms:play-services-appindexing:8.4.0'
     compile 'com.github.paradoxie:AutoVerticalTextview:0.1'
