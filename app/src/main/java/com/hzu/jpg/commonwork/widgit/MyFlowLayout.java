@@ -110,7 +110,7 @@ public class MyFlowLayout extends ViewGroup {
         TextView tv=new TextView(getContext());
         tv.setText(text);
         tv.setTextSize(14);
-        tv.setTextColor(getResources().getColor(R.color.colorPrimary));
+        tv.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         tv.setBackgroundResource(R.drawable.empty_corner);
         MarginLayoutParams lp =new MarginLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
         int fivePx= DimensChange.dip2px(getContext(),4);

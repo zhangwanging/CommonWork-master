@@ -35,6 +35,13 @@ public class AgentActivity extends AppCompatActivity {
 
         presenter=new AgentPresenter(this);
         presenter.initData();
+
+        this.findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     public void setRvData(RecyclerView.Adapter adapter){

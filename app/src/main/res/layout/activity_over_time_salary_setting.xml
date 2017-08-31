@@ -16,7 +16,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:background="@color/colorPrimary"
+                android:background="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="15dp"
@@ -335,6 +335,6 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/title_string_size"
         android:text="保存"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:textColor="@color/colorWhite"/>
 </LinearLayout>

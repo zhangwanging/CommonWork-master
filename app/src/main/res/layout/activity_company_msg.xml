@@ -1,138 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cp_common_bg"
     android:fitsSystemWindows="true"
-    android:background="@color/cp_common_bg">
+    android:orientation="vertical">
+
     <include
         android:id="@+id/layout1"
-        layout="@layout/toolbar"/>
+        layout="@layout/toolbar" />
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/layout1">
+        android:layout_height="40dip">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/img_company"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:id="@+id/layout_view_1"
+                android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:layout_weight="1">
+
                 <TextView
-                    android:id="@+id/tv_companyName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="酒店茶艺师"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:textColor="@color/alpha_85_black"
-                    android:textSize="24sp"
-                    />
+                    android:layout_centerInParent="true"
+                    android:padding="10dip"
+                    android:text="企业详情"
+                    android:textColor="@color/black_4" />
 
-                <Space
+                <ImageView
+                    android:id="@+id/image_view_1"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp" />
+                    android:layout_height="3dip"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/colorPrimaryDark" />
+            </RelativeLayout>
 
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/text_margin">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/graya"
-                        android:textSize="@dimen/job_text_size"
-                        android:text="企业性质:"/>
-
-                    <TextView
-                        android:id="@+id/tv_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/text_margin"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/job_text_size"/>
-                </LinearLayout>
-
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/text_margin">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/graya"
-                        android:textSize="@dimen/job_text_size"
-                        android:text="工作地点:"/>
-
-                    <TextView
-                        android:id="@+id/tv_location"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/text_margin"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/job_text_size"/>
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/alpha_10_black"
-                    android:layout_marginTop="20dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:id="@+id/layout_view_2"
+                android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:layout_weight="1">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="企业简介"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"/>
+                    android:layout_centerInParent="true"
+                    android:padding="10dip"
+                    android:text="招聘信息"
+                    android:textColor="@color/black_4" />
+
+                <ImageView
+                    android:id="@+id/image_view_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dip"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/colorPrimaryDark"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_view_3"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/tv_jobDescribe"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/job_text_size"
-                    android:textColor="@color/alpha_50_black"
-                    android:text=""
-                    android:lineSpacingExtra="3dp"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
-                    />
+                    android:layout_centerInParent="true"
+                    android:padding="10dip"
+                    android:text="视频介绍"
+                    android:textColor="@color/black_4" />
 
-                <Space
+                <ImageView
+                    android:id="@+id/image_view_3"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp" />
-            </LinearLayout>
+                    android:layout_height="3dip"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/colorPrimaryDark"
+                    android:visibility="invisible" />
+            </RelativeLayout>
         </LinearLayout>
-    </ScrollView>
+    </RelativeLayout>
 
+    <include
+        android:id="@+id/company_msg_detail"
+        layout="@layout/company_msg_detail"
+        android:visibility="gone" />
 
-</RelativeLayout>
+    <include
+        android:id="@+id/company_msg_work"
+        layout="@layout/company_msg_work"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/company_msg_video"
+        layout="@layout/company_msg_video"
+        android:visibility="gone" />
+</LinearLayout>

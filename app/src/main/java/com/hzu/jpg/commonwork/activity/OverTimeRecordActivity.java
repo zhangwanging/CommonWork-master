@@ -46,7 +46,7 @@ public class OverTimeRecordActivity extends AppCompatActivity {
         Drawable drawable=getResources().getDrawable(R.mipmap.ot_money_selected);
         drawable.setBounds(0,0,drawable.getMinimumWidth(),drawable.getMinimumHeight());
         tv_ot.setCompoundDrawables(null,drawable,null,null);
-        tv_ot.setTextColor(getResources().getColor(R.color.colorPrimary));
+        tv_ot.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
 
         viewPager= (ViewPager) findViewById(R.id.vp_ot_record);
         setViewPagerData();
@@ -163,19 +163,19 @@ public class OverTimeRecordActivity extends AppCompatActivity {
                 Drawable drawable=getResources().getDrawable(R.mipmap.ot_money_selected);
                 drawable.setBounds(0,0,drawable.getMinimumWidth(),drawable.getMinimumHeight());
                 tv_ot.setCompoundDrawables(null,drawable,null,null);
-                tv_ot.setTextColor(getResources().getColor(R.color.colorPrimary));
+                tv_ot.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                 break;
             case 1:
                 drawable=getResources().getDrawable(R.mipmap.canlendar_selected);
                 drawable.setBounds(0,0,drawable.getMinimumWidth(),drawable.getMinimumHeight());
                 tv_calendar.setCompoundDrawables(null,drawable,null,null);
-                tv_calendar.setTextColor(getResources().getColor(R.color.colorPrimary));
+                tv_calendar.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                 break;
             case 2:
                 drawable=getResources().getDrawable(R.mipmap.statistics_selected);
                 drawable.setBounds(0,0,drawable.getMinimumWidth(),drawable.getMinimumHeight());
                 tv_statistics.setCompoundDrawables(null,drawable,null,null);
-                tv_statistics.setTextColor(getResources().getColor(R.color.colorPrimary));
+                tv_statistics.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                 break;
         }
 

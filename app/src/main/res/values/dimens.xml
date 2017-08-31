@@ -22,5 +22,5 @@
     <dimen name="title_string_size">20sp</dimen>
     <dimen name="small_string_size">14sp</dimen>
     <dimen name="big_string_size">25sp</dimen>
-
+    <dimen name="home_rotation_image_height">200dp</dimen>
 </resources>

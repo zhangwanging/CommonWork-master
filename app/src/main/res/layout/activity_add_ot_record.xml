@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:orientation="horizontal"
         android:padding="15dp">
 
@@ -70,7 +70,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/button_ot_record_normal"
                     android:text="其他日期"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/small_string_size" />
 
                 <TextView
@@ -82,7 +82,7 @@
                     android:background="@drawable/button_ot_record_normal"
                     android:gravity="center"
                     android:text="前天\n星期五"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/small_string_size" />
 
                 <TextView
@@ -94,7 +94,7 @@
                     android:background="@drawable/button_ot_record_normal"
                     android:gravity="center"
                     android:text="昨天\n星期五"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/small_string_size" />
 
                 <TextView
@@ -105,7 +105,7 @@
                     android:background="@drawable/button_ot_record_normal"
                     android:gravity="center"
                     android:text="今天\n星期五"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/small_string_size" />
             </LinearLayout>
 
@@ -158,31 +158,35 @@
                     android:layout_weight="1"
                     android:text="出勤时间"
                     android:textSize="@dimen/normal_string_size" />
+
                 <TextView
+                    android:id="@+id/tv_add_ot_record_basic_hours"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/normal_string_size"
                     android:text="15"
-                    android:id="@+id/tv_add_ot_record_basic_hours"/>
+                    android:textSize="@dimen/normal_string_size" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="小时"
                     android:layout_marginLeft="5dp"
-                    android:textSize="@dimen/normal_string_size"/>
+                    android:text="小时"
+                    android:textSize="@dimen/normal_string_size" />
+
+                <TextView
+                    android:id="@+id/tv_add_ot_record_basic_minutes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="23"
+                    android:textSize="@dimen/normal_string_size" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/normal_string_size"
-                    android:text="23"
-                    android:id="@+id/tv_add_ot_record_basic_minutes"/>
-                <TextView
                     android:drawablePadding="5dp"
                     android:drawableRight="@mipmap/go"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/normal_string_size"
-                    android:text="分钟"/>
+                    android:text="分钟"
+                    android:textSize="@dimen/normal_string_size" />
 
             </LinearLayout>
 
@@ -197,11 +201,11 @@
                 android:textSize="@dimen/normal_string_size" />
 
             <LinearLayout
-                android:paddingRight="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingRight="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -212,30 +216,34 @@
                     android:layout_marginStart="15dp"
                     android:text="加班时长"
                     android:textSize="@dimen/normal_string_size" />
+
                 <NumberPicker
                     android:id="@+id/np_add_ot_record_hour"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="130dp"/>
+                    android:layout_height="130dp"
+                    android:layout_weight="1" />
+
                 <TextView
-                    android:padding="5dp"
-                    android:gravity="center_vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/normal_string_size"
-                    android:text="小时"/>
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="小时"
+                    android:textSize="@dimen/normal_string_size" />
+
                 <NumberPicker
                     android:id="@+id/np_add_ot_record_minute"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="130dp"/>
+                    android:layout_height="130dp"
+                    android:layout_weight="1" />
+
                 <TextView
-                    android:padding="5dp"
-                    android:gravity="center_vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/normal_string_size"
-                    android:text="分钟"/>
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="分钟"
+                    android:textSize="@dimen/normal_string_size" />
 
             </LinearLayout>
 
@@ -255,41 +263,48 @@
                     android:layout_weight="1"
                     android:text="加班工资"
                     android:textSize="@dimen/normal_string_size" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
+
                     <TextView
+                        android:id="@+id/tv_add_ot_record_salary_per_hour"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="17.24"
-                        android:id="@+id/tv_add_ot_record_salary_per_hour"
-                        android:textSize="@dimen/small_string_size"/>
+                        android:textSize="@dimen/small_string_size" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/small_string_size"
-                        android:text=" 元/小时（" />
+                        android:text=" 元/小时（"
+                        android:textSize="@dimen/small_string_size" />
+
                     <TextView
+                        android:id="@+id/tv_add_ot_record_work_type"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/small_string_size"
                         android:text="工作日"
-                        android:id="@+id/tv_add_ot_record_work_type"/>
+                        android:textSize="@dimen/small_string_size" />
+
                     <TextView
+                        android:id="@+id/tv_add_ot_record_multiply"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1.5"
-                        android:textSize="@dimen/small_string_size"
-                        android:id="@+id/tv_add_ot_record_multiply" />
+                        android:textSize="@dimen/small_string_size" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableRight="@mipmap/go"
-                        android:text="倍）"/>
+                        android:text="倍）" />
                 </LinearLayout>
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -299,23 +314,25 @@
                 android:paddingTop="8dp"
                 android:text="备注"
                 android:textSize="18sp" />
+
             <EditText
-                android:padding="20dp"
-                android:textSize="@dimen/normal_string_size"
-                android:background="@color/colorWhite"
-                android:textColorHint="@color/colorDeepHui"
-                android:hint="点此记录你的特别事项（0-50个字）"
+                android:id="@+id/tv_add_ot_record_remark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tv_add_ot_record_remark"/>
+                android:background="@color/colorWhite"
+                android:hint="点此记录你的特别事项（0-50个字）"
+                android:padding="20dp"
+                android:textColorHint="@color/colorDeepHui"
+                android:textSize="@dimen/normal_string_size" />
         </LinearLayout>
     </ScrollView>
+
     <Button
-        android:textSize="20sp"
-        android:textColor="@color/colorWhite"
-        android:background="@drawable/button_ot_record_selected"
         android:id="@+id/bt_add_ot_record_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="保存"/>
+        android:background="@drawable/button_ot_record_selected"
+        android:text="保存"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp" />
 </LinearLayout>

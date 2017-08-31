@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -103,28 +104,29 @@ public class ApplyJobActivity extends BaseAppCompatActivity {
     @Override
     protected void initViewsAndEvents() {
 
-        search = this.getIntent().getStringExtra("search");
-        if (search != null && !search.equals(""))
+        classify = this.getIntent().getStringExtra("classify"); //主要跳过来
+
+        search = this.getIntent().getStringExtra("search"); //搜索页面跳过来
+        if (search != null && !search.equals("")) {
             search_text.setText(search);
+            classify = search;
+        } else if (!classify.equals("")) {
+            search_text.setText(classify);
+        }
 
-        search_text.setOnKeyListener(new View.OnKeyListener() {
-
+        //键盘搜索事件
+        search_text.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-
-                if (keyCode == KeyEvent.KEYCODE_ENTER) {
-                    // 先隐藏键盘
-                    ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE))
-                            .hideSoftInputFromWindow(ApplyJobActivity.this.getCurrentFocus()
-                                    .getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-                    //进行搜索操作的方法，在该方法中可以加入mEditSearchUser的非空判断
-                    //search();
-                    search = search_text.getText().toString().trim();
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    classify = search_text.getText().toString().trim();
                     searchJobSmg();
+                    return true;
                 }
                 return false;
             }
         });
+
         FilterData filterData = new FilterData();
         filterData.setFirstOne(DataUtil.getOneFirst());
         filterData.setSecond(DataUtil.regions);
@@ -201,7 +203,7 @@ public class ApplyJobActivity extends BaseAppCompatActivity {
         });
 
 
-        swipeLayout.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent);
+        swipeLayout.setColorSchemeResources(R.color.colorPrimaryDark, R.color.colorAccent);
 
         swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -235,16 +237,14 @@ public class ApplyJobActivity extends BaseAppCompatActivity {
     }
 
     private void searchJobSmg() {
+
+        String classify = this.classify;
+
         Log.e(TAG, "searchJobSmg: " + Config.SELECTED_CITY, null);
         OkHttpUtils.post()
                 .url(Config.URL_JOB_MSG_SIMPLE)
-                //.addParams("keyWord", search)
                 .addParams(Config.KEY_CITY, Config.SELECTED_CITY == null ? "" : Config.SELECTED_CITY)
-                .addParams(Config.KEY_REGION, region == null ? "" : region)
                 .addParams(Config.KEY_CLASSIFY, classify == null ? "" : classify)
-                .addParams(Config.KEY_LOW_PRICE, lowPrice == null ? "" : lowPrice)
-                .addParams(Config.KEY_HIGH_PRICE, highPrice == null ? "" : highPrice)
-                .addParams(Config.KEY_LABEL, label == null ? "" : label)
                 .addParams(Config.KEY_PAGE, String.valueOf(page))
                 .tag(TAG)
                 .build().execute(new JobMsgCallback() {

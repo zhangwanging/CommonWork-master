@@ -29,6 +29,10 @@ public class AddressAdapter extends BaseAdapter {
         this.data = data;
     }
 
+    public List<Address> getAll() {
+        return data;
+    }
+
     @Override
     public int getCount() {
         return data.size();

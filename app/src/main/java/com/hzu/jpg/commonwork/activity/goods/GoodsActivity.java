@@ -1,5 +1,6 @@
 package com.hzu.jpg.commonwork.activity.goods;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -64,6 +65,14 @@ public class GoodsActivity extends AppCompatActivity {
     }
 
     private void getXmlView() {
+
+        this.findViewById(R.id.goods_recording_iv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(GoodsActivity.this, GoodsRecordingActivity.class));
+            }
+        });
+
         action = new RequestAction(this);
         this.findViewById(R.id.back_layout).setOnClickListener(new View.OnClickListener() {
             @Override

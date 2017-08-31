@@ -88,7 +88,7 @@ public class HomeActivity extends BaseAppCompatActivity {
                 R.mipmap.ic_personal_press};
         for (int i = 0; i < titles.size(); i++) {
             tabItem[i] = new TabItemView(HomeActivity.this, titles.get(i),
-                    imgIds[i], imgIdsPress[i], getResources().getColor(R.color.black), getResources().getColor(R.color.colorPrimary), i);
+                    imgIds[i], imgIdsPress[i], getResources().getColor(R.color.black), getResources().getColor(R.color.colorPrimaryDark), i);
             TabLayout.Tab tab = tabLayout.newTab();
             tab.setCustomView(tabItem[i]);
             tabLayout.addTab(tab);

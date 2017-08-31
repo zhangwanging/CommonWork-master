@@ -37,7 +37,7 @@
             android:layout_below="@id/tv_item_company_jobs_job_name"
             android:layout_toRightOf="@id/iv_item_company_jobs_cover"
             android:text="2000"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/title_string_size" />
 
         <TextView
@@ -46,7 +46,7 @@
             android:layout_below="@id/tv_item_company_jobs_job_name"
             android:layout_toRightOf="@id/tv_item_company_jobs_salary"
             android:text="/"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/title_string_size" />
 
         <TextView
@@ -60,7 +60,7 @@
             android:layout_toEndOf="@id/tv_item_company_jobs_salary"
             android:layout_toRightOf="@id/tv_item_company_jobs_salary"
             android:text="月"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/small_string_size" />
 
         <TextView

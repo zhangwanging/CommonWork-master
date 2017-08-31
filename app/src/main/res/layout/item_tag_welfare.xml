@@ -3,7 +3,7 @@
     android:id="@+id/tv_welfare"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:textColor="@color/colorPrimary"
+    android:textColor="@color/colorPrimaryDark"
     android:textSize="12sp"
     android:text="五险一金"
     android:background="@drawable/shape_aj_welfare"

@@ -48,13 +48,13 @@
                         android:id="@+id/tv_my_job_info_salary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorPrimaryDark"
                         android:text="3000-5000"
                         android:textSize="@dimen/title_string_size"/>
                     <TextView
                         android:layout_marginLeft="5dp"
                         android:layout_marginStart="5dp"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/small_string_size"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
 
                     <TextView
                         android:text="月"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorPrimaryDark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/small_string_size"

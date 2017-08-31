@@ -23,7 +23,6 @@
             android:gravity="center"
             android:paddingLeft="10dip"
             android:scaleType="centerInside"
-            android:text="新闻"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:visibility="visible" />
@@ -36,9 +35,9 @@
             android:layout_weight="1.0"
             android:ellipsize="middle"
             android:gravity="center"
-            android:textColor="@color/white"
             android:singleLine="true"
             android:text="帖子"
+            android:textColor="@color/white"
             android:textSize="16sp" />
 
         <TextView
@@ -49,10 +48,10 @@
             android:layout_marginRight="10dip"
             android:gravity="center"
             android:padding="10dip"
-            android:text="帖子"
-            android:textColor="@color/black_4"
+            android:text="发帖"
+            android:textColor="@color/white"
             android:textSize="15sp"
-            android:visibility="invisible" />
+            android:visibility="visible" />
     </LinearLayout>
 
     <RelativeLayout

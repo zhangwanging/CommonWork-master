@@ -5,10 +5,10 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_marginBottom="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:layout_marginBottom="15dp"
+        android:background="@color/colorPrimaryDark"
         android:orientation="horizontal"
         android:padding="15dp">
 
@@ -29,55 +29,61 @@
             android:textSize="@dimen/title_string_size" />
     </LinearLayout>
 
-    <include layout="@layout/text_view_padding_grey"/>
+    <include layout="@layout/text_view_padding_grey" />
 
     <LinearLayout
-        android:background="@drawable/item_click_grey"
         android:id="@+id/ll_choose_ot_hour_work"
-        android:gravity="center_vertical"
-        android:padding="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:background="@drawable/item_click_grey"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
         <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/choose_hour_work"
             android:drawablePadding="15dp"
             android:gravity="center_vertical"
-            android:textSize="@dimen/normal_string_size"
-            android:drawableLeft="@mipmap/choose_hour_work"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="小时工"/>
+            android:text="小时工"
+            android:textSize="@dimen/normal_string_size" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/go"/>
+            android:src="@mipmap/go" />
     </LinearLayout>
 
-    <include layout="@layout/text_view_padding_grey"/>
+    <include layout="@layout/text_view_padding_grey" />
+
     <LinearLayout
-        android:background="@drawable/item_click_grey"
         android:id="@+id/ll_choose_ot_month_work"
-        android:gravity="center_vertical"
-        android:layout_marginTop="5dp"
-        android:padding="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginTop="5dp"
+        android:background="@drawable/item_click_grey"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
         <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/choose_month_work"
             android:drawablePadding="15dp"
             android:gravity="center_vertical"
-            android:textSize="@dimen/normal_string_size"
-            android:drawableLeft="@mipmap/choose_month_work"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="同工同酬"/>
+            android:text="同工同酬"
+            android:textSize="@dimen/normal_string_size" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/go"/>
+            android:src="@mipmap/go" />
     </LinearLayout>
-    <include layout="@layout/text_view_padding_grey"/>
+
+    <include layout="@layout/text_view_padding_grey" />
 
 </LinearLayout>

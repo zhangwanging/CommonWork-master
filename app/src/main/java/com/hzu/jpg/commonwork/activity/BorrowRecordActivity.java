@@ -20,45 +20,53 @@ public class BorrowRecordActivity extends AppCompatActivity {
     TextView tvBorrowMoney;
     Button btBorrowApply;
 
-    public final  static int BORROW_APPLY=1;
+    public final static int BORROW_APPLY = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_borrow_record);
         init();
-        if(presenter ==null){
-            presenter =new BorrowRecordPresenter(this);
+        if (presenter == null) {
+            presenter = new BorrowRecordPresenter(this);
         }
         presenter.setData();
+
+        this.findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
-    public void init(){
-        rv= (RecyclerView) findViewById(R.id.rv_my_packet);
-        tvBorrowMoney= (TextView) findViewById(R.id.tv_my_packet_borrow);
-        btBorrowApply= (Button) findViewById(R.id.bt_borrow_record_apply_borrow);
+
+    public void init() {
+        rv = (RecyclerView) findViewById(R.id.rv_my_packet);
+        tvBorrowMoney = (TextView) findViewById(R.id.tv_my_packet_borrow);
+        btBorrowApply = (Button) findViewById(R.id.bt_borrow_record_apply_borrow);
 
         btBorrowApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivityForResult(new Intent(BorrowRecordActivity.this,BorrowApplyActivity.class),0);
+                startActivityForResult(new Intent(BorrowRecordActivity.this, BorrowApplyActivity.class), 0);
             }
         });
 
     }
 
-    public void setRvData(RecyclerView.Adapter adapter){
+    public void setRvData(RecyclerView.Adapter adapter) {
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(adapter);
     }
 
-    public void setBorrowMoney(String money){
+    public void setBorrowMoney(String money) {
         tvBorrowMoney.setText(money);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==BORROW_APPLY){
+        if (requestCode == BORROW_APPLY) {
             presenter.setData();
         }
     }

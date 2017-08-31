@@ -2,29 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:chow="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <LinearLayout
-        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:orientation="horizontal">
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
         <ImageButton
             android:id="@+id/ib_statistics_add_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/back"
+            android:layout_marginRight="5dp"
             android:background="#00000000"
-            android:layout_marginRight="5dp"/>
+            android:src="@mipmap/back" />
+
         <TextView
             android:id="@+id/tv_statistics_add"
-            android:textSize="@dimen/title_string_size"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:text="修改个人信息"
             android:textColor="@color/colorWhite"
-            android:gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:textSize="@dimen/title_string_size" />
 
     </LinearLayout>
 
@@ -32,135 +35,149 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
+
         <LinearLayout
-            android:background="@color/colorHui"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorHui"
             android:orientation="vertical">
+
             <FrameLayout
-                android:background="@color/colorWhite"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite">
+
                 <com.hzu.jpg.commonwork.widgit.CircleImageView
-                    android:layout_margin="20dp"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@mipmap/ic_head_default"
+                    android:id="@+id/iv_my_info_edit_head"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:id="@+id/iv_my_info_edit_head" />
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="20dp"
+                    android:src="@mipmap/ic_head_default" />
             </FrameLayout>
 
             <com.hzu.jpg.commonwork.widgit.MyEditLayout
                 android:id="@+id/et_my_info_edit_username"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                chow:my_info_title="*昵称："
-                chow:my_info_content="chenghai"/>
+                android:layout_marginTop="10dp"
+                chow:my_info_content="chenghai"
+                chow:my_info_title="*昵称：" />
+
             <LinearLayout
-                android:padding="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
                 android:background="@color/colorWhite"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="15dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="*性别"
-                    android:textSize="@dimen/normal_string_size"/>
+                    android:textSize="@dimen/normal_string_size" />
+
                 <CheckBox
                     android:id="@+id/cb_my_info_edit_male"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginLeft="40dp"
-                    android:textSize="@dimen/normal_string_size"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="男"/>
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_weight="1"
+                    android:text="男"
+                    android:textSize="@dimen/normal_string_size" />
+
                 <CheckBox
                     android:id="@+id/cb_my_info_edit_female"
-                    android:textSize="@dimen/normal_string_size"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="女"/>
+                    android:layout_weight="1"
+                    android:text="女"
+                    android:textSize="@dimen/normal_string_size" />
             </LinearLayout>
+
             <TextView
-                android:layout_marginTop="1dp"
-                android:padding="15dp"
-                android:background="@color/white"
-                android:textSize="@dimen/normal_string_size"
+                android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/white"
+                android:padding="15dp"
                 android:text="出生日期:"
-                android:id="@+id/textView3" />
+                android:textSize="@dimen/normal_string_size" />
 
             <LinearLayout
-                android:gravity="center_vertical"
-                android:paddingLeft="15dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="20dp"
-                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="20dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp">
+
                 <Spinner
                     android:id="@+id/sp_my_info_edit_year"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1" />
+
                 <TextView
-                    android:background="@color/colorWhite"
                     android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
                     android:gravity="center_vertical"
                     android:text="年"
-                    android:layout_height="match_parent"
-                    android:textSize="@dimen/normal_string_size"/>
+                    android:textSize="@dimen/normal_string_size" />
+
                 <Spinner
-                    android:gravity="center_horizontal"
                     android:id="@+id/sp_my_info_edit_month"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal" />
+
                 <TextView
-                    android:gravity="center_vertical"
-                    android:background="@color/colorWhite"
                     android:layout_width="wrap_content"
-                    android:text="月"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/normal_string_size"/>
+                    android:background="@color/colorWhite"
+                    android:gravity="center_vertical"
+                    android:text="月"
+                    android:textSize="@dimen/normal_string_size" />
+
                 <Spinner
                     android:id="@+id/sp_my_info_edit_day"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1" />
+
                 <TextView
-                    android:gravity="center_vertical"
-                    android:background="@color/colorWhite"
                     android:layout_width="wrap_content"
-                    android:text="日"
                     android:layout_height="match_parent"
                     android:layout_marginRight="10dp"
-                    android:textSize="@dimen/normal_string_size"/>
+                    android:background="@color/colorWhite"
+                    android:gravity="center_vertical"
+                    android:text="日"
+                    android:textSize="@dimen/normal_string_size" />
             </LinearLayout>
 
             <com.hzu.jpg.commonwork.widgit.MyEditLayout
-                chow:my_info_number_type="true"
                 android:id="@+id/et_my_info_edit_link_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                chow:my_info_title="*联系方式："
-                android:layout_marginTop="1dp"/>
+                android:layout_marginTop="1dp"
+                chow:my_info_number_type="true"
+                chow:my_info_title="*联系方式：" />
 
 
             <com.hzu.jpg.commonwork.widgit.MyEditLayout
-                chow:my_info_number_type="true"
                 android:id="@+id/et_my_info_edit_id_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                chow:my_info_title="身份证号："
-                android:layout_marginTop="1dp">
+                android:layout_marginTop="1dp"
+                chow:my_info_number_type="true"
+                chow:my_info_title="身份证号：">
 
             </com.hzu.jpg.commonwork.widgit.MyEditLayout>
 
@@ -168,67 +185,76 @@
                 android:id="@+id/et_my_info_edit_school"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                chow:my_info_title="*学校："
-                android:layout_marginTop="1dp"/>
+                android:layout_marginTop="1dp"
+                chow:my_info_title="*学校：" />
+
             <com.hzu.jpg.commonwork.widgit.MyEditLayout
                 android:id="@+id/et_my_info_edit_major"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                chow:my_info_title="专业："
-                android:layout_marginTop="1dp">
+                android:layout_marginTop="1dp"
+                chow:my_info_title="专业：">
 
             </com.hzu.jpg.commonwork.widgit.MyEditLayout>
+
             <com.hzu.jpg.commonwork.widgit.MyEditLayout
                 android:id="@+id/et_my_info_edit_real_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                chow:my_info_title="*真实姓名："
-                android:layout_marginTop="1dp"/>
+                android:layout_marginTop="1dp"
+                chow:my_info_title="*真实姓名：" />
+
             <com.hzu.jpg.commonwork.widgit.MyEditLayout
                 android:id="@+id/et_my_info_edit_province"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                chow:my_info_title="所在省份："
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                chow:my_info_title="所在省份：" />
+
             <com.hzu.jpg.commonwork.widgit.MyEditLayout
                 android:id="@+id/et_my_info_edit_city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                chow:my_info_title="所在城市："
-                android:layout_marginTop="1dp"/>
+                android:layout_marginTop="1dp"
+                chow:my_info_title="所在城市：" />
+
             <com.hzu.jpg.commonwork.widgit.MyEditLayout
                 android:id="@+id/et_my_info_edit_region"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                chow:my_info_title="所在地区："
-                android:layout_marginTop="1dp"/>
+                android:layout_marginTop="1dp"
+                chow:my_info_title="所在地区：" />
+
             <com.hzu.jpg.commonwork.widgit.MyEditLayout
                 android:id="@+id/et_my_info_edit_required"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                chow:my_info_title="工作要求："
-                android:layout_marginTop="1dp"/>
+                android:layout_marginTop="1dp"
+                chow:my_info_title="工作要求：" />
+
             <com.hzu.jpg.commonwork.widgit.MyEditLayout
                 android:id="@+id/et_my_info_edit_entry_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                chow:my_info_title="可工作时间："
-                android:layout_marginTop="1dp"/>
+                android:layout_marginTop="1dp"
+                chow:my_info_title="可工作时间：" />
+
             <com.hzu.jpg.commonwork.widgit.MyEditLayout
                 android:id="@+id/et_my_info_edit_bank_card"
-                chow:my_info_number_type="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                chow:my_info_title="银行卡号："
-                android:layout_marginTop="1dp"/>
+                android:layout_marginTop="1dp"
+                chow:my_info_number_type="true"
+                chow:my_info_title="银行卡号：" />
         </LinearLayout>
     </ScrollView>
+
     <Button
         android:id="@+id/bt_my_info_edit_submit"
-        android:background="@color/colorPrimary"
-        android:textSize="@dimen/normal_string_size"
-        android:textColor="@color/colorWhite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="提    交"/>
+        android:background="@color/colorPrimaryDark"
+        android:text="提    交"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/normal_string_size" />
 </LinearLayout>

@@ -23,10 +23,11 @@ public class MainGridAdapter extends BaseAdapter {
             R.mipmap.home_gridview_image_02,
             R.mipmap.home_gridview_image_03,
             R.mipmap.home_gridview_image_04,
+            R.mipmap.yijianqiuzhi_icon,
             R.mipmap.home_gridview_image_05,
             R.mipmap.home_gridview_image_06,
             R.mipmap.home_gridview_image_07,
-            R.mipmap.home_gridview_image_08,
+
     };
 
     private String[] texts = {
@@ -34,10 +35,11 @@ public class MainGridAdapter extends BaseAdapter {
             "临时工",
             "兼职",
             "长期工",
-            "企业招聘",
+            "一键求职",
+            "企业端",
             "合作企业",
             "视频面试",
-            "便民服务",
+
     };
 
 

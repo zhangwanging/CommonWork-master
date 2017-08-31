@@ -8,12 +8,6 @@ import android.graphics.Bitmap;
  */
 
 public class Constants {
-    //www.chaojilanling.com/managerSystem
-    //http://121.35.242.203:8080/imagesServer
-    //百度云
-    //http://120.77.244.255:8080/managerSystem/
-    //http://120.77.244.255:8080/imagesServer
-    public static final String getHttpUrl = "http://www.chaojilanling.com/managerSystem/";
     public static final String imageUrl = "http://www.jiongzhiw.com";
     public static int fragment_number = 0;
     public static boolean isLogin = false;

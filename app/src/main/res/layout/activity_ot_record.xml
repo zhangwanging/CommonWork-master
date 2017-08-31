@@ -5,48 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <android.support.v4.view.ViewPager
+        android:id="@+id/vp_ot_record"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:id="@+id/vp_ot_record">
-    </android.support.v4.view.ViewPager>
+        android:layout_weight="1"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/colorDeepHui"/>
+        android:background="@color/colorDeepHui" />
 
     <LinearLayout
-        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="10dp">
+
         <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="记加班"
             android:id="@+id/tab_tv_ot_record_ot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:drawableTop="@mipmap/ot_money"
             android:gravity="center_horizontal"
-            android:layout_height="wrap_content" />
+            android:text="记加班" />
+
         <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="日历"
             android:id="@+id/tab_tv_ot_record_calendar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:drawableTop="@mipmap/calendar"
             android:gravity="center_horizontal"
-            android:layout_height="wrap_content" />
+            android:text="日历" />
+
         <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="统计"
             android:id="@+id/tab_tv_ot_record_statistics"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:drawableTop="@mipmap/statistics"
             android:gravity="center_horizontal"
-            android:layout_height="wrap_content" />
+            android:text="统计" />
     </LinearLayout>
-
 
 
 </LinearLayout>

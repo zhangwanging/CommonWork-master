@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import com.hzu.jpg.commonwork.R;
 import com.hzu.jpg.commonwork.action.RequestAction;
 import com.hzu.jpg.commonwork.adapter.AddressAdapter;
+import com.hzu.jpg.commonwork.app.Config;
 import com.hzu.jpg.commonwork.enity.Address;
 import com.hzu.jpg.commonwork.enity.AddressInfo;
 import com.hzu.jpg.commonwork.utils.ToastUtil;
@@ -34,12 +35,14 @@ public class MyAddressActivity extends AppCompatActivity {
     private ListView mListAddr;
     private Button mBtnAdd;
     private int addrNumber = 0;
+    private boolean isSelector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_address);
         initview();
+        isSelector = this.getIntent().getBooleanExtra("isSelector", false);
         action = new RequestAction(this);
         initData();
     }
@@ -68,9 +71,15 @@ public class MyAddressActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Address addr = mInfo.getAddrList().get(position);
-                Intent intent = new Intent(MyAddressActivity.this, AddAddressActivity.class);
-                intent.putExtra("addr", addr);
-                startActivityForResult(intent, 1);
+                if (isSelector) {
+                    Config.address = mInfo.getAddrList().get(position);
+                    finish();
+                } else {
+                    Intent intent = new Intent(MyAddressActivity.this, AddAddressActivity.class);
+                    intent.putExtra("addr", addr);
+                    startActivityForResult(intent, 1);
+                }
+
             }
         });
     }
@@ -87,7 +96,7 @@ public class MyAddressActivity extends AppCompatActivity {
             public void onResponse(String response, int id) {
                 if (response != null && !"".equals(response)) {
                     Gson gson = new Gson();
-                    mInfo = gson.fromJson(response,AddressInfo.class);
+                    mInfo = gson.fromJson(response, AddressInfo.class);
                     if (mInfo != null && mInfo.getAmount() > 0) {
                         addrNumber = mInfo.getAmount();
                         mAdapter = new AddressAdapter(MyAddressActivity.this, mInfo.getAddrList());

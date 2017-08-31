@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_borrow_record">
+
     <android.support.v7.widget.RecyclerView
-        android:background="@color/colorHui"
+        android:id="@+id/rv_my_packet"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rv_my_packet">
-    </android.support.v7.widget.RecyclerView>
+        android:background="@color/colorHui"/>
 
 </LinearLayout>

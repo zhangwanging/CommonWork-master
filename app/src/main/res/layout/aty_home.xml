@@ -1,35 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.hzu.jpg.commonwork.activity.HomeActivity"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    tools:context="com.hzu.jpg.commonwork.activity.HomeActivity">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/tabLayout"
-        android:fitsSystemWindows="true">
-    </android.support.v4.view.ViewPager>
+        android:fitsSystemWindows="true" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/alpha_10_black"
-        android:layout_above="@+id/tabLayout"/>
+        android:layout_above="@+id/tabLayout"
+        android:background="@color/alpha_10_black" />
+
     <android.support.design.widget.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_alignParentBottom="true"
         app:tabIndicatorHeight="0dp"
+        app:tabSelectedTextColor="@color/colorPrimaryDark"
         app:tabTextAppearance="?android:attr/textAppearanceSmall"
-        app:tabTextColor="@color/black6"
-        app:tabSelectedTextColor="@color/colorPrimary"
-        >
-    </android.support.design.widget.TabLayout>
+        app:tabTextColor="@color/black6" />
 
 </RelativeLayout>

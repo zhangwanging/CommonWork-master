@@ -8,7 +8,7 @@
 
 
     <LinearLayout
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp"
@@ -199,7 +199,7 @@
     </ScrollView>
     <Button
         android:id="@+id/bt_cpmpany_info_edit_submit"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:textSize="@dimen/normal_string_size"
         android:textColor="@color/colorWhite"
         android:layout_width="match_parent"

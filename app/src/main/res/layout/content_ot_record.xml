@@ -7,27 +7,28 @@
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/fragment_ot">
+
     <Button
+        android:id="@+id/bt_ot_record"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:id="@+id/bt_ot_record"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:text="我要记加班"
-        android:textSize="20sp"
-        android:textColor="@color/colorWhite" />
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp" />
+
     <TextView
-        android:padding="10dp"
-        android:textColor="@color/colorDeepHui"
-        android:background="@color/colorHui"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="最近10次出勤记录"/>
+        android:background="@color/colorHui"
+        android:padding="10dp"
+        android:text="最近10次出勤记录"
+        android:textColor="@color/colorDeepHui" />
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_ot_record"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/rv_ot_record">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

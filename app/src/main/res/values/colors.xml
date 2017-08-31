@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#3F51B5</color>
-    <color name="colorAccent">#3366CC</color>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#29b6f6</color>
+    <color name="colorAccent">#29b6f6</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorChowPrimary">#3f51b5</color>
 
@@ -33,7 +33,8 @@
     <color name="cp_alpha_gray">#CC646464</color>
     <color name="searchBg">#30FFFFFF</color>
     <color name="salary">#EF7030</color>
-
+    <color name="alpha20">#10000000</color>
+    <color name="alpha30">#20000000</color>
     <!-- 测试-->
 
 

@@ -98,6 +98,7 @@ public class PostsActivity extends AppCompatActivity implements View.OnClickList
         img3 = (ImageView) this.findViewById(R.id.image_view_3);
         img4 = (ImageView) this.findViewById(R.id.image_view_4);
         img5 = (ImageView) this.findViewById(R.id.image_view_5);
+        this.findViewById(R.id.right_tv).setOnClickListener(this);
 
         adapter = new PostsAdapter(PostsActivity.this, data);
         recycleListView = (RecyclerView) this.findViewById(R.id.recyclerView);
@@ -248,6 +249,9 @@ public class PostsActivity extends AppCompatActivity implements View.OnClickList
                 showImageView(img5);
                 classfy = 5;
                 updateData();
+                break;
+            case R.id.right_tv:
+                startActivity(new Intent(PostsActivity.this, AddPostsActivity.class));
                 break;
         }
     }

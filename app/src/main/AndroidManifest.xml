@@ -35,36 +35,62 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="LeUUBoRw9eZ32gGeOwF2OaojhU0B9xXL" />
+            android:value="s7f1h4nN2nsQ2NiyZYal6afbwaTK0c6V" />
 
-        <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.WelcomeActivity">
+        <activity
+            android:name=".activity.HomeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.WelcomeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.PhotoViewActivity" />
-        <activity android:name=".activity.ApplyJobActivity" />
+        <activity
+            android:name=".activity.PhotoViewActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ApplyJobActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.CityPickerActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
-        <activity android:name=".activity.JobMsgActivity" />
-        <activity android:name=".activity.SearchJobOrEmpActivity" />
-        <activity android:name=".activity.CompanyMsgActivity" />
+        <activity
+            android:name=".activity.JobMsgActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SearchJobOrEmpActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CompanyMsgActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.ResumeActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name=".activity.LoginActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -75,37 +101,98 @@
         </activity>
         <activity
             android:name=".activity.RegisterSetPwdActivity"
-            android:exported="true" />
-        <activity android:name=".activity.AdviceActivity" />
-        <activity android:name=".activity.RecruitmentActivity" />
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AdviceActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RecruitmentActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
         <!-- 个人中心 -->
         <activity
             android:name=".activity.MyFindActivity"
-            android:label="@string/title_activity_my_find" />
+            android:label="@string/title_activity_my_find"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.AddOverTimeRecordActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
-        <activity android:name=".activity.OverTimeRecordSettingActivity" />
-        <activity android:name=".activity.StatisticsAddAllowanceActivity" />
-        <activity android:name=".activity.StatisticsAddCutActivity" />
-        <activity android:name=".activity.StatisticsItemSettingActivity" />
-        <activity android:name=".activity.OverTimeRecordActivity" />
+        <activity
+            android:name=".activity.OverTimeRecordSettingActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.StatisticsAddAllowanceActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.StatisticsAddCutActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.StatisticsItemSettingActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.OverTimeRecordActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.OverTimeSalarySettingActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
         <activity
             android:name=".activity.OverTimeItemSettingActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
-        <activity android:name=".activity.MyInfoActivity" />
-        <activity android:name=".activity.SalaryFormActivity" />
-        <activity android:name=".activity.MyInfoEditActivity" />
-        <activity android:name=".activity.SettingActivity" />
-        <activity android:name=".activity.BorrowApplyActivity" />
-        <activity android:name=".activity.BorrowRecordActivity" />
-        <activity android:name=".activity.CompanyInfoActivity" />
-        <activity android:name=".activity.CompanyPublishActivity" />
-        <activity android:name=".activity.CompanyInfoEditActivity" />
-        <activity android:name=".activity.MyJobInfoActivity" />
+        <activity
+            android:name=".activity.MyInfoActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SalaryFormActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MyInfoEditActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SettingActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.BorrowApplyActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.BorrowRecordActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CompanyInfoActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CompanyPublishActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CompanyInfoEditActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MyJobInfoActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
 
         <service
             android:name="com.baidu.firstTwo.f"
@@ -115,14 +202,12 @@
             android:name=".service.VersionService"
             android:enabled="true"
             android:exported="true" />
-
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote">
             <intent-filter>
-                <action android:name="com.baidu.location.service_v2.2">
-                </action>
+                <action android:name="com.baidu.location.service_v2.2" />
             </intent-filter>
         </service>
 
@@ -133,28 +218,69 @@
             android:theme="@style/vtransparentTheme" />
         <activity
             android:name=".HourWork.Activity.HourWorkAddRecordActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
-        <activity android:name=".HourWork.Activity.ChooseOverTimeRecordActivity" />
-        <activity android:name=".HourWork.Activity.HourWorkSalarySettingActivity" />
+        <activity
+            android:name=".HourWork.Activity.ChooseOverTimeRecordActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HourWork.Activity.HourWorkSalarySettingActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.AgentActivity"
             android:label="@string/title_activity_agent"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity android:name=".activity.WebViewActivity" />
-        <activity android:name=".activity.goods.GoodsActivity" />
-        <activity android:name=".activity.service.ServiceActivity" />
-        <activity android:name=".activity.service.NewsDetailActivity" />
-        <activity android:name=".activity.service.PostsActivity" />
-        <activity android:name=".activity.service.PostsDetailActivity" />
-        <activity android:name=".activity.home.SearchActivity" />
+        <activity
+            android:name=".activity.WebViewActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.goods.GoodsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.service.ServiceActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.service.NewsDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.service.PostsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.service.PostsDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.home.SearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
         <!-- video -->
-        <activity android:name=".interview.activity.VideoCpyHouseActivity" />
-        <activity android:name=".interview.activity.VideoSelectStudentActivity" />
-        <activity android:name=".interview.activity.VideoStuHouseActivity" />
+        <activity
+            android:name=".interview.activity.VideoCpyHouseActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".interview.activity.VideoSelectStudentActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".interview.activity.VideoStuHouseActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
-            android:noHistory="true">
+            android:noHistory="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -167,14 +293,37 @@
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name=".activity.goods.GoodsDetailActivity" />
-        <activity android:name=".activity.MobileBindingActivity" />
-        <activity android:name=".activity.BindingUserActivity" />
-        <activity android:name=".activity.MyAddressActivity" />
-        <activity android:name=".activity.AddAddressActivity" />
-        <activity android:name=".activity.home.CooperationEnterpriseActivity" />
-        <activity android:name=".activity.ContactUsActivity" />
+        <activity
+            android:name=".activity.goods.GoodsDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MobileBindingActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.BindingUserActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MyAddressActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AddAddressActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.home.CooperationEnterpriseActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ContactUsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
 
         <receiver
             android:name=".utils.AppRegister"
@@ -184,7 +333,22 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".activity.WxBindingActivity"></activity>
+        <!-- <activity android:name=".activity.WxBindingActivity" /> -->
+        <!-- <activity android:name=".activity.goods.GoodsRecordingActivity" /> -->
+        <!-- <activity android:name=".activity.goods.AddressActivity"></activity> -->
+        <!-- <activity android:name=".activity.home.UserInfoActivity"></activity> -->
+        <activity
+            android:name=".activity.goods.GoodsRecordingActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.home.NewMainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.service.AddPostsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

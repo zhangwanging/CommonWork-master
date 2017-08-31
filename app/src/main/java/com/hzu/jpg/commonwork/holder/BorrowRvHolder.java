@@ -50,7 +50,7 @@ public class BorrowRvHolder extends MyRvHolder{
         String status=bean.getLoanstatus();
         tvStatus.setText(status);
         if (status.equals("等待审核")){
-            tvStatus.setTextColor(itemView.getContext().getResources().getColor(R.color.colorPrimary));
+            tvStatus.setTextColor(itemView.getContext().getResources().getColor(R.color.colorPrimaryDark));
             tvReturnDate.setVisibility(View.GONE);
         }else if(status.equals("已借款")){
             tvStatus.setTextColor(Color.RED);

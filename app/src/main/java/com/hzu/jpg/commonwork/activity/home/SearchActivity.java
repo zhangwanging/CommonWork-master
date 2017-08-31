@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
@@ -72,18 +73,30 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
             search_delete_tv.setText("暂无搜索记录");
             search_list.setVisibility(View.GONE);
         }
-        search_et.setOnKeyListener(new View.OnKeyListener() {
+//        search_et.setOnKeyListener(new View.OnKeyListener() {
+//
+//            @Override
+//            public boolean onKey(View v, int keyCode, KeyEvent event) {
+//
+//                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+//                    // 先隐藏键盘
+//                    ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE))
+//                            .hideSoftInputFromWindow(SearchActivity.this.getCurrentFocus()
+//                                    .getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+//                    //进行搜索操作的方法，在该方法中可以加入mEditSearchUser的非空判断
+//                    search();
+//                }
+//                return false;
+//            }
+//        });
 
+        //键盘搜索事件
+        search_et.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-
-                if (keyCode == KeyEvent.KEYCODE_ENTER) {
-                    // 先隐藏键盘
-                    ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE))
-                            .hideSoftInputFromWindow(SearchActivity.this.getCurrentFocus()
-                                    .getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-                    //进行搜索操作的方法，在该方法中可以加入mEditSearchUser的非空判断
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     search();
+                    return true;
                 }
                 return false;
             }

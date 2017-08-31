@@ -2,6 +2,8 @@ package com.hzu.jpg.commonwork.app;
 
 import android.content.Context;
 
+import com.hzu.jpg.commonwork.enity.Address;
+
 /**
  * Created by Administrator on 2017/1/21.
  */
@@ -36,7 +38,6 @@ public class Config {
     //重置密码
     public static final String URL_RESET_PWD = IP + "/HRM/register/findpass.html?method=findpass";
 
-
     //video:学生获取应聘企业
     public static final String URL_STUDENT_GETCOMPANY = IP + "/HRM/interview/getCompanyByStudent.html";
     //video:获取token
@@ -59,6 +60,8 @@ public class Config {
     public static final String URL_GET_COMPANY_TOKEN = IP + "/HRM/interview/getCompanyVadio.html";
     //video:新版本关闭视频
     public static final String URL_CLOSE_VIDEO = IP + "/HRM/interview/closeVadio.html";
+
+    public static final String GET_ADDRESS_DATA = IP + "/HRM/gAddr/ getGAddrList.html";
 
     public static final String APP_ID = "wxf23ad2f43650def0";
     public static final String APP_SECRET = "e8a5b8eebe5d16a1f249d5614aa88839";
@@ -127,6 +130,8 @@ public class Config {
     public final static int EXIT = 3;
 
     public static boolean hourWork = false;
+
+    public static Address address;
 
 
 }

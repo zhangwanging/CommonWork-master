@@ -8,22 +8,19 @@ import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.hzu.jpg.commonwork.Presenter.MyInfoEditPresenter;
 import com.hzu.jpg.commonwork.R;
-import com.hzu.jpg.commonwork.adapter.MySpinnerAdapter;
 import com.hzu.jpg.commonwork.app.Config;
 import com.hzu.jpg.commonwork.app.MyApplication;
 import com.hzu.jpg.commonwork.utils.BitmapUtil;
@@ -39,14 +36,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.hzu.jpg.commonwork.utils.TimeUtil.getDaysOfMonth;
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 public class MyInfoEditActivity extends AppCompatActivity {
 
     public static final int ZOOM_AFTER_PICTURE_CAPTURE = 1;//从照片选择后截图
     public static final int PICTURE_CAPTURE = 2;//从照片选择后截图
-    public static final int LOGIN=3;
+    public static final int LOGIN = 3;
 
     MyEditLayout etUsername;
     MyEditLayout etRealName;
@@ -72,7 +71,7 @@ public class MyInfoEditActivity extends AppCompatActivity {
     Uri tempUri = null;
     File file = null;
 
-    List<File> files=new ArrayList<>();
+    List<File> files = new ArrayList<>();
 
     MyInfoEditPresenter presenter;
 
@@ -82,24 +81,75 @@ public class MyInfoEditActivity extends AppCompatActivity {
     Spinner spMonth;
     Spinner spDay;
 
-    int year=0;
-    int month=0;
-    int day=0;
+    int year = 0;
+    int month = 0;
+    int day = 0;
 
-    List<Integer> days=new ArrayList<>();
+    List<Integer> days = new ArrayList<>();
     ArrayAdapter<Integer> adapterDay;
+
+    @Bind(R.id.ib_statistics_add_back)
+    ImageButton ibStatisticsAddBack;
+    @Bind(R.id.tv_statistics_add)
+    TextView tvStatisticsAdd;
+    @Bind(R.id.iv_my_info_edit_head)
+    CircleImageView ivMyInfoEditHead;
+    @Bind(R.id.et_my_info_edit_username)
+    MyEditLayout etMyInfoEditUsername;
+    @Bind(R.id.cb_my_info_edit_male)
+    CheckBox cbMyInfoEditMale;
+    @Bind(R.id.cb_my_info_edit_female)
+    CheckBox cbMyInfoEditFemale;
+    @Bind(R.id.textView3)
+    TextView textView3;
+    @Bind(R.id.sp_my_info_edit_year)
+    Spinner spMyInfoEditYear;
+    @Bind(R.id.sp_my_info_edit_month)
+    Spinner spMyInfoEditMonth;
+    @Bind(R.id.sp_my_info_edit_day)
+    Spinner spMyInfoEditDay;
+    @Bind(R.id.et_my_info_edit_link_phone)
+    MyEditLayout etMyInfoEditLinkPhone;
+    @Bind(R.id.et_my_info_edit_id_card)
+    MyEditLayout etMyInfoEditIdCard;
+    @Bind(R.id.et_my_info_edit_school)
+    MyEditLayout etMyInfoEditSchool;
+    @Bind(R.id.et_my_info_edit_major)
+    MyEditLayout etMyInfoEditMajor;
+    @Bind(R.id.et_my_info_edit_real_name)
+    MyEditLayout etMyInfoEditRealName;
+    @Bind(R.id.et_my_info_edit_province)
+    MyEditLayout etMyInfoEditProvince;
+    @Bind(R.id.et_my_info_edit_city)
+    MyEditLayout etMyInfoEditCity;
+    @Bind(R.id.et_my_info_edit_region)
+    MyEditLayout etMyInfoEditRegion;
+    @Bind(R.id.et_my_info_edit_required)
+    MyEditLayout etMyInfoEditRequired;
+    @Bind(R.id.et_my_info_edit_entry_time)
+    MyEditLayout etMyInfoEditEntryTime;
+    @Bind(R.id.et_my_info_edit_bank_card)
+    MyEditLayout etMyInfoEditBankCard;
+    @Bind(R.id.bt_my_info_edit_submit)
+    Button btMyInfoEditSubmit;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_info_edit);
+        ButterKnife.bind(this);
         findView();
         setView();
         setSpinner();
         if (presenter == null)
             presenter = new MyInfoEditPresenter(this);
         presenter.setData(MyApplication.user);
+    }
+
+    @OnClick(R.id.ib_statistics_add_back)
+    public void onclick() {
+        finish();
     }
 
     public void findView() {
@@ -117,14 +167,14 @@ public class MyInfoEditActivity extends AppCompatActivity {
         cbFemale = (CheckBox) findViewById(R.id.cb_my_info_edit_female);
         cbMale = (CheckBox) findViewById(R.id.cb_my_info_edit_male);
         btSubmit = (Button) findViewById(R.id.bt_my_info_edit_submit);
-        etLinkPhone= (MyEditLayout) findViewById(R.id.et_my_info_edit_link_phone);
+        etLinkPhone = (MyEditLayout) findViewById(R.id.et_my_info_edit_link_phone);
 
         circleImageView = (CircleImageView) findViewById(R.id.iv_my_info_edit_head);
 
     }
 
     public void setView() {
-        if(MyApplication.user!=null){
+        if (MyApplication.user != null) {
             Glide.with(this).load(Config.IP + MyApplication.user.getIcno())
                     .error(R.mipmap.ic_head_default)
                     .into(circleImageView);
@@ -149,7 +199,7 @@ public class MyInfoEditActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     cbMale.setChecked(false);
-                }else{
+                } else {
                     cbMale.setChecked(true);
                 }
             }
@@ -160,7 +210,7 @@ public class MyInfoEditActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     cbFemale.setChecked(false);
-                }else{
+                } else {
                     cbFemale.setChecked(true);
                 }
             }
@@ -173,41 +223,39 @@ public class MyInfoEditActivity extends AppCompatActivity {
         });
 
 
-
     }
 
-    public void setSpinner(){
-        String birthday=MyApplication.user.getBirthday();
-        Integer nYear=null;
-        Integer nMonth=null;
-        Integer nDay=null;
-        if(!StringUtils.isEmpty(birthday)){
-        String[] split=birthday.split("-");
-            nYear=Integer.parseInt(split[0]);
-            nMonth=Integer.parseInt(split[1]);
-            nDay=Integer.parseInt(split[2]);
+    public void setSpinner() {
+        String birthday = MyApplication.user.getBirthday();
+        Integer nYear = null;
+        Integer nMonth = null;
+        Integer nDay = null;
+        if (!StringUtils.isEmpty(birthday)) {
+            String[] split = birthday.split("-");
+            nYear = Integer.parseInt(split[0]);
+            nMonth = Integer.parseInt(split[1]);
+            nDay = Integer.parseInt(split[2]);
         }
 
-        spYear= (Spinner) findViewById(R.id.sp_my_info_edit_year);
-        final List<Integer> years=new ArrayList<>();
-        for (int i=1900;i< Integer.parseInt(TimeUtil.getDateYM().substring(0,4));i++){
+        spYear = (Spinner) findViewById(R.id.sp_my_info_edit_year);
+        final List<Integer> years = new ArrayList<>();
+        for (int i = 1900; i < Integer.parseInt(TimeUtil.getDateYM().substring(0, 4)); i++) {
             years.add(i);
         }
-        final ArrayAdapter<Integer> adapterYear=new ArrayAdapter<>(this,R.layout.my_spinner_item,years);
+        final ArrayAdapter<Integer> adapterYear = new ArrayAdapter<>(this, R.layout.my_spinner_item, years);
         spYear.setAdapter(adapterYear);
         adapterYear.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        if(nYear!=null){
+        if (nYear != null) {
             spYear.setSelection(years.indexOf(nYear));
-            year=nYear;
-        }
-        else{
-            spYear.setSelection(years.size()/2);
-            year=years.get(years.size()/2);
+            year = nYear;
+        } else {
+            spYear.setSelection(years.size() / 2);
+            year = years.get(years.size() / 2);
         }
         spYear.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                year=years.get(position);
+                year = years.get(position);
                 updateDay();
             }
 
@@ -217,26 +265,25 @@ public class MyInfoEditActivity extends AppCompatActivity {
             }
         });
 
-        spMonth= (Spinner) findViewById(R.id.sp_my_info_edit_month);
-        final Integer[] months=new Integer[12];
-        for (int i=1;i<=12;i++){
-            months[i-1]=i;
+        spMonth = (Spinner) findViewById(R.id.sp_my_info_edit_month);
+        final Integer[] months = new Integer[12];
+        for (int i = 1; i <= 12; i++) {
+            months[i - 1] = i;
         }
-        final ArrayAdapter<Integer> adapterMonth=new ArrayAdapter<>(this,R.layout.my_spinner_item,months);
+        final ArrayAdapter<Integer> adapterMonth = new ArrayAdapter<>(this, R.layout.my_spinner_item, months);
         spMonth.setAdapter(adapterMonth);
         adapterMonth.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        if(nMonth!=null){
-            spMonth.setSelection(nMonth-1);
-            month=nMonth;
-        }
-        else{
+        if (nMonth != null) {
+            spMonth.setSelection(nMonth - 1);
+            month = nMonth;
+        } else {
             spMonth.setSelection(0);
-            month=1;
+            month = 1;
         }
         spMonth.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                month=months[position];
+                month = months[position];
                 updateDay();
             }
 
@@ -245,26 +292,26 @@ public class MyInfoEditActivity extends AppCompatActivity {
 
             }
         });
-        Log.d("day",String.valueOf(nDay));
-        spDay= (Spinner) findViewById(R.id.sp_my_info_edit_day);
-        int numberOfDay=TimeUtil.getDaysOfMonth(year,month);
-        for (int i=1;i<=numberOfDay;i++){
+        Log.d("day", String.valueOf(nDay));
+        spDay = (Spinner) findViewById(R.id.sp_my_info_edit_day);
+        int numberOfDay = TimeUtil.getDaysOfMonth(year, month);
+        for (int i = 1; i <= numberOfDay; i++) {
             days.add(i);
         }
-        adapterDay=new ArrayAdapter<>(this,R.layout.my_spinner_item,days);
+        adapterDay = new ArrayAdapter<>(this, R.layout.my_spinner_item, days);
         spDay.setAdapter(adapterDay);
         adapterDay.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        if(nDay!=null){
+        if (nDay != null) {
             spDay.setSelection(days.indexOf(nDay));
-            day=nDay;
-        } else{
+            day = nDay;
+        } else {
             spDay.setSelection(0);
-            day=1;
+            day = 1;
         }
         spDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                day=days.get(position);
+                day = days.get(position);
             }
 
             @Override
@@ -273,13 +320,14 @@ public class MyInfoEditActivity extends AppCompatActivity {
             }
         });
     }
-    public void updateDay(){
+
+    public void updateDay() {
         days.clear();
-        int numberOfDay=TimeUtil.getDaysOfMonth(year, month);
-        for (int i=1;i<=numberOfDay;i++){
+        int numberOfDay = TimeUtil.getDaysOfMonth(year, month);
+        for (int i = 1; i <= numberOfDay; i++) {
             days.add(i);
         }
-        if(adapterDay!=null)
+        if (adapterDay != null)
             adapterDay.notifyDataSetChanged();
         spDay.setSelection(0);
     }
@@ -294,13 +342,13 @@ public class MyInfoEditActivity extends AppCompatActivity {
 
     public String getBirthday() {
 
-        if(year==0||month==0||day==0){
+        if (year == 0 || month == 0 || day == 0) {
             return "";
         }
-        return year+"-"+month+"-"+day;
+        return year + "-" + month + "-" + day;
     }
 
-    public String getLinkPhone(){
+    public String getLinkPhone() {
         return etLinkPhone.getText();
     }
 
@@ -380,7 +428,7 @@ public class MyInfoEditActivity extends AppCompatActivity {
         this.etEntryTime.setText(data);
     }
 
-    public void setLinkPhone(String data){
+    public void setLinkPhone(String data) {
         etLinkPhone.setText(data);
     }
 
@@ -409,16 +457,15 @@ public class MyInfoEditActivity extends AppCompatActivity {
                     imageUri = data.getData();
                     if (imageUri != null) {
                         try {
-                            file = new File(Environment.getExternalStorageDirectory()+"/jiongzhiw/", System.currentTimeMillis()+"temp.jpg");
+                            file = new File(Environment.getExternalStorageDirectory() + "/jiongzhiw/", System.currentTimeMillis() + "temp.jpg");
                             file.getParentFile().mkdirs();
-                            if(file.exists()){
+                            if (file.exists()) {
                                 file.delete();
                             }
-                            if (file.createNewFile()){
+                            if (file.createNewFile()) {
                                 tempUri = Uri.fromFile(file);
                                 files.add(file);
-                            }
-                            else
+                            } else
                                 ToastUtil.showToast("分配文件失败");
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -431,7 +478,7 @@ public class MyInfoEditActivity extends AppCompatActivity {
                 case ZOOM_AFTER_PICTURE_CAPTURE:
                     // 拿到从相册选择截取后的剪切数据
                     if (tempUri != null) {
-                        BitmapUtil.bitmapCutByQuality(file.getPath(),100*1024);
+                        BitmapUtil.bitmapCutByQuality(file.getPath(), 100 * 1024);
                         Glide.with(this).load(tempUri)
                                 .error(R.mipmap.ic_head_default)
                                 .into(circleImageView);
@@ -460,18 +507,18 @@ public class MyInfoEditActivity extends AppCompatActivity {
         startActivityForResult(intent, i);
     }
 
-    public void dismiss(){
-        if (dialog!=null)
+    public void dismiss() {
+        if (dialog != null)
             dialog.dismiss();
     }
 
-    public void showDialog(){
-        dialog= DialogUtil.showLoadingDialog(this);
+    public void showDialog() {
+        dialog = DialogUtil.showLoadingDialog(this);
     }
 
-    public void clearList(){
-        if(files.size()>=2) {
-            for (int i = 0; i < files.size()-1; i++) {
+    public void clearList() {
+        if (files.size() >= 2) {
+            for (int i = 0; i < files.size() - 1; i++) {
                 files.get(i).delete();
             }
         }

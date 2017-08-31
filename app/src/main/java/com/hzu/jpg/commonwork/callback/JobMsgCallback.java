@@ -29,7 +29,7 @@ public abstract class JobMsgCallback extends Callback<List<JobMsg>> {
     @Override
     public List<JobMsg> parseNetworkResponse(Response response, int id) throws Exception {
         List<JobMsg> jobMsgList = null;
-        String result  = response.body().string();
+        String result = response.body().string();
         Log.e(TAG, "parseNetworkResponse: " + result, null);
         JSONObject jsonObject = new JSONObject(result);
         String listResponse = null;
@@ -37,13 +37,13 @@ public abstract class JobMsgCallback extends Callback<List<JobMsg>> {
         switch (statue) {
             case Config.STATUS_FAIL:
                 EventBus.getDefault().post(jsonObject.get(Config.KEY_MESSAGE));
-            break;
+                break;
             case Config.STATUS_SUCCESS:
                 listResponse = jsonObject.get(Config.KEY_DATA).toString();
                 ObjectMapper mapper = new ObjectMapper();
                 jobMsgList = mapper.readValue(listResponse, new TypeReference<List<JobMsg>>() {
                 });
-            break;
+                break;
         }
         return jobMsgList;
     }

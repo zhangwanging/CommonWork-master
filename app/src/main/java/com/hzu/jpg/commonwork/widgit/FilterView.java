@@ -333,23 +333,23 @@ public class FilterView extends LinearLayout implements View.OnClickListener {
 
         switch (position) {
             case POSITION_FIRST:
-                tvFistTitle.setTextColor(mActivity.getResources().getColor(R.color.colorPrimary));
+                tvFistTitle.setTextColor(mActivity.getResources().getColor(R.color.colorPrimaryDark));
                 ivFirstArrow.setImageResource(R.mipmap.home_down_arrow_red);
                 setFirstAdapter();
                 break;
             case POSITION_SECOND:
-                tvSecondTitle.setTextColor(mActivity.getResources().getColor(R.color.colorPrimary));
+                tvSecondTitle.setTextColor(mActivity.getResources().getColor(R.color.colorPrimaryDark));
                 ivSecondArrow.setImageResource(R.mipmap.home_down_arrow_red);
                 setJobsAdapter();
                 break;
             case POSITION_THIRD:
-                tvThirdTitle.setTextColor(mActivity.getResources().getColor(R.color.colorPrimary));
+                tvThirdTitle.setTextColor(mActivity.getResources().getColor(R.color.colorPrimaryDark));
                 ivThirdArrow.setImageResource(R.mipmap.home_down_arrow_red);
                 setSalaryAdapter();
                 break;
             case POSITION_FOURTH:
                 Log.e(TAG, "show: 4", null);
-                tvFourthTitle.setTextColor(mActivity.getResources().getColor(R.color.colorPrimary));
+                tvFourthTitle.setTextColor(mActivity.getResources().getColor(R.color.colorPrimaryDark));
                 ivFourthArrow.setImageResource(R.mipmap.home_down_arrow_red);
                 setWelfareAdapter();
                 break;

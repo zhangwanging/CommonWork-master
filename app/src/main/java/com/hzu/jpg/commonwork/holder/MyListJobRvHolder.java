@@ -51,7 +51,7 @@ public class MyListJobRvHolder extends MyRvHolder {
                 tvIsPass.setTextColor(Color.RED);
             }else if(pass.equals("1")){
                 tvIsPass.setText("审核中");
-                tvIsPass.setTextColor(itemView.getContext().getResources().getColor(R.color.colorPrimary));
+                tvIsPass.setTextColor(itemView.getContext().getResources().getColor(R.color.colorPrimaryDark));
             }else if(pass.equals("2")){
                 tvIsPass.setText("已通过");
                 tvIsPass.setTextColor(Color.GREEN);

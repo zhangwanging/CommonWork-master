@@ -20,23 +20,23 @@ public class ChooseOverTimeRecordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
-        llHourWork= (LinearLayout) findViewById(R.id.ll_choose_ot_hour_work);
-        llMonthWork= (LinearLayout) findViewById(R.id.ll_choose_ot_month_work);
+        llHourWork = (LinearLayout) findViewById(R.id.ll_choose_ot_hour_work);
+        llMonthWork = (LinearLayout) findViewById(R.id.ll_choose_ot_month_work);
         llMonthWork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Config.hourWork=false;
+                Config.hourWork = false;
                 startActivity(new Intent(ChooseOverTimeRecordActivity.this, OverTimeRecordActivity.class));
             }
         });
         llHourWork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Config.hourWork=true;
+                Config.hourWork = true;
                 startActivity(new Intent(ChooseOverTimeRecordActivity.this, OverTimeRecordActivity.class));
             }
         });
-        ImageButton ibBack= (ImageButton) findViewById(R.id.ib_choose_back);
+        ImageButton ibBack = (ImageButton) findViewById(R.id.ib_choose_back);
         ibBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

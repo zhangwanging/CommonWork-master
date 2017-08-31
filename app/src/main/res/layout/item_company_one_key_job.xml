@@ -17,13 +17,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/big_string_size"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimaryDark"/>
         <TextView
             android:layout_marginLeft="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="/"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/normal_string_size"/>
         <TextView
             android:id="@+id/tv_item_company_one_key_unit"
@@ -31,7 +31,7 @@
             android:gravity="bottom"
             android:layout_height="wrap_content"
             android:text="yue"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/normal_string_size"/>
     </LinearLayout>
     <LinearLayout
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:text="14"
             android:textSize="@dimen/title_string_size"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimaryDark"/>
         <TextView
             android:textSize="@dimen/normal_string_size"
             android:layout_width="wrap_content"

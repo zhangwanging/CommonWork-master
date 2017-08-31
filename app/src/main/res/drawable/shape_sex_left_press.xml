@@ -20,8 +20,8 @@
         android:bottom="1.0dip">
         <shape>
             <gradient
-                android:startColor="@color/colorPrimary"
-                android:endColor="@color/colorPrimary"
+                android:startColor="@color/colorPrimaryDark"
+                android:endColor="@color/colorPrimaryDark"
                 android:angle="90.0"
                 android:type="linear"
                 android:centerX="0.5"

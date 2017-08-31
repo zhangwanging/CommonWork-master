@@ -40,50 +40,51 @@ public class HourWorkMainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_hour_work_main, container, false);
-        btAddRecord= (Button) rootView.findViewById(R.id.bt_hour_work_add_record);
-        tvBasicSalary= (TextView) rootView.findViewById(R.id.tv_hour_work_record_basic_salary);
-        tvDate= (TextView) rootView.findViewById(R.id.tv_hour_work_record_work_date);
-        tvHours= (TextView) rootView.findViewById(R.id.tv_hour_work_record_hours);
-        tvTotalSalary= (TextView) rootView.findViewById(R.id.tv_hour_work__record_total_salary);
-        ibSetting= (ImageButton) rootView.findViewById(R.id.ib_hour_work_record_setting);
-        ibBack= (ImageButton) rootView.findViewById(R.id.ib_hour_work_record_back);
+        btAddRecord = (Button) rootView.findViewById(R.id.bt_hour_work_add_record);
+        tvBasicSalary = (TextView) rootView.findViewById(R.id.tv_hour_work_record_basic_salary);
+        tvDate = (TextView) rootView.findViewById(R.id.tv_hour_work_record_work_date);
+        tvHours = (TextView) rootView.findViewById(R.id.tv_hour_work_record_hours);
+        tvTotalSalary = (TextView) rootView.findViewById(R.id.tv_hour_work__record_total_salary);
+        ibSetting = (ImageButton) rootView.findViewById(R.id.ib_hour_work_record_setting);
+        ibBack = (ImageButton) rootView.findViewById(R.id.ib_hour_work_record_back);
         mListHourWork = (ListView) rootView.findViewById(R.id.listHourWork);
 
         btAddRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivityForResult(new Intent(HourWorkMainFragment.this.getActivity(), HourWorkAddRecordActivity.class),0);
+                startActivityForResult(new Intent(HourWorkMainFragment.this.getActivity(), HourWorkAddRecordActivity.class), 0);
             }
         });
 
         ibSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivityForResult(new Intent(getActivity(), OverTimeRecordSettingActivity.class),OverTimeRecordFragment.OT_RECORD_SETTING);
+                startActivityForResult(new Intent(getActivity(), OverTimeRecordSettingActivity.class), OverTimeRecordFragment.OT_RECORD_SETTING);
             }
         });
         setBack();
-        presenter=new HourWorkMonthPresenter(this);
+        presenter = new HourWorkMonthPresenter(this);
         presenter.initData();
         return rootView;
     }
 
-    public void setHours(String data){
+    public void setHours(String data) {
         tvHours.setText(data);
     }
-    public void setTotalSalary(String data){
+
+    public void setTotalSalary(String data) {
         tvTotalSalary.setText(data);
     }
 
-    public void setBasicSalary(String data){
+    public void setBasicSalary(String data) {
         tvBasicSalary.setText(data);
     }
 
-    public void setDate(String data){
+    public void setDate(String data) {
         tvDate.setText(data);
     }
 
-    public void update(){
+    public void update() {
         presenter.onUpdate();
     }
 
@@ -94,18 +95,25 @@ public class HourWorkMainFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (resultCode){
+        switch (resultCode) {
             case OverTimeRecordFragment.CHANGE_OT_RECORD:
                 update();
                 break;
             case OverTimeRecordFragment.CHANGE_OT_SETTING:
                 update();
                 break;
+            case OverTimeRecordFragment.OT_RECORD_SETTING:
+                update();
+                tvTotalSalary.setText("0.0");
+                tvDate.setText("");
+                tvBasicSalary.setText("0.0");
+                tvHours.setText("0.0");
+                break;
 
         }
     }
 
-    public void setBack(){
+    public void setBack() {
         ibBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

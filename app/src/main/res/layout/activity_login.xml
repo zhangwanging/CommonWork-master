@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="囧职网"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="36sp" />
 
         <LinearLayout
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:src="@mipmap/ic_head"
-                android:tint="@color/colorPrimary" />
+                android:tint="@color/colorPrimaryDark" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:src="@mipmap/ic_password"
-                android:tint="@color/colorPrimary" />
+                android:tint="@color/colorPrimaryDark" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -100,7 +100,7 @@
             android:layout_marginTop="18dp"
             android:background="@drawable/selector_register_btn"
             android:text="注册"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="26sp" />
 
         <LinearLayout
@@ -118,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="忘记密码"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="14sp" />
 
             <ImageView
@@ -139,7 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="社交账号直接登录"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="15sp" />
 
             <ImageView
@@ -148,7 +148,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="5dip"
                 android:layout_toLeftOf="@+id/textView"
-                android:background="@color/colorPrimary" />
+                android:background="@color/colorPrimaryDark" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -156,7 +156,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="5dip"
                 android:layout_toRightOf="@+id/textView"
-                android:background="@color/colorPrimary" />
+                android:background="@color/colorPrimaryDark" />
         </RelativeLayout>
 
         <LinearLayout

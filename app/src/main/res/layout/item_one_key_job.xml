@@ -61,7 +61,7 @@
             android:textSize="@dimen/normal_string_size"
             android:layout_height="match_parent" />
         <TextView
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:padding="5dp"
             android:textSize="@dimen/normal_string_size"
             android:layout_width="wrap_content"

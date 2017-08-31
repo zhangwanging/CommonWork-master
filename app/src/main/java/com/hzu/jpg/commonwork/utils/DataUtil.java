@@ -107,8 +107,9 @@ public class DataUtil {
         List<FilterEntity> data = new ArrayList<>();
         data.add(new FilterEntity("不限", "1"));
         data.add(new FilterEntity("假期工", "2"));
-        data.add(new FilterEntity("实习就业", "3"));
-        data.add(new FilterEntity("长期工", "4"));
+        data.add(new FilterEntity("临时工", "3"));
+        data.add(new FilterEntity("兼职", "4"));
+        data.add(new FilterEntity("长期工", "5"));
         return data;
     }
 

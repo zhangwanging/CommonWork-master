@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.hzu.jpg.commonwork.R;
 import com.hzu.jpg.commonwork.adapter.MyFindPagerAdapter;
@@ -28,15 +29,22 @@ public class MyFindActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         initFragment();
         initViewPage();
-    }
-    public void initFragment(){
-        Fragment[] fragments=new Fragment[2];
-        fragments[0]=new MyOneKeyJobFragment();
-        fragments[1]=new MyListJobFragment();
-        myFindPagerAdapter = new MyFindPagerAdapter(getSupportFragmentManager(),fragments,new String[]{"一键求职记录","投递记录"});
+        this.findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
-    public void initViewPage(){
+    public void initFragment() {
+        Fragment[] fragments = new Fragment[2];
+        fragments[0] = new MyOneKeyJobFragment();
+        fragments[1] = new MyListJobFragment();
+        myFindPagerAdapter = new MyFindPagerAdapter(getSupportFragmentManager(), fragments, new String[]{"一键求职记录", "投递记录"});
+    }
+
+    public void initViewPage() {
         mViewPager = (ViewPager) findViewById(R.id.vp_my_find);
         mViewPager.setAdapter(myFindPagerAdapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs_my_find);

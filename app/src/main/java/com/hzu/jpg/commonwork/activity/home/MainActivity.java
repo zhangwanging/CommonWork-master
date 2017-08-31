@@ -2,6 +2,7 @@ package com.hzu.jpg.commonwork.activity.home;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -42,10 +43,12 @@ import com.hzu.jpg.commonwork.base.BaseRvAdapter;
 import com.hzu.jpg.commonwork.enity.home.JobVo;
 import com.hzu.jpg.commonwork.enity.moudle.Picture;
 import com.hzu.jpg.commonwork.enity.service.NewsVo;
+import com.hzu.jpg.commonwork.enity.service.PostsVo;
 import com.hzu.jpg.commonwork.utils.GlideImageLoader;
 import com.hzu.jpg.commonwork.utils.ToastUtil;
 import com.hzu.jpg.commonwork.widgit.AutoVerticalScrollTextView;
 import com.hzu.jpg.commonwork.widgit.MyRecyclerView;
+import com.paradoxie.autoscrolltextview.VerticalTextview;
 import com.yyydjk.library.BannerLayout;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -72,9 +75,7 @@ public class MainActivity extends BaseLazyFragment implements View.OnClickListen
 
     @Bind(R.id.recyclerView)
     MyRecyclerView recyclerView;
-    @Bind(R.id.tv_location)
-    TextView tvLocation;
-    private AutoVerticalScrollTextView verticalScrollTV;
+    private VerticalTextview verticalScrollTV;
     private ImageView img1, img2, img3, img4, img5;
     private static final String TAG = "HomeFragment";
     private MainAdapter jobMsgAdapter;
@@ -85,60 +86,62 @@ public class MainActivity extends BaseLazyFragment implements View.OnClickListen
     private final int HIDE_PROGRESS = 1001;
     private final int SHOW_PROGRESS = 1002;
     private final int INSERT_DATA = 1003;
+    private final int INIT_DATA_VIEW = 1004;
     private Handler handler = new Handler();
     private JobVo jobVo;
     private BannerLayout bannerLayout;
     private static final int REQUEST_CODE_PICK_CITY = 0;
-    private String[] strings;
-    private boolean isRunning = true;
-    private int number = 0;
+    private ArrayList<String> titleList = new ArrayList<>();
     private View autoView_welfare;
     private Handler uiHandler = null;
-    private final int INIT_DATA_VIEW = 1001;
     private NewsVo newsVo;
     private String newsType = "1";
     private ListView listContent;
     private MainNewsAdapter newsAdapter;
     private TextView no_data_tv;
     private final int ACCESS_COARSE_LOCATION_REQUEST_CODE = 1000;
+    private boolean isStart = false;
+    private TextView tvLocation;
+    private PostsVo postsVo;
 
     @Override
     protected void initViewsAndEvents() {
         initHandler();
         action = new RequestAction(getActivity());
-
         //头部View
         View headView = LayoutInflater.from(getContext()).inflate(R.layout.head_home_rv, null);
         ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         headView.setLayoutParams(lp);
         GridView jobLogoGrid = (GridView) headView.findViewById(R.id.jobLogoGrid);
+        tvLocation = (TextView) headView.findViewById(R.id.tv_location);
+        tvLocation.setOnClickListener(new toLocation());
         gridAdapter = new MainGridAdapter(getActivity());
         jobLogoGrid.setAdapter(gridAdapter);
         jobLogoGrid.setSelector(R.drawable.hide_listview_yellow_selector);
         jobLogoGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) {//"求职",
+                if (position == 0) {//假期工
                     Intent intent = new Intent(getActivity(), ApplyJobActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("classify", "假期工");
                     getActivity().startActivity(intent);
                 }
-                if (position == 1) {//"求职",
+                if (position == 1) {//临时工
                     Intent intent = new Intent(getActivity(), ApplyJobActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("classify", "临时工");
                     getActivity().startActivity(intent);
                 }
-                if (position == 2) {//"求职",
+                if (position == 2) {//兼职
                     Intent intent = new Intent(getActivity(), ApplyJobActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("classify", "兼职");
                     getActivity().startActivity(intent);
                 }
-                if (position == 3) {//"求职",
+                if (position == 3) {//长期工
                     Intent intent = new Intent(getActivity(), ApplyJobActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("classify", "长期工");
                     getActivity().startActivity(intent);
                 }
-                if (position == 4) {//"招聘",
+                if (position == 5) {//招聘
                     if (MyApplication.user == null) {
                         Intent intent = new Intent(getActivity(), LoginActivity.class);
                         getActivity().startActivity(intent);
@@ -149,14 +152,10 @@ public class MainActivity extends BaseLazyFragment implements View.OnClickListen
                         getActivity().startActivity(intent);
                     }
                 }
-                if (position == 7) {//"便民服务",
+                if (position == 4) {//便民服务
                     getActivity().startActivity(new Intent(getActivity(), PostsActivity.class));
                 }
-//                if (position == 5) {//"投诉与建议",
-//                    Intent intent = new Intent(getActivity(), AdviceActivity.class);
-//                    getActivity().startActivity(intent);
-//                }
-                if (position == 6) {//"视频面试",
+                if (position == 7) {//视频面试
                     if (MyApplication.user == null) {
                         Intent intent = new Intent(getActivity(), LoginActivity.class);
                         getActivity().startActivity(intent);
@@ -165,8 +164,7 @@ public class MainActivity extends BaseLazyFragment implements View.OnClickListen
                         ToastUtil.showToast("仅供人事经理使用！");
                     }
                 }
-                if (position == 5) {//"消息",
-                    //ToastUtil.showToast("功能即将开发，敬请期待。");
+                if (position == 6) {  //企业招聘
                     if (MyApplication.user == null) {
                         Intent intent = new Intent(getActivity(), LoginActivity.class);
                         getActivity().startActivity(intent);
@@ -176,7 +174,6 @@ public class MainActivity extends BaseLazyFragment implements View.OnClickListen
                         getActivity().startActivity(intent);
                     }
                 }
-
             }
         });
         headView.findViewById(R.id.layout_view_1).setOnClickListener(this);
@@ -202,17 +199,11 @@ public class MainActivity extends BaseLazyFragment implements View.OnClickListen
                 startActivity(intent);
             }
         });
-
-        verticalScrollTV = (AutoVerticalScrollTextView) headView.findViewById(R.id.textView);
         autoView_welfare = headView.findViewById(R.id.autoView_welfare);
+        verticalScrollTV = (VerticalTextview) headView.findViewById(R.id.textView);
         autoView_welfare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(getActivity(), ServiceActivity.class));
-                /*NewsVo.Data data = newsVo.getData().get(number);
-                Intent intent = new Intent(getActivity(), NewsDetailActivity.class);
-                intent.putExtra("data", data);
-                startActivity(intent);*/
                 getActivity().startActivity(new Intent(getActivity(), PostsActivity.class));
             }
         });
@@ -246,7 +237,7 @@ public class MainActivity extends BaseLazyFragment implements View.OnClickListen
         });
         initData();
 
-        getActivity().findViewById(R.id.search_button).setOnClickListener(new View.OnClickListener() {
+        headView.findViewById(R.id.search_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getActivity().startActivity(new Intent(getActivity(), SearchActivity.class));
@@ -302,28 +293,44 @@ public class MainActivity extends BaseLazyFragment implements View.OnClickListen
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.unbind(this);
-        isRunning = false;
     }
 
-    @OnClick(R.id.tv_location)
-    public void onClick() {
-        if (Build.VERSION.SDK_INT >= 23) {
-            if (ActivityCompat.checkSelfPermission(this.getActivity(), android.Manifest.permission.ACCESS_COARSE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED
-                    || ActivityCompat.checkSelfPermission(this.getActivity(), android.Manifest.permission.ACCESS_FINE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED) {
-                MainActivity.this.requestPermissions(
-                        new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION,
-                                android.Manifest.permission.ACCESS_FINE_LOCATION},
-                        ACCESS_COARSE_LOCATION_REQUEST_CODE);
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (isStart)
+            verticalScrollTV.startAutoScroll();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (isStart)
+            verticalScrollTV.stopAutoScroll();
+    }
+
+    class toLocation implements View.OnClickListener {
+
+        @Override
+        public void onClick(View view) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                if (ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_COARSE_LOCATION)
+                        != PackageManager.PERMISSION_GRANTED
+                        || ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_FINE_LOCATION)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    MainActivity.this.requestPermissions(
+                            new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION,
+                                    android.Manifest.permission.ACCESS_FINE_LOCATION},
+                            ACCESS_COARSE_LOCATION_REQUEST_CODE);
+                } else {
+                    startActivityForResult(new Intent(getContext(), CityPickerActivity.class),
+                            REQUEST_CODE_PICK_CITY);
+                }
             } else {
+                //启动
                 startActivityForResult(new Intent(getContext(), CityPickerActivity.class),
                         REQUEST_CODE_PICK_CITY);
             }
-        } else {
-            //启动
-            startActivityForResult(new Intent(getContext(), CityPickerActivity.class),
-                    REQUEST_CODE_PICK_CITY);
         }
     }
 
@@ -419,7 +426,6 @@ public class MainActivity extends BaseLazyFragment implements View.OnClickListen
             params.add(newsType_app);
             newsVo = action.getNewsListDataAction(params);
             if (newsVo != null) {
-
                 uiHandler.sendEmptyMessage(1);
             }
         }
@@ -448,13 +454,40 @@ public class MainActivity extends BaseLazyFragment implements View.OnClickListen
 
         @Override
         public void run() {
-            NameValuePair page_app = new BasicNameValuePair("page", jobMsgPage + "");//搜索字段
-            NameValuePair city_app = new BasicNameValuePair("city", Config.SELECTED_CITY);//搜索字段
+            NameValuePair page_app = new BasicNameValuePair("page", jobMsgPage + "");
+            NameValuePair city_app = new BasicNameValuePair("city", Config.SELECTED_CITY);
             List<NameValuePair> params = new ArrayList<>();
             params.add(page_app);
             params.add(city_app);
             jobVo = action.showSimpleInfoAction(params);
             uiHandler.sendEmptyMessage(INSERT_DATA);
+        }
+
+        public void startThread() {
+            if (rthread == null) {
+                rthread = new Thread(this);
+                rthread.start();
+            }
+        }
+    }
+
+    //滚动textview 帖子内容
+    class getCommentThread implements Runnable {
+        private Thread rthread = null;// 监听线程.
+
+        @Override
+        public void run() {
+            NameValuePair method_app = new BasicNameValuePair("method", "android");
+            NameValuePair classfy_app = new BasicNameValuePair("classfy", "2");
+            NameValuePair pageNo_app = new BasicNameValuePair("pageNo", "1");
+            NameValuePair pageSize_app = new BasicNameValuePair("pageSize", "1000");
+            List<NameValuePair> params = new ArrayList<>();
+            params.add(method_app);
+            params.add(classfy_app);
+            params.add(pageNo_app);
+            params.add(pageSize_app);
+            postsVo = action.getCommentAction(params);
+            uiHandler.sendEmptyMessage(INIT_DATA_VIEW);
         }
 
         public void startThread() {
@@ -475,7 +508,6 @@ public class MainActivity extends BaseLazyFragment implements View.OnClickListen
                         break;
                     case INSERT_DATA:
                         if (jobVo != null && !jobVo.equals("")) {
-                            //ToastUtil.showToast(jobVo.getMessage());
                             if (jobVo.getData() != null) {
                                 if (jobVo.getStatu() != 0) {
                                     if (jobVo.getData().size() <= 0) {
@@ -488,55 +520,49 @@ public class MainActivity extends BaseLazyFragment implements View.OnClickListen
                                     recyclerView.noMoreLoading();
                             }
                         }
+                        new getCommentThread().startThread();
                         break;
                     case 1:
-
                         newsAdapter = new MainNewsAdapter(getContext(), newsVo.getData());
                         if (newsVo != null && !newsVo.equals(""))
                             if (newsVo.getData() != null && newsVo.getData().size() > 0) {
                                 listContent.setVisibility(View.VISIBLE);
                                 no_data_tv.setVisibility(View.GONE);
                                 listContent.setAdapter(newsAdapter);
-                                strings = new String[newsVo.getData().size()];
-                                for (int i = 0; i < newsVo.getData().size(); i++) {
-                                    strings[i] = newsVo.getData().get(i).getTitle();
-                                }
                             } else {
                                 listContent.setVisibility(View.GONE);
                                 no_data_tv.setVisibility(View.VISIBLE);
                             }
-                        if (strings.length > 0) {
-                            verticalScrollTV.setText(strings[0]);
-                            new Thread() {
-                                @Override
-                                public void run() {
-                                    while (isRunning) {
-                                        SystemClock.sleep(3000);
-                                        he.sendEmptyMessage(199);
-                                    }
-                                }
-                            }.start();
-                        }
+                        break;
+                    case INIT_DATA_VIEW:
+                        titleList.clear();
 
+                        if (postsVo != null && !postsVo.equals(""))
+                            if (postsVo.getComment() != null && postsVo.getComment().size() > 0)
+                                for (int i = 0; i < postsVo.getComment().size(); i++)
+                                    titleList.add(postsVo.getComment().get(i).getContent());
+                        if (titleList.size() > 0) {
+                            if (!isStart) {
+                                verticalScrollTV.setTextList(titleList);
+                                verticalScrollTV.setText(14, 2, Color.BLACK);//设置属性,具体跟踪源码
+                                verticalScrollTV.setTextStillTime(3000);//设置停留时长间隔
+                                verticalScrollTV.setAnimTime(300);//设置进入和退出的时间间隔
+                                //对单条文字的点击监听
+                                verticalScrollTV.setOnItemClickListener(new VerticalTextview.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(int position) {
+                                        startActivity(new Intent(getActivity(), PostsActivity.class));
+                                    }
+                                });
+                                isStart = true;
+                                verticalScrollTV.startAutoScroll();
+                            }
+                        }
                         break;
                 }
             }
         };
     }
-
-    private Handler he = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            if (msg.what == 199) {
-                verticalScrollTV.next();
-                number++;
-                if (number > (strings.length - 1))
-                    number = 0;
-                verticalScrollTV.setText(strings[number]);
-            }
-
-        }
-    };
 
     private void initPicture() {
         final List<String> urls = new ArrayList<>();

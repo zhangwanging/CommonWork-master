@@ -117,7 +117,7 @@ public class HomeFragment extends BaseLazyFragment {
         ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(DensityUtils.getDisplayWidth(Config.CONTEXT), ViewGroup.LayoutParams.WRAP_CONTENT);
 
         headView.setLayoutParams(lp);
-        RecyclerView headRV = (RecyclerView) headView.findViewById(R.id.recyclerView_function);
+        //RecyclerView headRV = (RecyclerView) headView.findViewById(R.id.recyclerView_function);
         functionTitles = getResources().getStringArray(R.array.functionTitles);
         functionIcons = getResources().obtainTypedArray(R.array.functionIcons);
         functionIconsRes = new ArrayList<>();
@@ -125,10 +125,10 @@ public class HomeFragment extends BaseLazyFragment {
             functionIconsRes.add(functionIcons.getResourceId(i, -1));
         }
         functionRVAdapter = new HomeFunctionRVAdapter(getContext(), functionTitles, functionIconsRes);
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
-        headRV.setLayoutManager(layoutManager);
-        headRV.setNestedScrollingEnabled(false);
-        headRV.setAdapter(functionRVAdapter);
+        //GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
+        //headRV.setLayoutManager(layoutManager);
+        //headRV.setNestedScrollingEnabled(false);
+        //headRV.setAdapter(functionRVAdapter);
 
         //recyclerView 设置
         recyclerView.setVLinerLayoutManager();

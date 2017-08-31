@@ -24,6 +24,7 @@ import com.hzu.jpg.commonwork.activity.ContactUsActivity;
 import com.hzu.jpg.commonwork.activity.LoginActivity;
 import com.hzu.jpg.commonwork.activity.MyFindActivity;
 import com.hzu.jpg.commonwork.activity.MyInfoActivity;
+import com.hzu.jpg.commonwork.activity.MyInfoEditActivity;
 import com.hzu.jpg.commonwork.activity.SalaryFormActivity;
 import com.hzu.jpg.commonwork.activity.SettingActivity;
 import com.hzu.jpg.commonwork.activity.goods.GoodsActivity;
@@ -215,7 +216,7 @@ public class PersonalFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (login)
-                    startActivityForResult(new Intent(getActivity(),MyInfoActivity.class),0);
+                    startActivityForResult(new Intent(getActivity(),MyInfoEditActivity.class),0);
                 else
                     ToastUtil.showToast("请先登录");
             }

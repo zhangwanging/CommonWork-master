@@ -19,7 +19,7 @@
         android:textColor="@color/colorWhite"
         android:text="7.0h"
         android:id="@+id/tv_item_calendar_hours"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"/>

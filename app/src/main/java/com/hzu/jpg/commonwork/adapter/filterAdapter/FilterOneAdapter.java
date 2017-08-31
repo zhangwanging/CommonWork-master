@@ -51,7 +51,7 @@ public class FilterOneAdapter extends BaseListAdapter<FilterEntity> {
 
         holder.tvTitle.setText(entity.getKey());
         if (entity.isSelected()) {
-            holder.tvTitle.setTextColor(mContext.getResources().getColor(R.color.colorPrimary));
+            holder.tvTitle.setTextColor(mContext.getResources().getColor(R.color.colorPrimaryDark));
         } else {
             holder.tvTitle.setTextColor(mContext.getResources().getColor(R.color.font_black_3));
         }
