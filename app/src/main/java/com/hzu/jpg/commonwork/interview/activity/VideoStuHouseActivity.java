@@ -233,9 +233,11 @@ public class VideoStuHouseActivity extends AppCompatActivity {
 
     private synchronized void initSession() {
         Log.e(TAG, "studentToken=" + studentToken);
-        session = cat.createSession(studentToken, Session.SessionType.P2P);
-        SessionHandler sh = new SessionHandler();
-        session.addObserver(sh);
+        if(cat!=null) {
+            session = cat.createSession(studentToken, Session.SessionType.P2P);
+            SessionHandler sh = new SessionHandler();
+            session.addObserver(sh);
+        }
     }
 
     private void chatting() {
@@ -405,7 +407,7 @@ public class VideoStuHouseActivity extends AppCompatActivity {
                     if (localStream != null && sender != null && session != null && session.getState() == Configs.ConnectState.CONNECTED) {
                         session.sendTo(localStream, false, null, sender.getTo());
                     }
-                    VideoStuHouseActivity.this.finish();
+                   // VideoStuHouseActivity.this.finish();
                 }
 
                 @Override
