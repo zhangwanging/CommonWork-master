@@ -74,7 +74,7 @@ public class VideoSelectStudentActivity extends AppCompatActivity {
         adapter=new VideoSelectStuAdapter(this,list);
 
         listView.setEmptyView(ll_emptyview);
-        swipeLayout.setColorSchemeResources(R.color.colorPrimaryDark,R.color.colorAccent);
+        swipeLayout.setColorSchemeResources(R.color.colorPrimary,R.color.colorAccent);
 
         swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

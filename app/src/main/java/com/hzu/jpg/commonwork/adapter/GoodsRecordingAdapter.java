@@ -70,19 +70,19 @@ public class GoodsRecordingAdapter extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
-
-        viewHolder.tvName.setText(detail.getShopInfo().getName());
+        viewHolder.tvName.setText(detail.getName());
         viewHolder.tvPoint.setText(detail.getStatus() == 0 ? "未发货" : "已发货");
         viewHolder.tvPrice.setText("收货人账号：" + detail.getAccount());
         viewHolder.tvDescribes.setText("联系方式：" + detail.getLink_phone());
         viewHolder.tvSaleamount.setText("地址：" + detail.getOrderaddress());
 //            imageLoader.displayImage(Constants.imageUrl +
 //                    detail.getPicture(), ((ItemViewHolder) holder).iv_image, options);
-        Glide.with(context.getApplicationContext())
-                .load(Constants.imageUrl + detail.getShopInfo().getPrice())
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .placeholder(R.mipmap.image_bg_default)
-                .error(R.mipmap.image_bg_default).into(viewHolder.ivImage);
+        if (detail.getShopInfo() != null)
+            Glide.with(context.getApplicationContext())
+                    .load(Constants.imageUrl + detail.getShopInfo().getPrice())
+                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                    .placeholder(R.mipmap.image_bg_default)
+                    .error(R.mipmap.image_bg_default).into(viewHolder.ivImage);
         return view;
     }
 

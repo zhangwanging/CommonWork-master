@@ -71,6 +71,8 @@ public class RegisterSetPwdActivity extends AppCompatActivity {
     @Bind(R.id.ll_switch)
     LinearLayout llSwitch;
 
+    private String token;
+
 
     private Runnable runnable = new Runnable() {
         @Override
@@ -102,10 +104,10 @@ public class RegisterSetPwdActivity extends AppCompatActivity {
 
     private void initView() {
         isSetPwd = getIntent().getBooleanExtra("isSetPwd", false);
-        if (isSetPwd){
+        if (isSetPwd) {
             toolbar.setTitle("修改密码");
             llSwitch.setVisibility(View.GONE);
-        }else {
+        } else {
             toolbar.setTitle("注册帐号");
         }
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
@@ -118,44 +120,81 @@ public class RegisterSetPwdActivity extends AppCompatActivity {
         });
     }
 
+    public void getCodeToken() {
+        OkHttpUtils.post().url(Config.IP + "/HRM/token/gtToken.html")
+                .addParams(Config.KEY_TELEPHONE, editMobile.getText().toString())
+                .build().execute(new StringCallback() {
+            @Override
+            public void onError(Call call, Exception e, int id) {
+                ToastUtil.showToast("网络连接错误~");
+            }
+
+            @Override
+            public void onResponse(String response, int id) {
+                Log.e(TAG, "onResponse: " + response, null);
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    int status = jsonObject.getInt("status");
+                    if (status == 1) {
+                        String data = jsonObject.getString("data");
+                        JSONObject json = new JSONObject(data);
+                        token = json.getString("token");
+                        if (token != null && !token.equals("")) {
+                            telephone = editMobile.getText().toString();
+                            if (telephone.length() == 11) {
+                                handler.post(runnable);
+                                OkHttpUtils.post().url(Config.IP + "/HRM/msg/gtMsgTerminal.html")
+                                        .addParams(Config.KEY_TELEPHONE, editMobile.getText().toString())
+                                        .addParams("token", token)
+                                        .build().execute(new StringCallback() {
+                                    @Override
+                                    public void onError(Call call, Exception e, int id) {
+                                        ToastUtil.showToast("网络连接错误~");
+                                    }
+
+                                    @Override
+                                    public void onResponse(String response, int id) {
+                                        Log.e(TAG, "onResponse: " + response, null);
+                                        try {
+                                            JSONObject jsonObject = new JSONObject(response);
+                                            String msg = jsonObject.getString("status");
+                                            ToastUtil.showToast(msg);
+                                        } catch (JSONException e) {
+                                            ToastUtil.showToast("网络连接错误~");
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                });
+                            } else {
+                                ToastUtil.showToast("手机格式不正确");
+                            }
+                        }
+                    }
+                } catch (JSONException e) {
+                    ToastUtil.showToast("网络连接错误~");
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
     @OnClick({R.id.bt_getyanzheng, R.id.btn_sure, R.id.btn_show_password, R.id.tv_toCompanyRegister})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.bt_getyanzheng:
                 telephone = editMobile.getText().toString();
                 if (telephone.length() == 11) {
-                    handler.post(runnable);
-                    OkHttpUtils.post().url(Config.URL_GET_CODE)
-                            .addParams(Config.KEY_TELEPHONE, editMobile.getText().toString())
-                            .build().execute(new StringCallback() {
-                        @Override
-                        public void onError(Call call, Exception e, int id) {
-                            ToastUtil.showToast("网络连接错误~");
-                        }
-
-                        @Override
-                        public void onResponse(String response, int id) {
-                            Log.e(TAG, "onResponse: " + response, null);
-                            try {
-                                JSONObject jsonObject = new JSONObject(response);
-                                String msg = jsonObject.getString("status");
-                                ToastUtil.showToast(msg);
-                            } catch (JSONException e) {
-                                ToastUtil.showToast("网络连接错误~");
-                                e.printStackTrace();
-                            }
-                        }
-                    });
+                    getCodeToken();
                 } else
                     ToastUtil.showToast("手机格式不正确");
                 break;
             case R.id.btn_sure:
-                if(checkMsg() ){
+                if (checkMsg()) {
                     if (isSetPwd) {
                         resetPwd();
-                    }else if(!isSetPwd && isCompanyRegister){
+                    } else if (!isSetPwd && isCompanyRegister) {
                         companyRegister();
-                    }else if(!isSetPwd && !isCompanyRegister){
+                    } else if (!isSetPwd && !isCompanyRegister) {
                         studentRegister();
                     }
                 }
@@ -175,7 +214,7 @@ public class RegisterSetPwdActivity extends AppCompatActivity {
                     isCompanyRegister = false;
                     Animation animation = AnimationUtils.loadAnimation(this, R.anim.left_out);
                     llCompanyName.setAnimation(animation);
-                    tvToCompanyRegister.setAnimation(AnimationUtils.loadAnimation(this,R.anim.right_in));
+                    tvToCompanyRegister.setAnimation(AnimationUtils.loadAnimation(this, R.anim.right_in));
                     llCompanyName.setVisibility(View.GONE);
                     tvToCompanyRegister.setText("切换为企业注册");
                 } else {
@@ -200,7 +239,7 @@ public class RegisterSetPwdActivity extends AppCompatActivity {
             @Override
             public void onError(Call call, Exception e, int id) {
                 ToastUtil.showToast("网络连接出错~");
-                Log.e(TAG, "onError: " + e.getMessage()+e.toString(), null);
+                Log.e(TAG, "onError: " + e.getMessage() + e.toString(), null);
             }
 
             @Override
@@ -209,10 +248,10 @@ public class RegisterSetPwdActivity extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     String status = jsonObject.getString("status");
-                    if (status.equals("密码修改成功，请重新登录！")){
+                    if (status.equals("密码修改成功，请重新登录！")) {
                         ToastUtil.showToast(status);
                         finish();
-                    }else{
+                    } else {
                         ToastUtil.showToast(status);
                     }
                 } catch (JSONException e) {
@@ -223,12 +262,13 @@ public class RegisterSetPwdActivity extends AppCompatActivity {
         });
     }
 
+    //企业注册
     private void companyRegister() {
         OkHttpUtils.post().url(Config.URL_COMPANY_REGISTER)
                 .addParams(Config.KEY_USER_NAME, telephone)
                 .addParams(Config.KEY_PASSWORD, pwd)
                 .addParams(Config.KEY_COM_MSG, code)
-                .addParams(Config.KEY_ENTERPRISE_NAME,companyName)
+                .addParams(Config.KEY_ENTERPRISE_NAME, companyName)
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
@@ -242,10 +282,10 @@ public class RegisterSetPwdActivity extends AppCompatActivity {
                     Log.e(TAG, "companyRegister onResponse: " + response, null);
                     JSONObject jsonObject = new JSONObject(response);
                     String status = jsonObject.getString("status");
-                    if (status.equals("注册成功！")){
+                    if (status.equals("注册成功！")) {
                         ToastUtil.showToast(status);
                         finish();
-                    }else{
+                    } else {
                         ToastUtil.showToast(status);
                     }
                 } catch (JSONException e) {
@@ -255,35 +295,36 @@ public class RegisterSetPwdActivity extends AppCompatActivity {
         });
     }
 
+    //学生注册
     private void studentRegister() {
         OkHttpUtils.post().url(Config.URL_STUDENT_REGISTER)
                 .addParams(Config.KEY_USER_NAME, telephone)
                 .addParams(Config.KEY_PASSWORD, pwd)
                 .addParams(Config.KEY_STU_MSG, code)
-                .addParams("agentId",agentId)
+                .addParams("agentId", agentId)
                 .build().execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-                        ToastUtil.showToast("网络连接出错~");
-                    }
+            @Override
+            public void onError(Call call, Exception e, int id) {
+                ToastUtil.showToast("网络连接出错~");
+            }
 
-                    @Override
-                    public void onResponse(String response, int id) {
-                        Log.e(TAG, "studentRegister onResponse: " + response, null);
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            String status = jsonObject.getString("status");
-                            if (status.equals("注册成功！")){
-                                ToastUtil.showToast(status);
-                                finish();
-                            }else{
-                                ToastUtil.showToast(status);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+            @Override
+            public void onResponse(String response, int id) {
+                Log.e(TAG, "studentRegister onResponse: " + response, null);
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    String status = jsonObject.getString("status");
+                    if (status.equals("注册成功！")) {
+                        ToastUtil.showToast(status);
+                        finish();
+                    } else {
+                        ToastUtil.showToast(status);
                     }
-                });
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     private boolean checkMsg() {
@@ -305,9 +346,9 @@ public class RegisterSetPwdActivity extends AppCompatActivity {
         pwd = etPwd.getText().toString();
         code = etYanzheng.getText().toString();
         companyName = etCompanyName.getText().toString();
-        agentId=etAgentId.getText().toString();
-        if (StringUtils.isEmpty(agentId)){
-            agentId="0";
+        agentId = etAgentId.getText().toString();
+        if (StringUtils.isEmpty(agentId)) {
+            agentId = "0";
         }
         return true;
     }

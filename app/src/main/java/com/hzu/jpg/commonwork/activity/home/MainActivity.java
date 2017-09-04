@@ -31,6 +31,7 @@ import com.hzu.jpg.commonwork.activity.CityPickerActivity;
 import com.hzu.jpg.commonwork.activity.JobMsgActivity;
 import com.hzu.jpg.commonwork.activity.LoginActivity;
 import com.hzu.jpg.commonwork.activity.RecruitmentActivity;
+import com.hzu.jpg.commonwork.activity.ResumeActivity;
 import com.hzu.jpg.commonwork.activity.WebViewActivity;
 import com.hzu.jpg.commonwork.activity.service.NewsDetailActivity;
 import com.hzu.jpg.commonwork.activity.service.PostsActivity;
@@ -44,6 +45,7 @@ import com.hzu.jpg.commonwork.enity.home.JobVo;
 import com.hzu.jpg.commonwork.enity.moudle.Picture;
 import com.hzu.jpg.commonwork.enity.service.NewsVo;
 import com.hzu.jpg.commonwork.enity.service.PostsVo;
+import com.hzu.jpg.commonwork.interview.activity.VideoSelectStudentActivity;
 import com.hzu.jpg.commonwork.utils.GlideImageLoader;
 import com.hzu.jpg.commonwork.utils.ToastUtil;
 import com.hzu.jpg.commonwork.widgit.AutoVerticalScrollTextView;
@@ -153,15 +155,18 @@ public class MainActivity extends BaseLazyFragment implements View.OnClickListen
                     }
                 }
                 if (position == 4) {//便民服务
-                    getActivity().startActivity(new Intent(getActivity(), PostsActivity.class));
+                    getActivity().startActivity(new Intent(getActivity(), ResumeActivity.class));
                 }
                 if (position == 7) {//视频面试
                     if (MyApplication.user == null) {
                         Intent intent = new Intent(getActivity(), LoginActivity.class);
                         getActivity().startActivity(intent);
                         ToastUtil.showToast("登录后才能视频面试哦~");
-                    } else {
-                        ToastUtil.showToast("仅供人事经理使用！");
+                    } else if (MyApplication.role == 1) {
+                        Intent intent = new Intent(getActivity(), VideoSelectStudentActivity.class);
+                        startActivity(intent);
+                    } else if (MyApplication.role == 0) {
+                        ToastUtil.showToast("学生用户只需等待公司来电哦！");
                     }
                 }
                 if (position == 6) {  //企业招聘

@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
+        layout="@layout/toolbar" />
 
     <ScrollView
-        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,289 +26,287 @@
                 android:layout_height="64dp"
                 android:orientation="horizontal"
                 android:padding="8dp">
+
                 <TextView
                     style="@style/resumeTextStyle"
-                    android:text="姓        名"
-                    />
+                    android:text="姓        名" />
+
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="@color/grayd"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:background="@color/grayd" />
 
-                <!--<android.support.design.widget.TextInputLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:textColorHint="@color/grayc">-->
-                    <!--<EditText-->
-                        <!--android:id="@+id/et_name"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:hint="2-6个汉字或字母"-->
-                        <!--android:textSize="@dimen/resumeTextSize"-->
-                        <!--android:theme="@style/editTextStyle"-->
-                        <!--/>-->
-                <!--</android.support.design.widget.TextInputLayout>-->
                 <TextView
                     android:id="@+id/tv_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/normal_string_size"
                     android:gravity="center_vertical"
-                    />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/normal_string_size" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/grayd"
-                />
+                android:background="@color/grayd" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="8dp"
-                android:gravity="center_vertical">
+                android:padding="8dp">
+
                 <TextView
-                    android:text="性        别"
-                    style="@style/resumeTextStyle" />
+                    style="@style/resumeTextStyle"
+                    android:text="性        别" />
+
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="@color/grayd"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:background="@color/grayd" />
+
                 <RadioGroup
-                    android:orientation="horizontal"
                     android:id="@+id/radioGroupTab"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="20.0dip"
                     android:layout_width="fill_parent"
                     android:layout_height="32dp"
                     android:clickable="false"
-                    android:focusable="false">
+                    android:focusable="false"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="20.0dip">
 
                     <RadioButton
                         android:id="@+id/RBtn_male"
-                        android:textSize="15.0dip"
-                        android:textColor="@drawable/selector_sex_btn_text_color"
-                        android:gravity="center"
-                        android:checked="true"
-                        android:background="@drawable/selector_sex_left_check_drawable"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:button="@null"
-                        android:text="男"
                         android:layout_weight="1.0"
+                        android:background="@drawable/selector_sex_left_check_drawable"
+                        android:button="@null"
+                        android:checked="true"
                         android:clickable="false"
                         android:focusable="false"
-                        />
+                        android:gravity="center"
+                        android:text="男"
+                        android:textColor="@drawable/selector_sex_btn_text_color"
+                        android:textSize="15.0dip" />
 
                     <RadioButton
-                        android:textSize="15.0dip"
-                        android:textColor="@drawable/selector_sex_btn_text_color"
-                        android:gravity="center"
                         android:id="@+id/RBtn_female"
-                        android:background="@drawable/selector_sex_right_check_drawable"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:button="@null"
-                        android:text="女"
                         android:layout_weight="1.0"
+                        android:background="@drawable/selector_sex_right_check_drawable"
+                        android:button="@null"
                         android:clickable="false"
-                        android:focusable="false"/>
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:text="女"
+                        android:textColor="@drawable/selector_sex_btn_text_color"
+                        android:textSize="15.0dip" />
                 </RadioGroup>
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/grayd"
-                />
+                android:background="@color/grayd" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="8dp"
-                android:gravity="center_vertical">
+                android:padding="8dp">
+
                 <TextView
-                    android:text="出生年份"
-                    style="@style/resumeTextStyle" />
+                    style="@style/resumeTextStyle"
+                    android:text="出生年份" />
+
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="@color/grayd"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:background="@color/grayd" />
 
                 <TextView
                     android:id="@+id/tv_date"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textColor="@color/black"
                     android:layout_marginLeft="10dp"
-                    android:textSize="16sp"
                     android:gravity="center_vertical"
-                    />
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/grayd"
-                />
+                android:background="@color/grayd" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="8dp"
-                android:gravity="center_vertical">
+                android:padding="8dp">
+
                 <TextView
-                    android:text="所在院校"
-                    style="@style/resumeTextStyle" />
+                    style="@style/resumeTextStyle"
+                    android:text="所在院校" />
+
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="@color/grayd"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:background="@color/grayd" />
 
                 <!--<android.support.design.widget.TextInputLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:textColorHint="@color/grayc">-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textColorHint="@color/grayc">-->
 
-                    <!--<EditText-->
-                        <!--android:id="@+id/et_school"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="match_parent"-->
-                        <!--android:hint="请输入所在院校名称"-->
-                        <!--android:textColorHint="@color/grayd"-->
-                        <!--android:textSize="@dimen/resumeTextSize"-->
-                        <!--android:theme="@style/editTextStyle"-->
-                        <!--/>-->
+                <!--<EditText-->
+                <!--android:id="@+id/et_school"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:hint="请输入所在院校名称"-->
+                <!--android:textColorHint="@color/grayd"-->
+                <!--android:textSize="@dimen/resumeTextSize"-->
+                <!--android:theme="@style/editTextStyle"-->
+                <!--/>-->
                 <!--</android.support.design.widget.TextInputLayout>-->
 
                 <TextView
                     android:id="@+id/tv_school"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/normal_string_size"
                     android:gravity="center_vertical"
-                    />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/normal_string_size" />
 
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/grayd"
-                />
+                android:background="@color/grayd" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="8dp"
-                android:gravity="center_vertical">
+                android:padding="8dp">
+
                 <TextView
-                    android:text="手机号码"
-                    style="@style/resumeTextStyle" />
+                    style="@style/resumeTextStyle"
+                    android:text="手机号码" />
+
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="@color/grayd"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:background="@color/grayd" />
 
                 <TextView
                     android:id="@+id/tv_phoneNum"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/normal_string_size"
                     android:gravity="center_vertical"
-                    />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/normal_string_size" />
 
 
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/grayd"
-                />
+                android:background="@color/grayd" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="8dp"
-                android:gravity="center_vertical">
+                android:padding="8dp">
+
                 <TextView
-                    android:text="求职区域"
-                    style="@style/resumeTextStyle" />
+                    style="@style/resumeTextStyle"
+                    android:text="求职区域" />
+
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="@color/grayd"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:background="@color/grayd" />
 
                 <TextView
                     android:id="@+id/tv_location"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="期望求职区域"
-                    android:textColorHint="@color/grayc"
-                    android:textSize="@dimen/resumeTextSize"
                     android:layout_marginLeft="10dp"
                     android:gravity="center_vertical"
-                    android:textColor="@color/black"/>
+                    android:hint="期望求职区域"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/grayc"
+                    android:textSize="@dimen/resumeTextSize" />
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="8dp"
-                android:gravity="center_vertical">
+                android:padding="8dp">
+
                 <TextView
-                    android:text="工作类型"
-                    style="@style/resumeTextStyle" />
+                    style="@style/resumeTextStyle"
+                    android:text="工作类型" />
+
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="@color/grayd"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:background="@color/grayd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="bottom">
-                        <TextView
-                            android:id="@+id/tv_classify"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:hint="请选择工作性质"
-                            android:textColorHint="@color/grayc"
-                            android:layout_marginLeft="10dp"
-                            android:textSize="@dimen/resumeTextSize"
-                            android:textColor="@color/black"
-                            android:gravity="center_vertical"
-                            />
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_classify"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:hint="请选择工作性质"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/grayc"
+                        android:textSize="@dimen/resumeTextSize" />
 
                 </LinearLayout>
             </LinearLayout>
+
             <Button
                 android:id="@+id/btn_confirm"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:layout_gravity="bottom"
                 android:layout_marginBottom="11dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
@@ -315,8 +314,7 @@
                 android:background="@drawable/selector_apply_job_btn"
                 android:text="确定"
                 android:textColor="@color/white"
-                android:textSize="18sp"
-                android:layout_gravity="bottom"/>
+                android:textSize="18sp" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.hzu.jpg.commonwork.R;
 import com.hzu.jpg.commonwork.adapter.GoodsRecordingAdapter;
+import com.hzu.jpg.commonwork.app.Config;
 import com.hzu.jpg.commonwork.enity.GoodsRecordingVo;
 import com.hzu.jpg.commonwork.utils.ToastUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -49,7 +50,7 @@ public class GoodsRecordingActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        String url = "https://www.jiongzhiw.com/HRM/life/getPerOrderInfo.html";
+        String url = Config.IP + "/HRM/life/getPerOrderInfo.html";
         OkHttpUtils.post().url(url)
                 .addParams("method", "android")
                 .addParams("startPage", "1")

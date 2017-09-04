@@ -8,6 +8,7 @@
         android:layout_width="110dip"
         android:layout_height="110dip"
         android:layout_margin="10dip"
+        android:background="@mipmap/image_bg_default"
         android:scaleType="fitXY" />
 
     <LinearLayout

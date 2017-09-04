@@ -1,14 +1,25 @@
 package com.hzu.jpg.commonwork.activity;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.baidu.location.Poi;
 import com.hzu.jpg.commonwork.R;
+import com.hzu.jpg.commonwork.adapter.PopupWindowAdapter;
 import com.hzu.jpg.commonwork.app.Config;
 import com.hzu.jpg.commonwork.app.MyApplication;
 import com.hzu.jpg.commonwork.db.DBManager;
@@ -27,6 +38,7 @@ import com.zhy.http.okhttp.callback.StringCallback;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -72,6 +84,8 @@ public class ResumeActivity extends BaseAppCompatActivity {
     private String region = "";
     private String classify = "";
     User user = MyApplication.user;
+    private PopupWindow pop;
+    private List<String> str = new ArrayList<>();
 
     @Override
     protected void getBundleExtras(Bundle extras) {
@@ -85,6 +99,11 @@ public class ResumeActivity extends BaseAppCompatActivity {
 
     @Override
     protected void initViewsAndEvents() {
+        str.add("假期工");
+        str.add("临时工");
+        str.add("兼职");
+        str.add("长期工");
+        showContactUsPopWin(this, "选择工作类型", str);
         tvTitle.setText("一键求职");
         jobs = DataUtil.getJobs();
         DBManager db = new DBManager(this);
@@ -206,12 +225,52 @@ public class ResumeActivity extends BaseAppCompatActivity {
                             }
                         }
                     });
+                } else {
+                    ToastUtil.showToast("请选择求职区域或工作类型");
                 }
+                break;
+            case R.id.tv_classify:
+                pop.showAtLocation(view, Gravity.CENTER, 0, 0);
                 break;
         }
     }
 
     private boolean checkMsg() {
         return StringUtils.isNotEmpty(city) && StringUtils.isNotEmpty(region) && StringUtils.isNotEmpty(classify);
+    }
+
+    public void showContactUsPopWin(Context context, String title, List<String> list) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        // 引入窗口配置文件
+        View view = inflater.inflate(R.layout.dialog_add_client_view, null);
+        view.getBackground().setAlpha(100);
+        // 创建PopupWindow对象
+        pop = new PopupWindow(view, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, false);
+        View pop_reward_view = view.findViewById(R.id.pop_reward_view);
+        TextView title_tv = (TextView) view.findViewById(R.id.title_tv);
+        title_tv.setText(title);
+        final PopupWindowAdapter adapter = new PopupWindowAdapter(context, list);
+        ListView listView = (ListView) view.findViewById(R.id.listContent);
+        listView.setAdapter(adapter);
+        // 需要设置一下此参数，点击外边可消失
+        pop.setBackgroundDrawable(new BitmapDrawable());
+        // 设置点击窗口外边窗口消失
+        pop.setOutsideTouchable(true);
+        // 设置此参数获得焦点，否则无法点击
+        pop.setFocusable(true);
+        pop_reward_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pop.dismiss();
+            }
+        });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                classify = adapter.getAll().get(i).toString();
+                tvClassify.setText(classify);
+                pop.dismiss();
+            }
+        });
     }
 }

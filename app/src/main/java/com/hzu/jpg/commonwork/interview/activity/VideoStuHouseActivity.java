@@ -15,7 +15,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 
 import com.hzu.jpg.commonwork.R;
 import com.hzu.jpg.commonwork.app.Config;
@@ -36,7 +35,6 @@ import com.shishimao.sdk.RemoteStream;
 import com.shishimao.sdk.Sender;
 import com.shishimao.sdk.Session;
 import com.shishimao.sdk.apprtc.AppRTCAudioManager;
-import com.shishimao.sdk.http.RTCatRequests;
 import com.shishimao.sdk.tools.L;
 import com.shishimao.sdk.view.VideoPlayer;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -88,7 +86,7 @@ public class VideoStuHouseActivity extends AppCompatActivity {
     private boolean flagTakePhone;
     private boolean flagInSessionOneTime;
 
-    private String companyName="";
+    private String companyName = "";
 
 
     static class MyHandler extends Handler {
@@ -167,18 +165,18 @@ public class VideoStuHouseActivity extends AppCompatActivity {
 
     private void init() {
         iniVideoWaining();
-        Intent intent=getIntent();
-        status=intent.getStringExtra("status");
-        studentToken=intent.getStringExtra("studentToken");
+        Intent intent = getIntent();
+        status = intent.getStringExtra("status");
+        studentToken = intent.getStringExtra("studentToken");
 
-        Log.e(TAG,"status="+status+" studentToken="+studentToken);
+        Log.e(TAG, "status=" + status + " studentToken=" + studentToken);
 
         btShutdown.setImageResource(R.mipmap.video_on);
 
         localVideoRendererme.setZOrderOnTop(true);
 
-        flagTakePhone=true;
-        flagInSessionOneTime=true;
+        flagTakePhone = true;
+        flagInSessionOneTime = true;
 
         //初始化设置
         if (VideoUtil.isHeadSetOn(this)) {
@@ -226,7 +224,7 @@ public class VideoStuHouseActivity extends AppCompatActivity {
             @Override
             public void accepted() {
                 Log.e(TAG, "localString.StreamObserver.accepted");
-                if(localStream!=null)
+                if (localStream != null)
                     localStream.play(localVideoRendererme);
             }
         });
@@ -234,7 +232,7 @@ public class VideoStuHouseActivity extends AppCompatActivity {
     }
 
     private synchronized void initSession() {
-        Log.e(TAG,"studentToken="+studentToken);
+        Log.e(TAG, "studentToken=" + studentToken);
         session = cat.createSession(studentToken, Session.SessionType.P2P);
         SessionHandler sh = new SessionHandler();
         session.addObserver(sh);
@@ -255,7 +253,7 @@ public class VideoStuHouseActivity extends AppCompatActivity {
                                 Log.e(TAG, "starting...");
                                 sendMessage(1);
                                 inSession();
-                            } else if (status.equals("wait") || status.equals("noaccept")||status.equals("closed")) {
+                            } else if (status.equals("wait") || status.equals("noaccept") || status.equals("closed")) {
                                 Log.e(TAG, "only student can receive the signal 'closed'...");
                                 sendMessage(3);
                                 VideoStuHouseActivity.this.finish();
@@ -306,15 +304,15 @@ public class VideoStuHouseActivity extends AppCompatActivity {
     }
 
     private synchronized void inSession() {
-        Log.e(TAG, "inSession session'state="+session.getState().name());
-        if (session != null&&flagInSessionOneTime) {
+        Log.e(TAG, "inSession session'state=" + session.getState().name());
+        if (session != null && flagInSessionOneTime) {
             session.connect();
-            flagInSessionOneTime=false;
+            flagInSessionOneTime = false;
         }
     }
 
     private synchronized void outSession() {
-        Log.e(TAG, "outSession session'state="+session.getState().name());
+        Log.e(TAG, "outSession session'state=" + session.getState().name());
         if (session != null) {
             session.disconnect();
         }
@@ -348,15 +346,15 @@ public class VideoStuHouseActivity extends AppCompatActivity {
 
         @Override
         public void remote(final Receiver receiver) {
-            if(receiver==null)return;
+            if (receiver == null) return;
             Log.e(TAG, "SessionHandler.remote");
             sendMessage(7);
-            if(videoMediaPlayer!=null)
+            if (videoMediaPlayer != null)
                 videoMediaPlayer.stopPlayer();
             receiver.addObserver(new Receiver.ReceiverObserver() {
                 @Override
                 public void stream(final RemoteStream remoteStream) {
-                    if(remoteStream==null)return;
+                    if (remoteStream == null) return;
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -398,13 +396,13 @@ public class VideoStuHouseActivity extends AppCompatActivity {
 
         @Override
         public void local(final Sender sender) {
-            if(sender==null)return;
+            if (sender == null) return;
             Log.e(TAG, "SessionHandler.local");
             sender.addObserver(new Sender.SenderObserver() {
                 @Override
                 public void close() {
                     Log.e(TAG, "SessionHandler.local.SenderObserver.close");
-                    if (localStream!=null&&sender!=null&&session!=null&&session.getState() == Configs.ConnectState.CONNECTED) {
+                    if (localStream != null && sender != null && session != null && session.getState() == Configs.ConnectState.CONNECTED) {
                         session.sendTo(localStream, false, null, sender.getTo());
                     }
                     VideoStuHouseActivity.this.finish();
@@ -495,14 +493,14 @@ public class VideoStuHouseActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if(!flagTakePhone) {
+        if (!flagTakePhone) {
             showShutdownWarning();
         }
     }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        Log.e(TAG,"audioManager.getMode()="+audioManager.getMode());
+        Log.e(TAG, "audioManager.getMode()=" + audioManager.getMode());
         switch (keyCode) {
             case KeyEvent.KEYCODE_VOLUME_UP:
                 audioManager.adjustStreamVolume(audioManager.getMode(), AudioManager.ADJUST_RAISE, AudioManager.FLAG_SHOW_UI);
@@ -514,33 +512,33 @@ public class VideoStuHouseActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    private void closeVideo() {
+/*    private void closeVideo() {
         OkHttpUtils.post()
                 .url(Config.URL_CLOSE_VIDEO)
                 .addParams("studentId", MyApplication.user.getId())
                 .build()
                 .execute(null);
-    }
+    }*/
 
     @OnClick(R.id.bt_shutdown)
     public void takePhoneOnClick(View view) {
-       if(flagTakePhone){
-           flagTakePhone=false;
-           chatting();
-           btShutdown.setImageResource(R.mipmap.video_off);
-       }else{
-           showShutdownWarning();
-       }
+        if (flagTakePhone) {
+            flagTakePhone = false;
+            chatting();
+            btShutdown.setImageResource(R.mipmap.video_off);
+        } else {
+            showShutdownWarning();
+        }
     }
 
-    private void showShutdownWarning(){
+    private void showShutdownWarning() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setMessage("您是否要结束本次视频面试？")
                 .setNegativeButton("取消", null)
                 .setPositiveButton("结束", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        closeVideo();
+                        //closeVideo();
                         VideoStuHouseActivity.this.finish();
                         overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
                     }
@@ -548,12 +546,12 @@ public class VideoStuHouseActivity extends AppCompatActivity {
                 .show();
     }
 
-    private void startGetStuTokenService(){
-        Intent intent=new Intent(this, GetStuTokenService.class);
+    private void startGetStuTokenService() {
+        Intent intent = new Intent(this, GetStuTokenService.class);
         startService(intent);
     }
 
-    private void iniVideoWaining(){
+    private void iniVideoWaining() {
         OkHttpUtils.post()
                 .url(Config.URL_STUDENT_GETCOMPANY)
                 .build()
@@ -566,11 +564,11 @@ public class VideoStuHouseActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response, int id) {
                         try {
-                            Log.e(TAG,"response="+response);
-                            JSONObject jsonObject=new JSONObject(response);
-                            companyName=jsonObject.getString("companyName");
+                            Log.e(TAG, "response=" + response);
+                            JSONObject jsonObject = new JSONObject(response);
+                            companyName = jsonObject.getString("companyName");
                             videoProgressView.setVisible(View.VISIBLE);
-                            videoProgressView.setText(companyName+"企业邀请您进行视频面试...");
+                            videoProgressView.setText(companyName + "企业邀请您进行视频面试...");
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

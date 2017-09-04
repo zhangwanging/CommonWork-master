@@ -174,38 +174,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void userLogin() {
-        /*NameValuePair username = new BasicNameValuePair(Config.KEY_USER_NAME, phoneNum);
-        NameValuePair pwd = new BasicNameValuePair(Config.KEY_PASSWORD, password);
-        List<NameValuePair> params = new ArrayList<>();
-        params.add(username);
-        params.add(pwd);
-        String result = action.userLogin(params);
-
-        try {
-            JSONObject jsonObject = new JSONObject(result);
-            boolean loginStatu = jsonObject.getBoolean("loginStatus");
-            if (loginStatu) {
-                String type = jsonObject.getString(Config.KEY_ACCOUNT_CLASS);
-                Log.e(TAG, "onResponse: " + type, null);
-                if (type.equals("com")) {
-                    MyApplication.role = 1;
-                    setResult(Config.LOGIN);
-                    finish();
-                } else {
-                    MyApplication.role = 0;
-                    setResult(Config.LOGIN);
-                    finish();
-                }
-                getUserInfo(jsonObject);
-            } else {
-                ToastUtil.showToast("账户或密码有误");
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-            Log.e(TAG, "onResponse: " + e.getMessage(), null);
-            ToastUtil.showToast("登录失败");
-        }*/
-
         final AlertDialog dialog = DialogUtil.showLoadingDialog(this);
         OkHttpUtils.post().url(Config.URL_STUDENT_LOGIN)
                 .addParams(Config.KEY_USER_NAME, phoneNum)

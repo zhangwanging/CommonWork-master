@@ -4,14 +4,12 @@ package com.hzu.jpg.commonwork.interview.service;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.hzu.jpg.commonwork.app.Config;
 import com.hzu.jpg.commonwork.app.MyApplication;
 import com.hzu.jpg.commonwork.interview.activity.VideoStuHouseActivity;
-import com.hzu.jpg.commonwork.utils.ToastUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -72,7 +70,7 @@ public class GetStuTokenService extends Service {
                     }
 
                     try {
-                        Thread.sleep(10000);
+                        Thread.sleep(5000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -98,7 +96,7 @@ public class GetStuTokenService extends Service {
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-                        Log.e(TAG,"updateStuToken error!");
+                        Log.e(TAG,"updateStuToken error!="+e.getMessage());
                     }
                     @Override
                     public void onResponse(String response, int id) {
@@ -126,6 +124,7 @@ public class GetStuTokenService extends Service {
     @Override
     public void onStart(Intent intent, int startId) {
         super.onStart(intent, startId);
+        Log.e(TAG,"ONSTART.....student.service");
         times=0;
         status="";
         studentToken="";
